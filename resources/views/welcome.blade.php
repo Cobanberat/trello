@@ -19,7 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     @vite('resources/css/welcome.css')
     @vite('resources/js/welcome.js')
 </head>
@@ -184,8 +184,9 @@
                     <button class="p-3 signUpButton"> Sign up - it's free!</button>
                 </div>
                 <br>
-                <span style="font-size:1.10rem;" class="watchVClass gap-2 d-flex align-items-center"> watch video <svg fill="none" height="24"
-                        viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <span style="font-size:1.10rem;" class="watchVClass gap-2 d-flex align-items-center"> watch video <svg
+                        fill="none" height="24" viewBox="0 0 24 24" width="24"
+                        xmlns="http://www.w3.org/2000/svg">
                         <path d="m5 5h14v14h-14z"></path>
                         <path clip-rule="evenodd"
                             d="m10.0138 16.3878c-.83597.4912-1.5138.105-1.5138-.8645v-7.04491c0-.97008.6755-1.358 1.5138-.86566l6.465 3.79747c.5548.3261.5589.8517 0 1.1801z"
@@ -194,18 +195,307 @@
                     </svg>
                 </span>
             </div>
-            <div class="d-flex flex-column align-items-center justify-content-end" style="color:white; width: 40%; height:759px">
+            <div class="d-flex flex-column align-items-center justify-content-end"
+                style="color:white; width: 40%; height:759px">
                 <img style="position:absolute; width:623px; height:579px" src="trelloMain.webp" alt="">
             </div>
         </div>
-        <div class="trello101"></div>
-    </div>
+        <div style="color:#092c66;"
+            class="trello101 d-flex flex-column w-100 justify-content-center align-items-center">
+            <div class="d-flex flex-column justify-content-start p-3 gap-3" style="width:80%;">
+                <span style=" font-size: 1rem; ine-height: 1.25; font-weight: 600;">TRELLO 101</span>
+                <span style="font-weight: 600;font-size:2.25rem; line-height: 1.3333;"> A productivity
+                    powerhouse</span>
+                <span style="color: rgb(9 30 78); width:632px; font-weight: 500; font-size:1.25rem;">Simple, flexible,
+                    and powerful. All it takes are boards, lists, and cards to get a clear view of
+                    who’s doing what and what needs to get done. Learn more in our <a class="LearnMoreText"
+                        href="">guide for getting
+                        started</a>.</span>
+            </div>
+            <br>
+            <div style="width:80%;" class="d-flex justify-content-start gap-4">
+                <div class="">
+                    <span class="cards activesCard">
+                        <div>
+                            <span style="font-size:1rem; font-weight: 500;">Boards</span>
+                            <span style="font-size:1rem; font-weight: 500;">Trello boards keep tasks organized and work
+                                moving forward. In a glance, see everything from “things to do” to “aww yeah, we did
+                                it!”</span>
+                        </div>
+                        <div class="">
+
+                        </div>
+                    </span>
+                    <span class="cards">
+                        <span style="font-size:1rem; font-weight: 500;">Lists</span>
+                        <span style="font-size:1rem; font-weight: 500;">The different stages of a task. Start as simple
+                            as To Do, Doing or Done-or build a workflow custom fit to your team’s needs. There’s no
+                            wrong way to Trello.</span>
+                    </span>
+                    <span class="cards">
+                        <span style="font-size:1rem; font-weight: 500;">Cards</span>
+                        <span style="font-size:1rem; font-weight: 500;">Cards represent tasks and ideas and hold all
+                            the information to get the job done. As you make progress, move cards across lists to show
+                            their status.</span>
+                    </span>
+                </div>
+                <div class="pictures">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="boards.webp" width="100%" height="100%" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="Cards.webp" width="100%" height="100%" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="lists.webp" width="100%" height="100%" alt="">
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+        </div>
+        <br>
+        <br>
+        <div style="width:100%;" class="d-flex align-items-center justify-content-center">
+            <div class="d-flex flex-column gap-3" style="width:80%;">
+                <span
+                    style="font-size: 1rem;line-height: 1.25;text-transform: uppercase; font-weight: 500; color: rgb(9 30 78);">
+                    Trello in action</span>
+                <span style="font-size: 1.5rem;line-height: 1.25; font-weight: 500; color: rgb(9 30 78);">Workflows for
+                    any project, big or small</span>
+            </div>
+        </div>
+        <br><br>
+        <br>
+        <div class="d-flex align-items-center justify-content-center gap-4" style="width:100%">
+            <div class="d-flex align-items-center justify-content-end gap-4" style="width:80%">
+                <div class="swpBtn swiper-button-prevs">
+                    <i class="bi bi-chevron-left"></i>
+                </div>
+                <div class="swpBtn swiper-button-nexts">
+                    <i class="bi bi-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div style="width:73%;" class="swipers cardSwiper d-flex  justify-content-center">
+            <div class="d-flex swiper-wrapper" style="width:80%;">
+                <div class="swpSlide swiper-slide">
+                    <div class="card border-none">
+                        <div style="background: rgb(255, 116, 82); height: 3rem; border-radius:6px 6px 0px 0px">
+                            <div class="cardLogo"
+                                style="height: 48px; width: 48px; background-image: url(https://images.ctfassets.net/rz1oowkt5gyp/5Oc1c9iIDmXtUFHs0uWuLQ/cef21b3212ac080d9d0adad649dc31e9/icon-content-folder_2x.png);">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column" style="width:100%;padding: 2.25rem 1.5rem 1.5rem;">
+                            <div style="" class="d-flex flex-column  gap-3">
+                                <span
+                                    style="font-weight:500;font-size:1.5rem;line-height:1.3333; color: rgb(9 30 78); ">
+                                    Project management
+                                </span>
+                                <span
+                                    style="font-weight:500;font-size:1rem;line-height:1.3333; color: rgb(9 30 78);">Keep
+                                    tasks in order, deadlines on track, and team members aligned with Trello.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swpSlide swiper-slide ">
+                    <div class="card border-none">
+                        <div style="background: #2684ff; height: 3rem; border-radius:6px 6px 0px 0px">
+                            <div class="cardLogo"
+                                style="height: 48px; width: 48px; background-image: url(https://images.ctfassets.net/rz1oowkt5gyp/5j0J5BEzFktzLYnsszcJWc/be9270f9ea1e9bb3c69a799e54ef9fea/icon-object-megaphone_2x.png);">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column " style="width:100%;padding: 2.25rem 1.5rem 1.5rem;">
+                            <div class="d-flex flex-column justify-content-end gap-3">
+                                <span
+                                    style="font-weight:500;font-size:1.5rem;line-height:1.3333; color: rgb(9 30 78); ">
+                                    Meetings
+                                </span>
+                                <span
+                                    style="font-weight:500;font-size:1rem;line-height:1.3333; color: rgb(9 30 78);">Empower
+                                    your team meetings to be more productive, empowering, and dare we say—fun.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swpSlide swiper-slide ">
+                    <div class="card border-none">
+                        <div style="background:#57d9a3; height: 3rem; border-radius:6px 6px 0px 0px">
+                            <div class="cardLogo"
+                                style="height: 48px; width: 48px; background-image: url(https://images.ctfassets.net/rz1oowkt5gyp/5JwPiAFuOJCWEdYiTqlfs3/ca86f7f918d09a1782284ba4578a28ec/icon-object-leaf_2x.png);">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center"
+                            style="width:100%;padding: 2.25rem 1.5rem 1.5rem;">
+                            <div style="" class="d-flex flex-column justify-content-end gap-3">
+                                <span
+                                    style="font-weight:500;font-size:1.5rem;line-height:1.3333; color: rgb(9 30 78); ">
+                                    Onboarding
+                                </span>
+                                <span
+                                    style="font-weight:500;font-size:1rem;line-height:1.3333; color: rgb(9 30 78);">Onboarding
+                                    to a new company or project is a snap with Trello’s visual layout of to-do’s,
+                                    resources, and progress tracking.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" swpSlide swiper-slide">
+                    <div class="card border-none">
+                        <div style="background:#ffc400; height: 3rem; border-radius:6px 6px 0px 0px">
+                            <div class="cardLogo"
+                                style="height: 48px; width: 48px; background-image: url(https://images.ctfassets.net/rz1oowkt5gyp/4Mgm4SG6P6bD673rMtNpXP/9f8798510480b30d296550be747b9624/icon-content-checklists_2x.png);">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center"
+                            style="width:100%;padding: 2.25rem 1.5rem 1.5rem;">
+                            <div style="" class="d-flex flex-column justify-content-end gap-3">
+                                <span
+                                    style="font-weight:500;font-size:1.5rem;line-height:1.3333; color: rgb(9 30 78); ">
+                                    Task management
+                                </span>
+                                <span
+                                    style="font-weight:500;font-size:1rem;line-height:1.3333; color: rgb(9 30 78);">Use
+                                    Trello to track, manage, complete, and bring tasks together like the pieces of a
+                                    puzzle, and make your team’s projects a cohesive success every time.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swpSlide swiper-slide ">
+                    <div class="card border-none">
+                        <div style="background:#00c7e5; height: 3rem; border-radius:6px 6px 0px 0px">
+                            <div class="cardLogo"
+                                style="height: 48px; width: 48px; background-image: url(https://images.ctfassets.net/rz1oowkt5gyp/x2AI5JZPTDVY7BxKbvClM/dc65b20bf0914caa72bcaf2ddbb05d9b/UseCasesBrainstorming.svg);">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center"
+                            style="width:100%;padding: 2.25rem 1.5rem 1.5rem;">
+                            <div style="" class="d-flex flex-column justify-content-end gap-3">
+                                <span
+                                    style="font-weight:500;font-size:1.5rem;line-height:1.3333; color: rgb(9 30 78); ">
+                                    Brainstorming
+                                </span>
+                                <span
+                                    style="font-weight:500;font-size:1rem;line-height:1.3333; color: rgb(9 30 78);">Unleash
+                                    your team’s creativity and keep ideas visible, collaborative, and actionable.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swpSlide swiper-slide ">
+                    <div class="card border-none">
+                        <div style="background: #f99cdb; height: 3rem; border-radius:6px 6px 0px 0px">
+                            <div class="cardLogo"
+                                style="height: 48px; width: 48px; background-image: url(https://images.ctfassets.net/rz1oowkt5gyp/5rv4eidOfMf1vdEzVpHNlA/bb102f380f9cfd3d1761858d8910963d/icon-object-book_2x.png);">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center"
+                            style="width:100%;padding: 2.25rem 1.5rem 1.5rem;">
+                            <div style="" class="d-flex flex-column justify-content-end gap-3">
+                                <span
+                                    style="font-weight:500;font-size:1.5rem;line-height:1.3333; color: rgb(9 30 78); ">
+                                    Resource hub
+                                </span>
+                                <span
+                                    style="font-weight:500;font-size:1rem;line-height:1.3333; color: rgb(9 30 78);">Save
+                                    time with a well-designed hub that helps teams find information easily and quickly.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div style="width:100%;"class="d-flex justify-content-center">
+            <div style="width: 80%;" class="d-flex justify-content-between">
+                <span style="font-size:1.2rem; font-weight: 500; color: #092c66; width: 65%">No need to start from
+                    scratch. Jump-start your workflow with a proven playbook designed for different teams. Customize it
+                    to make it yours.</span>
+                <button class="exploreButton">Explore all Use Cases</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="workBackground">
+            <div style="width:100%;" class="d-flex flex-column">
+                <div style="width:100%" class="d-flex flex-column align-items-center gap-3 p-5">
+                    <span style="font-size: 2.25rem; line-height: 1.33333; font-weight: 500;"> See work in a whole new
+                        way </span>
+                    <div class="d-flex flex-column align-items-center justify-content-center"
+                        style="font-size: 1.25rem; font-weight: 500;">
+                        <span> View your team’s projects from every angle
+                            and bring a fresh perspective to </span>
+                        <span>the task at hand.</span>
+                    </div>
+                    </span>
+                    <button class="discoverButton">Discover all Trello views</button>
+                </div>
+                <div class="d-flex flex-column justify-content-center align-items-center gap-5">
+                    <div class="cardSmain">
+                        <div style="width:50%; height: 100%;">
+                            <img src="https://images.ctfassets.net/rz1oowkt5gyp/5Hb09iiMrK6mSpThW5HS89/f5683a167ad3f74bed4dc7592ae5a002/TrelloBoard_Timeline_2x.png?w=1140&fm=webp"
+                                alt="" srcset="">
+                        </div>
+                        <div class="d-flex flex-column justify-content-star gap-4" style="width:45%; height: 100%;">
+
+                            <div class="d-flex align-items-center gap-3" style="font-weight: 500;line-height: 1.25;text-transform: uppercase;">
+                                <svg style="width:2rem!important; color:#8777d9 !important;" fill="currentColor" aria-hidden="true" viewBox="0 0 32 32">
+                                    <path
+                                        d="M6 5.333h9.333a3.333 3.333 0 0 1 0 6.667H6a3.333 3.333 0 0 1 0-6.667Zm9.333 4a.667.667 0 0 0 0-1.333H6a.667.667 0 0 0 0 1.333h9.333Zm-6.666 4H18A3.333 3.333 0 1 1 18 20H8.667a3.333 3.333 0 0 1 0-6.667Zm9.333 4A.667.667 0 0 0 18 16H8.667a.667.667 0 0 0 0 1.333H18Zm6.667 4h-9.334a3.333 3.333 0 1 0 0 6.667h9.334a3.333 3.333 0 0 0 0-6.667Zm-9.334 4a.667.667 0 0 1 0-1.333h9.334a.667.667 0 1 1 0 1.333h-9.334Zm8-20H26A3.333 3.333 0 1 1 26 12h-2.667a3.333 3.333 0 1 1 0-6.667Zm2.667 4A.667.667 0 1 0 26 8h-2.667a.667.667 0 1 0 0 1.333H26Z">
+                                    </path>
+                                </svg>
+                                <span>Hit deadlines every time</span>
+                            </div>
+                            <span style="color: rgb(9, 30, 66); font-weight:500; font-size: 1.2rem;">From weekly sprints to annual planning, Timeline view keeps all tasks on track. Quickly get a glimpse of what’s coming down the pipeline and identify any gaps that might impede your team’s progress.</span>
+                            <span class="LearnMoreText" style="font-weight:500; font-size: 1.2rem;">Learn more about Timeline view</span>
+                        </div>
+                    </div>
+                    <div class="cardSmain" style="flex-direction: row-reverse !important">
+                        <div style="width:50%; height: 100%;">
+                            <img src="https://images.ctfassets.net/rz1oowkt5gyp/7sxChS4x6XAcUgDpp4VAZk/25377d162e964f4243e329c447bfd7dc/TrelloBoard_Calendar_2x.png?w=1140&fm=webp"
+                                alt="" srcset="">
+                        </div>
+                        <div class="d-flex flex-column justify-content-star gap-4" style="width:45%; height: 100%;">
+
+                            <div class="d-flex align-items-center gap-3" style="font-weight: 500;line-height: 1.25;text-transform: uppercase;">
+                                <svg style="width:2rem!important; color:#8777d9 !important;" fill="currentColor" aria-hidden="true" viewBox="0 0 32 32">
+                                   <path d="M6.66 6.667h18.68A2.66 2.66 0 0 1 28 9.325v16.016A2.659 2.659 0 0 1 25.34 28H6.66A2.66 2.66 0 0 1 4 25.341V9.325a2.659 2.659 0 0 1 2.66-2.658ZM6.667 12v12A1.333 1.333 0 0 0 8 25.333h16A1.333 1.333 0 0 0 25.333 24V12H6.667ZM8 5.333a1.333 1.333 0 0 1 2.667 0v1.334H8V5.333Zm13.333 0a1.333 1.333 0 0 1 2.667 0v1.334h-2.667V5.333Zm-12 12v-2.668H12v2.668H9.333Zm10.667 0v-2.668h2.667v2.668H20Zm-5.333 0v-2.668h2.668v2.668h-2.668Zm-5.334 5.334V20H12v2.667H9.333Zm5.334 0V20h2.668v2.667h-2.668Zm5.333 0V20h2.667v2.667H20Z"></path> 
+                                </svg>
+                                <span>Stay on top of tasks</span>
+                            </div>
+                            <span style="color: rgb(9, 30, 66); font-weight:500; font-size: 1.2rem;">Start each day without any surprises. Whether scheduling an editorial calendar or staying on top of to-dos, Calendar view is like a crystal ball giving you a clear vision of what work lies ahead.</span>
+                            <span class="LearnMoreText" style="font-weight:500; font-size: 1.2rem;">Learn more about Calendar view</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 
 </html>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
 
