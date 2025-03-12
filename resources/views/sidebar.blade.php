@@ -164,3 +164,7 @@
             </div>
         </div>
 @endsection
+
+@section('main-sidebar')
+
+@endsection

@@ -22,7 +22,7 @@
         <div class="header">
             <div class="left text-center">
                 <div class="dropdown">
-                    <div class="left-button-hover" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                    <div class="left-button-hover cursor-pointer" id="dropdownMenuButton" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <svg width="20" color="#ffffff" height="20" role="presentation" focusable="false"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -385,7 +385,7 @@
                     </button>
                 </div>
                 <div class="right-search">
-                    <input class="input-srch" type="search" aria-label="Ara" placeholder="Ara">
+                    <input class="input-srch" aria-label="Ara" placeholder="Ara">
                     <div class="right-search-div">
                         <i class="bi bi-search" style="font-size: 12px; left:8px"></i>
                     </div>
@@ -468,7 +468,6 @@
                             </div>
                         </ul>
                     </div>
-
                 </div>
                 <div class="right-icon" id="pf">
                     <div class="dropdown">
@@ -572,6 +571,8 @@
     <div class="main">
         @yield('sidebar')
         @yield('container')
+        @yield('main-sidebar')
+        @yield('main-container')
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

@@ -127,12 +127,7 @@
                             <li class="d-flex align-items-center gap-1">
                                 <span class="header-options-text"
                                     style="font-size: 1rem; font-weight:500;color: rgb(23, 43, 77);">Pricing</span>
-                                <span><svg fill="currentColor" width="8" height="8" viewBox="0 0 13 8"
-                                        width="13" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="m11.7305.59279c.3626.362629.3885.93447.0777 1.32699l-.0777.08722-4.99999 4.99999c-.36263.36263-.93446.38853-1.32697.0777l-.08725-.0777-4.999959-4.99997c-.3905249-.39052-.3905242-1.023685 0-1.414209.362629-.36263.934469-.388553 1.326989-.077728l.08722.077728 4.29292 4.292139 4.29284-4.29216c.3626-.36263.9345-.388532 1.327-.077707z">
-                                        </path>
-                                    </svg></span>
+                               
                             </li>
                         </ul>
                         <ul class="d-flex align-items-center gap-3">
@@ -151,11 +146,14 @@
                 </div>
                 <div class="rightHeader d-flex align-items-center justify-content-center p-3" style="height: 100%">
                     <div class="loginButton cursor-pointer d-flex align-items-center justify-content-center p-3">
-                        <span style="font-size: 1.25rem; font-weight:500;color: rgb(23, 43, 77);">Log in</span>
+                        <span style="font-size: 1.25rem; font-weight:500;color: rgb(23, 43, 77);"><a href="/login">Log
+                                in</a></span>
                     </div>
-                    <div class="registerButton d-flex align-items-center justify-content-center p-3">
-                        <span style="font-size: 1.25rem; font-weight:500">Get Trello for free</span>
-                    </div>
+                    <a href="/register">
+                        <div class="registerButton d-flex align-items-center justify-content-center p-3">
+                            <span style="font-size: 1.25rem; font-weight:500">Get Trello for free</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </header>
@@ -181,7 +179,7 @@
                 <div class="d-flex align-items-center justify-content-start gap-3">
                     <input style="border-radius: 4px; width: 55%; color: black !important;" class="p-3 emailİnput"
                         type="mail" placeholder="Email">
-                    <button class="p-3 signUpButton"> Sign up - it's free!</button>
+                    <a href="register" class="p-3 signUpButton"> Sign up - it's free!</a>
                 </div>
                 <br>
                 <span style="font-size:1.10rem;" class="watchVClass gap-2 d-flex align-items-center"> watch video <svg
@@ -576,15 +574,15 @@
                     <input
                         style="border-radius: 4px; width: 80%; color: black !important; border: 1px solid rgb(223, 225, 230);"
                         class="p-3 emailİnput" type="mail" placeholder="Email">
-                    <button class="p-3 signUpButton" style="width: 35%"> Sign up - it's free!</button>
+                    <a href="register" class="p-3 signUpButton" style="width: 35%"> Sign up - it's free!</a>
                 </div>
             </div>
         </div>
         <br><br><br><br>
-        <footer class="text-white py-5" style="background-color: rgb(23, 43, 77);">
+        <footer class="text-white p-3" style="background-color: rgb(23, 43, 77);">
             <div class="container">
-                <div class="row pb-3 d-flex align-items-center justify-content-evenly">
-                    <div class="col-md-1">
+                <div class="row  d-flex align-items-center justify-content-evenly">
+                    <div class="col-md-1 d-flex flex-column justify-content-center gap-3">
                         <svg aria-label="Atlassian Trello" fill="#ffffff" width="105" role="img"
                             viewBox="0 0 312 105" width="312" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" class="Logo-sc-1anfgcw-0 gguOta">
@@ -648,49 +646,55 @@
 
                             </g>
                         </svg>
-                        <a href="#" class="text-light text-decoration-none d-block mt-2">Log In</a>
+                        <a href="#" class="footer-a d-block mt-2">Log In</a>
                     </div>
 
-                    <div class="col-md-2">
+                    <div class="col-md-2 footer-cards">
                         <h6 class="fw-semibold">About Trello</h6>
                         <p class="text-light">What's behind the boards.</p>
                     </div>
 
-                    <div class="col-md-2">
+                    <div class="col-md-2 footer-cards">
                         <h6 class="fw-semibold">Jobs</h6>
                         <p class="text-light">Learn about open roles on the Trello team.</p>
                     </div>
 
-                    <div class="col-md-2">
+                    <div class="col-md-2 footer-cards">
                         <h6 class="fw-semibold">Apps</h6>
                         <p class="text-light">Download the Trello App for your Desktop or Mobile devices.</p>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-3 footer-cards">
                         <h6 class="fw-semibold">Contact us</h6>
                         <p class="text-light">Need anything? Get in touch and we can help.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="border-top border-light mt-4 pt-3 text-center">
-                <div class="d-flex justify-content-center align-items-center gap-3">
-                    <i class="bi bi-globe"></i>
-                    <span>English</span>
-                </div>
-                <div class="mt-2">
-                    <a href="#" class="text-light text-decoration-none">Your Privacy Choices</a> |
-                    <a href="#" class="text-light text-decoration-none"> Privacy Policy</a> |
-                    <a href="#" class="text-light text-decoration-none"> Terms</a> |
-                    <span class="text-secondary">Copyright © 2024 Atlassian</span>
+            <div class="footer-cizgi d-flex justify-content-evenly border-light mt-4 pt-3 text-center gap-3">
+                <div class="d-flex justify-content-center align-items-center gap-5">
+                    <div class="d-flex justify-content-center align-items-center gap-3">
+                        <i class="bi bi-globe"></i>
+                        <select name="" id="" class="footer-select">
+                            <option value="" selected>English</option>
+                            <option value="">Turkish</option>
+                        </select>
+                    </div>
+
+                    <div style="font-size: 0.75rem; font-weight: 500;" class=" d-flex align-items-center gap-3">
+                        <a href="#" class="footer-a">Your Privacy Choices</a>
+                        <a href="#" class="footer-a"> Privacy Policy</a>
+                        <a href="#" class="footer-a"> Terms</a>
+                        <span class="text-light">Copyright © 2024 Atlassian</span>
+                    </div>
                 </div>
 
-                <div class="d-flex justify-content-center gap-3 mt-3">
-                    <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-light"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="text-light"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="text-light"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="text-light"><i class="bi bi-youtube"></i></a>
+                <div class="d-flex justify-content-center gap-4">
+                    <a href="#" class="footer-medya"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="footer-medya"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="footer-medya"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="footer-medya"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="footer-medya"><i class="bi bi-youtube"></i></a>
                 </div>
             </div>
         </footer>
