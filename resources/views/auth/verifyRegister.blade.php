@@ -23,7 +23,8 @@
     <div class="login-bg">
         <div class="login-container-verify">
             <br>
-            <form class="loginFormClass" action="registerForm" method="post">
+            <form class="loginFormClass" action="{{ route('register.verify') }}" method="post">
+                @csrf
                 <div class="login-bslk d-flex flex-column gap-3">
                     <svg viewBox="0 0 94 32" height="35" fill="none" xmlns="http://www.w3.org/2000/svg"
                         focusable="false" aria-hidden="true">
@@ -45,24 +46,26 @@
                         <span>Size e-posta ile bir kod</span>
                         <span>gönderdik</span>
                     </div>
-                    <span class="register-minText">Hesap kurulum işleminizi tamamlamak için şu adrese gönderilen e-postadaki kodu girin:</span>
+                    <span class="register-minText">Hesap kurulum işleminizi tamamlamak için şu adrese gönderilen
+                        e-postadaki kodu girin:</span>
                 </div>
-                    <div class="login-input d-flex flex-column gap-3">
-                        <div class="d-flex flex-column gap-2">
-                            <div class="otp-container">
-                                    <input type="text" maxlength="1" class="otp-input">
-                                    <input type="text" maxlength="1" class="otp-input">
-                                    <input type="text" maxlength="1" class="otp-input">
-                                    <input type="text" maxlength="1" class="otp-input">
-                                    <input type="text" maxlength="1" class="otp-input">
-                                    <input type="text" maxlength="1" class="otp-input">
-                            </div>
+                <div class="login-input d-flex flex-column gap-3">
+                    <div class="d-flex flex-column gap-2">
+                        <div class="otp-container">
+                            <input type="text" name="code[]" maxlength="1" class="otp-input" required>
+                            <input type="text" name="code[]" maxlength="1" class="otp-input" required>
+                            <input type="text" name="code[]" maxlength="1" class="otp-input" required>
+                            <input type="text" name="code[]" maxlength="1" class="otp-input" required>
+                            <input type="text" name="code[]" maxlength="1" class="otp-input" required>
+                            <input type="text" name="code[]" maxlength="1" class="otp-input" required>
                         </div>
-                        <button class="loginİnputButton">Doğrula</button>
+                        <input type="hidden" name="full_code" id="full_code">
                     </div>
-                    <div class="d-flex gap-2 align-items-center input-a" style="font-size: 13px;font-weight:400%">
-                        <a href="">E-posta almadınız mı? Yeniden e-posta gönder</a>
-                    </div>
+                    <button class="loginİnputButton">Doğrula</button>
+                </div>
+                <div class="d-flex gap-2 align-items-center input-a" style="font-size: 13px;font-weight:400%">
+                    <a href="">E-posta almadınız mı? Yeniden e-posta gönder</a>
+                </div>
                 <footer clas="login-footer">
                     <div class="d-flex align-items-center justify-content-center">
                         <svg viewBox="0 0 190 32" height="32" xmlns="http://www.w3.org/2000/svg" focusable="false"
@@ -110,12 +113,15 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="footer-span">Trello, Jira, Confluence ve <a href="#"> daha fazlası </a> için tek
+                    <span class="footer-span">Trello, Jira, Confluence ve <a href="#"> daha fazlası </a> için
+                        tek
                         bir hesap.</span>
                 </footer>
+            </form>
         </div>
         <div class="d-flex footer-input-a">
-            <span>Bu site reCAPTCHA ile korunmaktadır; Google <a href="">Gizlilik Politikası </a> ve <a href=""> Hizmet Şartları</a> geçerlidir.</span>
+            <span>Bu site reCAPTCHA ile korunmaktadır; Google <a href="">Gizlilik Politikası </a> ve <a
+                    href=""> Hizmet Şartları</a> geçerlidir.</span>
         </div>
     </div>
 </body>

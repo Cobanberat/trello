@@ -23,7 +23,8 @@
     <div class="login-bg">
         <div class="login-container-verify">
             <br>
-            <form class="loginFormClass" action="registerKayit" method="post">
+            <form class="loginFormClass" action="{{ route('register.complete') }}" method="post">
+                @csrf
                 <div class="login-bslk d-flex flex-column gap-3">
                     <svg viewBox="0 0 94 32" height="35" fill="none" xmlns="http://www.w3.org/2000/svg"
                         focusable="false" aria-hidden="true">
@@ -54,7 +55,7 @@
                             </svg>
                         </div>
                         <span class="form-minText">Finish setting up your account</span>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="login-input d-flex flex-column gap-3">
                     <div class="d-flex flex-column">
@@ -62,7 +63,7 @@
                             E-posta adresi
                         </span>
                         <span class="emailTextName">
-                            cobanailesi42@gmail.com
+                            {{ session('email') }}
                         </span>
                     </div>
                     <div class="d-flex flex-column gap-2">
@@ -75,6 +76,7 @@
                             <label class="form-input-label" for="">Parola</label>
                             <input class="form-input" type="text" name="password" placeholder="Şifre Oluşturun">
                         </div>
+
                         <div class="d-flex gap-2">
                             <input type="checkbox" name="kabul" id="hatirla">
                             <label style="font-weight: 400; font-size: 11px; color: #535963;" for="hatirla">Evet!
@@ -139,6 +141,7 @@
                         tek
                         bir hesap.</span>
                 </footer>
+            </form>
         </div>
         <div class="d-flex footer-input-a">
             <span>Bu site reCAPTCHA ile korunmaktadır; Google <a href="">Gizlilik Politikası </a> ve <a

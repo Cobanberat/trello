@@ -18,7 +18,7 @@
             <div class="d-flex">
                 <div class="pano-card">
                     <div>
-                        <span class="hover-pano-text">Ticket</span>
+                        <span class=" pano-text">Ticket</span>
                     </div>
                     <div class="pano-alt">
                         <span>

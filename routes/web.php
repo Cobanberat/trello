@@ -23,24 +23,21 @@ Route::get('/dashboard', action: function () {
 Route::get('/login', function () {
     return view('auth.login');
 });
-Route::get('/register', function () {
-    return view('auth.register');
-});
-Route::get('/verifyRegister', function () {
-    return view('auth.verifyRegister');
-});
-Route::get('/registerForm', function () {
-    return view('auth.register-form');
-});
 
-Route::post('/logincontrol', [AuthController::class, 'login']);
-
+Route::get('/register', function () { return view('auth.register'); })->name('register.view');
 Route::post('/register-email', [AuthController::class, 'registerEmail'])->name('register.email');
+
+Route::get('/verify-register', function () { return view('auth.verifyRegister'); })->name('register.verify.view');
 Route::post('/verify-code', [AuthController::class, 'verifyCode'])->name('register.verify');
+
+Route::get('/register-form', function () { return view('auth.register-form'); })->name('register.form.view');
 Route::post('/complete-registration', [AuthController::class, 'completeRegistration'])->name('register.complete');
 
+Route::post('/logincontrol', [AuthController::class, 'login'])->name('logincontrol');
 
 
+
+    
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

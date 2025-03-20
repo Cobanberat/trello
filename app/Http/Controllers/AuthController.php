@@ -10,77 +10,79 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
-        if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard');
-        }
-
-        return back()->withErrors(['email' => 'Hatalı giriş bilgileri!'])->withInput();
-    }
     public function registerEmail(Request $request)
     {
+        $user = User::where('email', $request->email)->first();
+    
+        if ($user) {
+            return redirect('/login');
+        }
+    
         $request->validate([
             'email' => 'required|email|unique:users,email',
         ]);
-
+    
         $verificationCode = rand(100000, 999999);
-
+    
         Session::put('verification_code', $verificationCode);
         Session::put('email', $request->email);
-
+    
         Mail::raw("Doğrulama kodunuz: $verificationCode", function ($message) use ($request) {
-            $message->to($request->email)
-                ->subject('E-posta Doğrulama Kodu');
+            $message->to($request->email)->subject('E-posta Doğrulama Kodu');
         });
-
-        return back()->with('success', 'Doğrulama kodu e-posta adresinize gönderildi.');
+    
+        return redirect()->route('register.verify.view')->with('success', 'Doğrulama kodu e-posta adresinize gönderildi.');
     }
 
     public function verifyCode(Request $request)
     {
         $request->validate([
-            'code' => 'required|digits:6',
+            'full_code' => 'required|digits:6',
         ]);
 
-        // Oturumdan kodu al
-        $storedCode = Session::get('verification_code');
-
-        if ($request->code == $storedCode) {
+        if ($request->full_code == Session::get('verification_code')) {
             Session::put('email_verified', true);
-            return redirect()->route('register.password');
+            return redirect()->route('register.form.view');
         }
 
-        return back()->withErrors(['code' => 'Yanlış doğrulama kodu!']);
+        return redirect()->back()->withErrors(['msg' => 'The Message']);
+
     }
 
     public function completeRegistration(Request $request)
     {
         $request->validate([
-            'password' => 'required|min:6|confirmed',
+            'name' => 'required|string',
+            'password' => 'required|string|min:6',
         ]);
 
         if (!Session::get('email_verified')) {
             return back()->withErrors(['email' => 'E-posta doğrulaması yapılmadı!']);
         }
 
-        // Kullanıcıyı oluştur
         $user = User::create([
+            'name' => $request->name,
             'email' => Session::get('email'),
             'password' => Hash::make($request->password),
         ]);
 
-        // Oturumu temizle
-        Session::forget(['verification_code', 'email', 'email_verified']);
+        Session::forget(keys: ['verification_code', 'email', 'email_verified']);
 
         Auth::login($user);
 
         return redirect()->route('dashboard');
     }
+    public function login(request $request){
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string|min:6',
+        ]);
+    
+        if (Auth::attempt($request->only('email', 'password'))) {
+            return redirect()->route('dashboard');
+        }
+    
+        return back()->withErrors(['email' => 'E-posta veya şifre hatalı!'])->withInput();
+    }
+    
 }
-

@@ -2094,7 +2094,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 6px;
-    color: #ffffff;
+    color: #ffffff; 
     font-weight: 500;
     font-size: 14px;
     gap: 5px;
@@ -2122,3 +2122,11 @@ body {
 .sidebar-active:hover {
     background-color: #a7346b !important;
 }
+.mymodals{
+    position: absolute;
+    color: #000000;
+    width: 770px;
+    height: 900px;
+    background-color: #3a2929;
+    margin-left: 25%;
+}   

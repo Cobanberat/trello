@@ -23,7 +23,8 @@
     <div class="login-bg">
         <div class="login-container">
             <br>
-            <form class="loginFormClass" action="verifyRegister" method="post">
+            <form class="loginFormClass" action="{{ route('register.email') }}" method="post">
+                @csrf
                 <div class="login-bslk d-flex flex-column gap-3">
                     <svg viewBox="0 0 94 32" height="35" fill="none" xmlns="http://www.w3.org/2000/svg"
                         focusable="false" aria-hidden="true">
@@ -43,19 +44,21 @@
                     </svg>
                     <span> Devam etmek için kaydolun</span>
                 </div>
-                    <div class="login-input d-flex flex-column gap-3">
-                        <div class="d-flex flex-column gap-2">
-                            <div class="mail-input-div">
-                                <input class="mail-input" type="text" name="email"
-                                    placeholder="E-posta adresinizi girin">
-                            </div>
-                            <span class="input-a register-inp">Kaydolarak Atlassian <a href="">Cloud Hizmet Koşullarını</a> kabul ediyorum ve <a href="">Gizlilik Politikasını</a> onaylıyorum.</span>
+                <div class="login-input d-flex flex-column gap-3">
+                    <div class="d-flex flex-column gap-2">
+                        <div class="mail-input-div">
+                            <input class="mail-input" type="text" name="email"
+                                placeholder="E-posta adresinizi girin">
                         </div>
-                        <button class="loginİnputButton">kaydol</button>
+                        <span class="input-a register-inp">Kaydolarak Atlassian <a href="">Cloud Hizmet
+                                Koşullarını</a> kabul ediyorum ve <a href="">Gizlilik Politikasını</a>
+                            onaylıyorum.</span>
                     </div>
-                    <div class="d-flex gap-2 align-items-center input-a" style="font-size: 13px;font-weight:400%">
-                        <a href="">Atlassian hesabınız var mı? Oturum açın</a>
-                    </div>
+                    <button class="loginİnputButton">kaydol</button>
+                </div>
+                <div class="d-flex gap-2 align-items-center input-a" style="font-size: 13px;font-weight:400%">
+                    <a href="/login">Atlassian hesabınız var mı? Oturum açın</a>
+                </div>
                 <footer clas="login-footer">
                     <div class="d-flex align-items-center justify-content-center">
                         <svg viewBox="0 0 190 32" height="32" xmlns="http://www.w3.org/2000/svg" focusable="false"
@@ -113,7 +116,8 @@
                 </footer>
         </div>
         <div class="d-flex footer-input-a">
-            <span>Bu site reCAPTCHA ile korunmaktadır; Google <a href="">Gizlilik Politikası </a> ve <a href=""> Hizmet Şartları</a> geçerlidir.</span>
+            <span>Bu site reCAPTCHA ile korunmaktadır; Google <a href="">Gizlilik Politikası </a> ve <a
+                    href=""> Hizmet Şartları</a> geçerlidir.</span>
         </div>
     </div>
 </body>
