@@ -94,12 +94,10 @@
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M12.0017 17.0009C9.23868 17.0009 6.99968 14.7609 6.99968 11.9989C6.99968 9.23586 9.23868 6.99686 12.0017 6.99686C14.7647 6.99686 17.0037 9.23586 17.0037 11.9989C17.0037 14.7609 14.7647 17.0009 12.0017 17.0009ZM20.3697 13.8839C19.5867 13.6119 19.0237 12.8749 19.0237 11.9989C19.0237 11.1229 19.5867 10.3859 20.3687 10.1139C20.6057 10.0319 20.7517 9.78086 20.6837 9.53986C20.4847 8.83586 20.2017 8.16886 19.8477 7.54686C19.7297 7.33886 19.4707 7.26186 19.2497 7.35186C18.8647 7.50986 18.4197 7.55086 17.9587 7.43286C17.2847 7.25886 16.7337 6.70986 16.5557 6.03686C16.4337 5.57386 16.4747 5.12686 16.6317 4.73986C16.7207 4.51986 16.6437 4.26086 16.4357 4.14286C15.8187 3.79386 15.1567 3.51386 14.4607 3.31686C14.2187 3.24886 13.9687 3.39386 13.8867 3.63086C13.6147 4.41386 12.8777 4.97686 12.0017 4.97686C11.1267 4.97686 10.3887 4.41386 10.1177 3.63186C10.0347 3.39486 9.78368 3.24886 9.54268 3.31686C8.83468 3.51686 8.16368 3.80186 7.53868 4.15886C7.33768 4.27386 7.25268 4.52586 7.34068 4.74086C7.48768 5.10186 7.53268 5.51386 7.43868 5.94386C7.28368 6.64986 6.72468 7.24086 6.02568 7.42786C5.56768 7.55086 5.12768 7.51186 4.74568 7.35986C4.52568 7.27186 4.26768 7.34986 4.15068 7.55586C3.79768 8.17786 3.51568 8.84586 3.31768 9.54986C3.24968 9.78886 3.39268 10.0369 3.62568 10.1219C4.39668 10.3999 4.94868 11.1319 4.94868 11.9989C4.94868 12.8659 4.39668 13.5979 3.62468 13.8759C3.39168 13.9599 3.24968 14.2079 3.31668 14.4469C3.49368 15.0739 3.73868 15.6729 4.03968 16.2369C4.15868 16.4589 4.43468 16.5349 4.66368 16.4299C5.25868 16.1569 6.00668 16.1659 6.76768 16.6679C6.88468 16.7449 6.99268 16.8529 7.06968 16.9689C7.59668 17.7679 7.58168 18.5489 7.26768 19.1559C7.15268 19.3789 7.21968 19.6569 7.43568 19.7839C8.08968 20.1679 8.79768 20.4709 9.54468 20.6809C9.78568 20.7489 10.0337 20.6049 10.1147 20.3679C10.3837 19.5819 11.1237 19.0149 12.0017 19.0149C12.8797 19.0149 13.6197 19.5819 13.8887 20.3679C13.9697 20.6039 14.2177 20.7489 14.4587 20.6809C15.1957 20.4739 15.8947 20.1749 16.5427 19.7979C16.7607 19.6709 16.8267 19.3899 16.7097 19.1669C16.3917 18.5589 16.3727 17.7739 16.9007 16.9719C16.9777 16.8559 17.0857 16.7469 17.2027 16.6699C17.9747 16.1589 18.7297 16.1569 19.3277 16.4399C19.5567 16.5479 19.8357 16.4729 19.9557 16.2499C20.2597 15.6859 20.5047 15.0859 20.6837 14.4569C20.7517 14.2159 20.6067 13.9659 20.3697 13.8839Z"
                                 fill="currentColor"></path>
-
                         </svg>
                         Ayarlar
                     </a>
                 </div>
-
             </div>
             <div class="d-flex gap-3 align-items-center">
                 <div class="pano-card">
@@ -108,7 +106,6 @@
                     </div>
                     <div class="pano-alt">
                         <span>
-                            
                         </span>
                         <span class="pano-star">
                             <svg width="17" height="17" role="presentation" focusable="false"
@@ -121,8 +118,72 @@
                         </span>
                     </div>
                 </div>
-                <div class="pano-card-add">
+                <div class="btn-group dropend">
+                    <div class="pano-card-add dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                         Yeni Pano oluştur
+                    </div>
+                    <div class="pano-add-form dropdown-menu" data-bs-auto-close="outside">
+                        <form action="/panoAdd" method="post">
+                            <div class="d-flex flex-column gap-2">
+                                <div class="ust-text">
+                                    <div class="text-visibility-pano">
+                                        <span>Pano Oluştur</span>
+                                    </div>
+                                    <div class="exit-visibility-pano">
+                                        <span> <i class="bi bi-x"></i> </span>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center">
+                                    <div class="trl-img">
+                                        <img src="https://trello.com/assets/14cda5dc635d1f13bc48.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <span class="arkpln-text">Arkaplan</span>
+                                <div class="d-flex flex-column gap-3">
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <span class="özel-button" id="image1">
+                                            <span class="secili-btn">
+                                                <svg width="24" height="24" role="presentation" focusable="false"
+                                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M6.73534 12.3223C6.36105 11.9162 5.72841 11.8904 5.3223 12.2647C4.91619 12.639 4.89039 13.2716 5.26467 13.6777L8.87678 17.597C9.41431 18.1231 10.2145 18.1231 10.7111 17.6264C10.7724 17.5662 10.7724 17.5662 11.0754 17.2683C11.3699 16.9785 11.6981 16.6556 12.0516 16.3075C13.0614 15.313 14.0713 14.3169 15.014 13.3848L15.0543 13.3449C16.7291 11.6887 18.0004 10.4236 18.712 9.70223C19.0998 9.30904 19.0954 8.67589 18.7022 8.28805C18.309 7.90022 17.6759 7.90457 17.2881 8.29777C16.5843 9.01131 15.3169 10.2724 13.648 11.9228L13.6077 11.9626C12.6662 12.8937 11.6572 13.8889 10.6483 14.8825C10.3578 15.1685 10.0845 15.4375 9.83288 15.6851L6.73534 12.3223Z"
+                                                        fill="currentColor"></path>
+                                                     </svg>
+                                            </span>
+                                        </span>
+                                        <span class="özel-button" id="image2"></span>
+                                        <span class="özel-button" id="image3"></span>
+                                        <span class="özel-button" id="image4"></span>
+                                    </div>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <span class="renk-secenek" id="renk-secenek1"></span>
+                                        <span class="renk-secenek" id="renk-secenek2"></span>
+                                        <span class="renk-secenek" id="renk-secenek3"></span>
+                                        <span class="renk-secenek" id="renk-secenek4"></span>
+                                        <span class="renk-secenek" id="renk-secenek5"></span>
+                                        <span class="renk-secenek" id="renk-secenek6">
+                                            <svg width="17" height="17" role="presentation" focusable="false"
+                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M5 14C6.10457 14 7 13.1046 7 12C7 10.8954 6.10457 10 5 10C3.89543 10 3 10.8954 3 12C3 13.1046 3.89543 14 5 14ZM12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14ZM21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z"
+                                                    fill="currentColor"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div class="d-flex flex-column gap-3">
+                                        <div class="">
+                                            <label for="">Pano Başlığı<span style="color: red;">*</span></label>
+                                            <input type="text" name="name">
+                                            <span class="nameSpan">👋 Pano başlığı gerekli</span>
+                                        </div>
+                                        <div class=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,4 +193,9 @@
             </button>
         </div>
     </div>
+    <style>
+        .dropend .dropdown-toggle::after {
+            border: none;
+        }
+    </style>
 @endsection

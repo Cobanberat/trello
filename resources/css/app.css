@@ -210,6 +210,7 @@
     height: 20px;
     border: none;
 }
+
 .input-srch:focus {
     border: 1px solid #fff !important;
 }
@@ -2057,6 +2058,7 @@ body {
     font-weight: 500;
     font-size: 13px;
 }
+
 .pano-card-add:hover {
     background-color: #701a42;
 }
@@ -2076,7 +2078,8 @@ body {
 .pano-card:hover .pano-star {
     margin-right: 0;
 }
-.pano-text{
+
+.pano-text {
     font-weight: 600;
 }
 
@@ -2094,7 +2097,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 6px;
-    color: #ffffff; 
+    color: #ffffff;
     font-weight: 500;
     font-size: 14px;
     gap: 5px;
@@ -2122,11 +2125,165 @@ body {
 .sidebar-active:hover {
     background-color: #a7346b !important;
 }
-.mymodals{
-    position: absolute;
-    color: #000000;
-    width: 770px;
-    height: 900px;
-    background-color: #3a2929;
-    margin-left: 25%;
-}   
+
+.pano-add-form {
+    width: 300px;
+    background-color: #3b1b2b;
+}
+
+.trl-img {
+    background-color: rgb(0, 121, 191);
+    background-image: url(https://images.unsplash.com/photo-1739911013843-0380d6504480?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDF8MzE3MDk5fHx8fHwyfHwxNzQyNzk2MDk4fA&ixlib=rb-4.0.3&q=80&w=400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 120px;
+    border-radius: 3px;
+    background-position: center center;
+    background-size: cover;
+    box-shadow: var(--ds-shadow-raised, 0px 1px 1px #091e4240, 0px 0px 1px #091e424f);
+}
+
+.text-visibility-pano {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    padding-right: 15px;
+}
+
+.exit-visibility-pano {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 6px;
+}
+
+.exit-visibility-pano span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.exit-visibility-pano span:hover {
+    background-color: #7d2650;
+}
+
+.özel-button {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 40px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 3px;
+    outline: 0;
+    background-position: center center;
+    background-size: cover;
+    box-shadow: none;
+    color: var(--ds-background-neutral, #091e420f);
+    line-height: 0;
+    cursor: pointer;
+}
+
+.secili-btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.renk-secenek {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 32px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 3px;
+    outline: 0;
+    background-position: center center;
+    background-size: cover;
+    box-shadow: none;
+    line-height: 0;
+    cursor: pointer;
+}
+
+#renk-secenek1 {
+    background-color: rgb(220, 234, 254);
+    background-image: url(https://trello.com/assets/13425f9db06517de0f7f.svg);
+}
+
+#renk-secenek2 {
+    background-color: rgb(34, 140, 213);
+    background-image: url(https://trello.com/assets/707f35bc691220846678.svg);
+}
+
+#renk-secenek3 {
+    background-color: rgb(11, 80, 175);
+    background-image: url(https://trello.com/assets/d106776cb297f000b1f4.svg);
+}
+
+#renk-secenek4 {
+    background-color: rgb(103, 66, 132);
+    background-image: url(https://trello.com/assets/8ab3b35f3a786bb6cdac.svg);
+}
+
+#renk-secenek5 {
+    background-color: rgb(168, 105, 193);
+    background-image: url(https://trello.com/assets/a7c521b94eb153008f2d.svg);
+}
+#renk-secenek6{
+    color: #aebac7;
+    background-color: #472737;
+
+}
+#renk-secenek6:hover{
+    color: #aebac7;
+    background-color: #533443;
+
+}
+.arkpln-text{
+    font-size: 12px;
+    font-weight: 500;
+    color: #6e4659;
+    padding-left: 10px;
+}
+
+
+#image1 {
+    background-image: url(https://images.unsplash.com/photo-1739911013843-0380d6504480?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDF8MzE3MDk5fHx8fHwyfHwxNzQyOTYzMTA5fA&ixlib=rb-4.0.3&q=80&w=400);
+}
+
+#image2 {
+    background-image: url(https://images.unsplash.com/photo-1739820120366-b518d16785ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDJ8MzE3MDk5fHx8fHwyfHwxNzQyOTYzMTA5fA&ixlib=rb-4.0.3&q=80&w=400);
+}
+
+#image3 {
+    background-image: url(https://images.unsplash.com/photo-1739992115892-36453a241b5e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDN8MzE3MDk5fHx8fHwyfHwxNzQyOTYzMTA5fA&ixlib=rb-4.0.3&q=80&w=400);
+}
+
+#image4 {
+    background-image: url(https://images.unsplash.com/photo-1734832360218-09cb0e158021?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDR8MzE3MDk5fHx8fHwyfHwxNzQyOTYzMTA5fA&ixlib=rb-4.0.3&q=80&w=400);
+}
