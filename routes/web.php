@@ -3,26 +3,38 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\panoController;
 use Illuminate\Support\Facades\Auth;
 
 
 
 
-Route::get('/ticket', function () {
-    return view('layouts.app', ['sidebar' => view('sidebar'), 'container' => view('container')]);
-})->middleware(['auth', 'verified'])->name('ticket');
+// Route::get('/board/{id}', function () { return view('layouts.app', ['sidebar' => view('sidebar'), 'container' => view('container')]); })->middleware(['auth', 'verified'])->name('boards');
+
+Route::get('/board/{id}', [panoController::class, 'listPano'])
+    ->middleware(['auth', 'verified'])
+    ->name('boards');
 
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::post('/card/update-list', [panoController::class, 'updateList']);
+Route::post('/getCards', [panoController::class, 'getCards']);
 
-Route::get('/dashboard', action: function () {
-    return view('dashboard', ['main-sidebar' => view('main-sidebar'), 'main-container' => view('main-container')]);})->middleware(middleware: ['auth', 'verified'])->name('dashboard');
 
+
+    Route::get('/dashboard', [panoController::class, 'dashboard'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+    
 Route::get('/login', function () {
     return view('auth.login');
 });
+ 
+Route::post("/panoAdd", [panoController::class, 'panoEkle'])->name('pano.add');
+Route::post("/ListAdd", [panoController::class, 'ListAdd']);
+Route::post("/cardAdd", [panoController::class, 'cardAdd']);
 
 Route::get('/register', function () { return view('auth.register'); })->name('register.view');
 Route::post('/register-email', [AuthController::class, 'registerEmail'])->name('register.email');

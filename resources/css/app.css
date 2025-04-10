@@ -418,6 +418,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 450px;
 }
 
 #sidebar-texts:hover {
@@ -857,6 +858,7 @@ body {
     overflow: auto;
     height: 100%;
     background-color: #cd5a91;
+    display: flex;
 }
 
 .card-container {
@@ -928,11 +930,43 @@ body {
     box-shadow: var(--ds-shadow-raised, 0px 1px 1px #091e4240, 0px 0px 1px #091e424f);
     border: 2px solid #ffffff;
     cursor: pointer;
+    justify-content: space-between;
 }
 
 .card-texts:hover {
     border: 2px solid #388bff;
 }
+.card-texts:hover .düzenle_svg {
+    display: flex;
+}
+
+.düzenle_svg{
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+.context-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  .context-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .context-menu ul li {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .context-menu ul li:hover {
+    background-color: #eee;
+  }
+  
 
 .btn-add {
     width: 90%;
@@ -2254,20 +2288,23 @@ body {
     background-color: rgb(168, 105, 193);
     background-image: url(https://trello.com/assets/a7c521b94eb153008f2d.svg);
 }
-#renk-secenek6{
+
+#renk-secenek6 {
     color: #aebac7;
     background-color: #472737;
 
 }
-#renk-secenek6:hover{
+
+#renk-secenek6:hover {
     color: #aebac7;
     background-color: #533443;
 
 }
-.arkpln-text{
+
+.arkpln-text {
     font-size: 12px;
     font-weight: 500;
-    color: #6e4659;
+    color: #9fadbc;
     padding-left: 10px;
 }
 
@@ -2286,4 +2323,191 @@ body {
 
 #image4 {
     background-image: url(https://images.unsplash.com/photo-1734832360218-09cb0e158021?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDR8MzE3MDk5fHx8fHwyfHwxNzQyOTYzMTA5fA&ixlib=rb-4.0.3&q=80&w=400);
+}
+
+.pano_add_input {
+    color: #9fadbc;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    padding: 10px;
+    font-weight: 500;
+}
+
+.nameSpan {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.panoBasligi_inpt {
+    border-radius: 4px;
+    height: 36px;
+    background-color: #341625;
+    font-size: 13px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    padding-left: 10px;
+}
+
+.pano-add-button {
+    width: 100%;
+    height: 36px;
+    color: #341625;
+    background-color: #579dff;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.pano-add-button:hover {
+    background-color: #85b8ff;
+}
+
+.pano-add-button:active {
+    background-color: #cce0ff;
+}
+
+.none-button {
+    background-color: #341625;
+    cursor: not-allowed !important;
+    width: 100%;
+    height: 36px;
+    color: #503844;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.listAdd {
+    padding-top: 10px;
+}
+
+.listAdd-button {
+    height: 44px;
+    width: 270px;
+    display: flex;
+    align-items: center;
+    background-color: #d981ab;
+    border-radius: 10px;
+    gap: 6px;
+    font-size: 14px;
+    padding-left: 10px;
+    font-weight: 500;
+    color: #ffff;
+    cursor: pointer;
+}
+
+.listAdd-button:hover {
+    background-color: #d77ba7;
+}
+.inpt-List{
+    width: 100%;
+    background-color: transparent;
+    border-radius: 4px;
+    height: 32px;
+    color: #192d4e;
+    font-size: 14px;
+    font-weight: 500;
+}
+.btn-List{
+    background-color: rgb(12, 102, 228);
+    height: 32px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 3px;
+}
+.btn-List:hover{
+    background-color: #0055cc;
+}
+.btn-List:active{
+    background-color: #09326c;
+}
+.btn-card{
+    background-color: rgb(12, 102, 228);
+    height: 32px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 3px;
+}
+.btn-card:hover{
+    background-color: #0055cc;
+}
+.btn-List:active{
+    background-color: #09326c;
+}
+.btn-back{
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.btn-back:hover{
+    background-color: #d0d4db;
+}
+.btn-back:active{
+    background-color: #a9b0bc;
+}
+
+.btn-back-card{
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.btn-back-card:hover{
+    background-color: #d0d4db;
+}
+.btn-back-card:active{
+    background-color: #a9b0bc;
+}
+
+.List-add-btn{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.card-add-btn{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.List-add-form{
+    width: 270px;
+}
+
+.card-texts-inpt {
+    padding: 10px 10px 15px 10px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: var(--ds-shadow-raised, 0px 1px 1px #091e4240, 0px 0px 1px #091e424f);
+    border: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #727e92;
+    overflow: hidden;
+    resize: none;
+    min-height: 40px; 
+}
+.card-texts-inpt:focus {
+    outline: none;
+    box-shadow: var(--ds-shadow-raised, 0px 1px 1px #091e4240, 0px 0px 1px #091e424f);
 }

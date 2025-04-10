@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pano', function (Blueprint $table) {
+        Schema::create('panos', callback: function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('user_id');

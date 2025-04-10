@@ -16,29 +16,31 @@
                 <h3>Son Görüntülenmeler</h3>
             </div>
             <div class="d-flex">
-                <div class="pano-card">
-                    <div>
-                        <span class=" pano-text">Ticket</span>
+                <a href="/ticket">
+                    <div class="pano-card">
+                        <div>
+                            <span class="pano-text">Ticket</span>
+                        </div>
+                        <div class="pano-alt">
+                            <span>
+                                <svg width="17" height="17" role="presentation" focusable="false" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12.5048 5.67168C11.9099 5.32669 11.2374 5.10082 10.5198 5.0267C11.2076 3.81639 12.5085 3 14 3C16.2092 3 18 4.79086 18 7C18 7.99184 17.639 8.89936 17.0413 9.59835C19.9512 10.7953 22 13.6584 22 17C22 17.5523 21.5523 18 21 18H18.777C18.6179 17.2987 18.3768 16.6285 18.0645 16H19.917C19.4892 13.4497 17.4525 11.445 14.8863 11.065C14.9608 10.7218 15 10.3655 15 10C15 9.58908 14.9504 9.18974 14.857 8.80763C15.5328 8.48668 16 7.79791 16 7C16 5.89543 15.1046 5 14 5C13.4053 5 12.8711 5.25961 12.5048 5.67168ZM10 12C11.1046 12 12 11.1046 12 10C12 8.89543 11.1046 8 10 8C8.89543 8 8 8.89543 8 10C8 11.1046 8.89543 12 10 12ZM14 10C14 10.9918 13.639 11.8994 13.0412 12.5984C15.9512 13.7953 18 16.6584 18 20C18 20.5523 17.5523 21 17 21H3C2.44772 21 2 20.5523 2 20C2 16.6584 4.04879 13.7953 6.95875 12.5984C6.36099 11.8994 6 10.9918 6 10C6 7.79086 7.79086 6 10 6C12.2091 6 14 7.79086 14 10ZM9.99999 14C12.973 14 15.441 16.1623 15.917 19H4.08295C4.55902 16.1623 7.02699 14 9.99999 14Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </span>
+                            <span class="pano-star">
+                                <svg width="17" height="17" role="presentation" focusable="false" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M7.49495 20.995L11.9999 18.6266L16.5049 20.995C16.8059 21.1533 17.1507 21.2079 17.4859 21.1504C18.3276 21.006 18.893 20.2066 18.7486 19.3649L17.8882 14.3485L21.5328 10.7959C21.7763 10.5585 21.9348 10.2475 21.9837 9.91094C22.1065 9.06576 21.5209 8.28106 20.6758 8.15825L15.6391 7.42637L13.3866 2.86236C13.2361 2.55739 12.9892 2.31054 12.6843 2.16003C11.9184 1.78206 10.9912 2.0965 10.6132 2.86236L8.36072 7.42637L3.32403 8.15825C2.98747 8.20715 2.67643 8.36564 2.43904 8.60917C1.84291 9.22074 1.85542 10.1998 2.46699 10.7959L6.11158 14.3485L5.25121 19.3649C5.19372 19.7 5.24833 20.0448 5.40658 20.3459C5.80401 21.1018 6.739 21.3924 7.49495 20.995ZM19.3457 10.0485L15.6728 13.6287L16.5398 18.684L11.9999 16.2972L7.45995 18.684L8.327 13.6287L4.65411 10.0485L9.72993 9.31093L11.9999 4.71146L14.2699 9.31093L19.3457 10.0485Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </span>
+                        </div>
                     </div>
-                    <div class="pano-alt">
-                        <span>
-                            <svg width="17" height="17" role="presentation" focusable="false" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M12.5048 5.67168C11.9099 5.32669 11.2374 5.10082 10.5198 5.0267C11.2076 3.81639 12.5085 3 14 3C16.2092 3 18 4.79086 18 7C18 7.99184 17.639 8.89936 17.0413 9.59835C19.9512 10.7953 22 13.6584 22 17C22 17.5523 21.5523 18 21 18H18.777C18.6179 17.2987 18.3768 16.6285 18.0645 16H19.917C19.4892 13.4497 17.4525 11.445 14.8863 11.065C14.9608 10.7218 15 10.3655 15 10C15 9.58908 14.9504 9.18974 14.857 8.80763C15.5328 8.48668 16 7.79791 16 7C16 5.89543 15.1046 5 14 5C13.4053 5 12.8711 5.25961 12.5048 5.67168ZM10 12C11.1046 12 12 11.1046 12 10C12 8.89543 11.1046 8 10 8C8.89543 8 8 8.89543 8 10C8 11.1046 8.89543 12 10 12ZM14 10C14 10.9918 13.639 11.8994 13.0412 12.5984C15.9512 13.7953 18 16.6584 18 20C18 20.5523 17.5523 21 17 21H3C2.44772 21 2 20.5523 2 20C2 16.6584 4.04879 13.7953 6.95875 12.5984C6.36099 11.8994 6 10.9918 6 10C6 7.79086 7.79086 6 10 6C12.2091 6 14 7.79086 14 10ZM9.99999 14C12.973 14 15.441 16.1623 15.917 19H4.08295C4.55902 16.1623 7.02699 14 9.99999 14Z"
-                                    fill="currentColor"></path>
-                            </svg>
-                        </span>
-                        <span class="pano-star">
-                            <svg width="17" height="17" role="presentation" focusable="false" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M7.49495 20.995L11.9999 18.6266L16.5049 20.995C16.8059 21.1533 17.1507 21.2079 17.4859 21.1504C18.3276 21.006 18.893 20.2066 18.7486 19.3649L17.8882 14.3485L21.5328 10.7959C21.7763 10.5585 21.9348 10.2475 21.9837 9.91094C22.1065 9.06576 21.5209 8.28106 20.6758 8.15825L15.6391 7.42637L13.3866 2.86236C13.2361 2.55739 12.9892 2.31054 12.6843 2.16003C11.9184 1.78206 10.9912 2.0965 10.6132 2.86236L8.36072 7.42637L3.32403 8.15825C2.98747 8.20715 2.67643 8.36564 2.43904 8.60917C1.84291 9.22074 1.85542 10.1998 2.46699 10.7959L6.11158 14.3485L5.25121 19.3649C5.19372 19.7 5.24833 20.0448 5.40658 20.3459C5.80401 21.1018 6.739 21.3924 7.49495 20.995ZM19.3457 10.0485L15.6728 13.6287L16.5398 18.684L11.9999 16.2972L7.45995 18.684L8.327 13.6287L4.65411 10.0485L9.72993 9.31093L11.9999 4.71146L14.2699 9.31093L19.3457 10.0485Z"
-                                    fill="currentColor"></path>
-                            </svg>
-                        </span>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
         <div class="d-flex flex-column gap-3">
@@ -100,30 +102,36 @@
                 </div>
             </div>
             <div class="d-flex gap-3 align-items-center">
-                <div class="pano-card">
-                    <div>
-                        <span class="pano-text">Ticket</span>
+                @foreach ($pano as $row)
+                <a href="/board/{{$row->id}}">
+                    <div class="pano-card">
+                        <div>
+                            <span class="pano-text">{{$row->name}}</span>
+                        </div>
+                        <div class="pano-alt">
+                            <span>
+                            </span>
+                            <span class="pano-star">
+                                <svg width="17" height="17" role="presentation" focusable="false"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M7.49495 20.995L11.9999 18.6266L16.5049 20.995C16.8059 21.1533 17.1507 21.2079 17.4859 21.1504C18.3276 21.006 18.893 20.2066 18.7486 19.3649L17.8882 14.3485L21.5328 10.7959C21.7763 10.5585 21.9348 10.2475 21.9837 9.91094C22.1065 9.06576 21.5209 8.28106 20.6758 8.15825L15.6391 7.42637L13.3866 2.86236C13.2361 2.55739 12.9892 2.31054 12.6843 2.16003C11.9184 1.78206 10.9912 2.0965 10.6132 2.86236L8.36072 7.42637L3.32403 8.15825C2.98747 8.20715 2.67643 8.36564 2.43904 8.60917C1.84291 9.22074 1.85542 10.1998 2.46699 10.7959L6.11158 14.3485L5.25121 19.3649C5.19372 19.7 5.24833 20.0448 5.40658 20.3459C5.80401 21.1018 6.739 21.3924 7.49495 20.995ZM19.3457 10.0485L15.6728 13.6287L16.5398 18.684L11.9999 16.2972L7.45995 18.684L8.327 13.6287L4.65411 10.0485L9.72993 9.31093L11.9999 4.71146L14.2699 9.31093L19.3457 10.0485Z"
+                                        fill="currentColor">
+                                    </path>
+                                </svg>
+                            </span>
+                        </div>
                     </div>
-                    <div class="pano-alt">
-                        <span>
-                        </span>
-                        <span class="pano-star">
-                            <svg width="17" height="17" role="presentation" focusable="false"
-                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M7.49495 20.995L11.9999 18.6266L16.5049 20.995C16.8059 21.1533 17.1507 21.2079 17.4859 21.1504C18.3276 21.006 18.893 20.2066 18.7486 19.3649L17.8882 14.3485L21.5328 10.7959C21.7763 10.5585 21.9348 10.2475 21.9837 9.91094C22.1065 9.06576 21.5209 8.28106 20.6758 8.15825L15.6391 7.42637L13.3866 2.86236C13.2361 2.55739 12.9892 2.31054 12.6843 2.16003C11.9184 1.78206 10.9912 2.0965 10.6132 2.86236L8.36072 7.42637L3.32403 8.15825C2.98747 8.20715 2.67643 8.36564 2.43904 8.60917C1.84291 9.22074 1.85542 10.1998 2.46699 10.7959L6.11158 14.3485L5.25121 19.3649C5.19372 19.7 5.24833 20.0448 5.40658 20.3459C5.80401 21.1018 6.739 21.3924 7.49495 20.995ZM19.3457 10.0485L15.6728 13.6287L16.5398 18.684L11.9999 16.2972L7.45995 18.684L8.327 13.6287L4.65411 10.0485L9.72993 9.31093L11.9999 4.71146L14.2699 9.31093L19.3457 10.0485Z"
-                                    fill="currentColor">
-                                </path>
-                            </svg>
-                        </span>
-                    </div>
-                </div>
+                </a>
+                @endforeach
                 <div class="btn-group dropend">
-                    <div class="pano-card-add dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                    <div class="pano-card-add dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                        data-bs-auto-close="outside">
                         Yeni Pano oluştur
                     </div>
                     <div class="pano-add-form dropdown-menu" data-bs-auto-close="outside">
-                        <form action="/panoAdd" method="post">
+                        <form action="{{route('pano.add')}}" method="post">
+                            @csrf
                             <div class="d-flex flex-column gap-2">
                                 <div class="ust-text">
                                     <div class="text-visibility-pano">
@@ -141,44 +149,57 @@
                             </div>
                             <div class="d-flex flex-column">
                                 <span class="arkpln-text">Arkaplan</span>
-                                <div class="d-flex flex-column gap-3">
-                                    <div class="d-flex justify-content-center gap-2">
-                                        <span class="özel-button" id="image1">
-                                            <span class="secili-btn">
-                                                <svg width="24" height="24" role="presentation" focusable="false"
-                                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M6.73534 12.3223C6.36105 11.9162 5.72841 11.8904 5.3223 12.2647C4.91619 12.639 4.89039 13.2716 5.26467 13.6777L8.87678 17.597C9.41431 18.1231 10.2145 18.1231 10.7111 17.6264C10.7724 17.5662 10.7724 17.5662 11.0754 17.2683C11.3699 16.9785 11.6981 16.6556 12.0516 16.3075C13.0614 15.313 14.0713 14.3169 15.014 13.3848L15.0543 13.3449C16.7291 11.6887 18.0004 10.4236 18.712 9.70223C19.0998 9.30904 19.0954 8.67589 18.7022 8.28805C18.309 7.90022 17.6759 7.90457 17.2881 8.29777C16.5843 9.01131 15.3169 10.2724 13.648 11.9228L13.6077 11.9626C12.6662 12.8937 11.6572 13.8889 10.6483 14.8825C10.3578 15.1685 10.0845 15.4375 9.83288 15.6851L6.73534 12.3223Z"
-                                                        fill="currentColor"></path>
-                                                     </svg>
+                                <div class="d-flex flex-column">
+                                    <div class="d-flex flex-column gap-2">
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <span class="özel-button" id="image1">
+                                                <span class="secili-btn">
+                                                    <svg width="24" height="24" role="presentation"
+                                                        focusable="false" viewBox="0 0 24 24"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M6.73534 12.3223C6.36105 11.9162 5.72841 11.8904 5.3223 12.2647C4.91619 12.639 4.89039 13.2716 5.26467 13.6777L8.87678 17.597C9.41431 18.1231 10.2145 18.1231 10.7111 17.6264C10.7724 17.5662 10.7724 17.5662 11.0754 17.2683C11.3699 16.9785 11.6981 16.6556 12.0516 16.3075C13.0614 15.313 14.0713 14.3169 15.014 13.3848L15.0543 13.3449C16.7291 11.6887 18.0004 10.4236 18.712 9.70223C19.0998 9.30904 19.0954 8.67589 18.7022 8.28805C18.309 7.90022 17.6759 7.90457 17.2881 8.29777C16.5843 9.01131 15.3169 10.2724 13.648 11.9228L13.6077 11.9626C12.6662 12.8937 11.6572 13.8889 10.6483 14.8825C10.3578 15.1685 10.0845 15.4375 9.83288 15.6851L6.73534 12.3223Z"
+                                                            fill="currentColor"></path>
+                                                    </svg>
+                                                </span>
                                             </span>
-                                        </span>
-                                        <span class="özel-button" id="image2"></span>
-                                        <span class="özel-button" id="image3"></span>
-                                        <span class="özel-button" id="image4"></span>
+                                            <span class="özel-button" id="image2"></span>
+                                            <span class="özel-button" id="image3"></span>
+                                            <span class="özel-button" id="image4"></span>
+                                        </div>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <span class="renk-secenek" id="renk-secenek1"></span>
+                                            <span class="renk-secenek" id="renk-secenek2"></span>
+                                            <span class="renk-secenek" id="renk-secenek3"></span>
+                                            <span class="renk-secenek" id="renk-secenek4"></span>
+                                            <span class="renk-secenek" id="renk-secenek5"></span>
+                                            <span class="renk-secenek" id="renk-secenek6">
+                                                <svg width="17" height="17" role="presentation" focusable="false"
+                                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M5 14C6.10457 14 7 13.1046 7 12C7 10.8954 6.10457 10 5 10C3.89543 10 3 10.8954 3 12C3 13.1046 3.89543 14 5 14ZM12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14ZM21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z"
+                                                        fill="currentColor"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div class="d-flex justify-content-center gap-2">
-                                        <span class="renk-secenek" id="renk-secenek1"></span>
-                                        <span class="renk-secenek" id="renk-secenek2"></span>
-                                        <span class="renk-secenek" id="renk-secenek3"></span>
-                                        <span class="renk-secenek" id="renk-secenek4"></span>
-                                        <span class="renk-secenek" id="renk-secenek5"></span>
-                                        <span class="renk-secenek" id="renk-secenek6">
-                                            <svg width="17" height="17" role="presentation" focusable="false"
-                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M5 14C6.10457 14 7 13.1046 7 12C7 10.8954 6.10457 10 5 10C3.89543 10 3 10.8954 3 12C3 13.1046 3.89543 14 5 14ZM12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14ZM21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z"
-                                                    fill="currentColor"></path>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <div class="d-flex flex-column gap-3">
-                                        <div class="">
+                                    <div class="d-flex flex-column">
+                                        <div class="pano_add_input">
                                             <label for="">Pano Başlığı<span style="color: red;">*</span></label>
-                                            <input type="text" name="name">
+                                            <input class="panoBasligi_inpt" type="text" name="name">
                                             <span class="nameSpan">👋 Pano başlığı gerekli</span>
                                         </div>
-                                        <div class=""></div>
+                                        <div class="pano_add_input">
+                                            <label for="">Görünürlük</label>
+                                            <select class="panoBasligi_inpt" name="görünürlük" id="">
+                                                <option value="1">Özel</option>
+                                                <option value="2" selected>Çalışma Alanı</option>
+                                                <option value="1">Herkese Açık</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div style="padding: 10px" class="d-flex flex-column gap-1">
+                                        <button class="pano-add-button none-button">Oluştur</button>
                                     </div>
                                 </div>
                             </div>
