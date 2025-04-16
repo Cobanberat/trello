@@ -19,7 +19,7 @@
         </div>
         <div class="sidebar-down">
             <div class="sidebar-options">
-                <div class="panolar" id="sidebar-texts">
+                <a href="/dashboard" class="panolar" id="sidebar-texts">
                     <div class="div-bslk">
                         <svg style="color:#fff" width="17" height="17" role="presentation" focusable="false"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@
                         </svg>
                         <span>Panolar</span>
                     </div>
-                </div>
+                </a>
                 <div class="uyeler" id="sidebar-texts">
                     <div class="div-bslk">
                         <i class="bi bi-person"></i>

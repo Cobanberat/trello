@@ -15,9 +15,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
 
     <title>TRELLO</title>
     @vite('resources/css/app.css')
@@ -38,7 +39,8 @@
                                 fill="currentColor"></path>
                         </svg>
                     </div>
-                    <div class="dropdown-menu logo-dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu logo-dropdown-menu" aria-labelledby="dropdownMenuButton"
+                        data-bs-auto-close="outside">
                         <div class="down-class">
                             <div class="down-class-span">
                                 <span>UYGULAMALARINIZ</span>
@@ -53,9 +55,9 @@
                                             </path>
                                         </svg>
                                     </span>
-                                    <span>Atlassian Anasayfası</span>
+                                    <span># Atlassian Anasayfası</span>
                                 </span>
-                                <span class="Application-span">
+                                <a href="/main" class="Application-span">
                                     <span class="img-span" role="img">
                                         <svg fill="none" height="33" viewBox="0 0 33 33" width="33"
                                             xmlns="http://www.w3.org/2000/svg"
@@ -78,23 +80,23 @@
                                     </span>
                                     <span>Trello</span>
 
-                                </span>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="left-text">
+                <a href="/main" class="left-text">
                     <div class="left-text-image">
                         <img src="/trello.gif" alt="TRELLO">
                     </div>
                     <div class="left-text-image-hover">
                         <img src="/trello-hover.gif" alt="TRELLO">
                     </div>
-                </div>
+                </a>
             </div>
             <div class="ort">
                 <div class="dropdown">
-                    <div class="ort-text ort-calismaAlani" data-bs-toggle="dropdown">
+                    <div class="ort-text ort-calismaAlani" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                         <div class="ort-text-span">
                             <span>
                                 Çalışma Alanları
@@ -109,7 +111,7 @@
                     </div>
                     <ul class="dropdown-menu dropdown-work">
                         <div class="dropdown-menu-container">
-                            <div class="dropdown-work-area-click">
+                            <a href="/dashboard" class="dropdown-work-area-click">
                                 <div class="work-area-span">
                                     <span>Mevcut Çalışma Alanı</span>
                                 </div>
@@ -119,9 +121,9 @@
                                         Trello Çalışma Alanı
                                     </span>
                                 </div>
-                            </div>
+                            </a>
                             <div class="cizgi"></div>
-                            <div class="dropdown-work-area-click">
+                            <a href="/dashboard" class="dropdown-work-area-click">
                                 <div class="work-area-span">
                                     <span>Çalışma Alanlarınız</span>
                                 </div>
@@ -131,13 +133,13 @@
                                         Trello Çalışma Alanı
                                     </span>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </ul>
                 </div>
 
                 <div class="dropdown">
-                    <div class="ort-text" data-bs-toggle="dropdown">
+                    <div class="ort-text" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                         <div class="ort-text-span">
                             <span>Geçmiş</span>
 
@@ -150,10 +152,10 @@
 
                     </div>
                     <ul class="dropdown-menu dropdown-gecmis">
-                        <div class="gecmis-container">
+                        <a href="/dashboard" class="gecmis-container">
                             <div class="img-background"></div>
                             <div class="gecmis-text">
-                                <span class="text-gecmis-span">ticket</span>
+                                <span class="text-gecmis-span"># trello</span>
                                 <span class="text-gecmis-workarea">Trello Çalışma Alanı</span>
                             </div>
                             <div class="gecmis-fav-logo">
@@ -182,7 +184,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </ul>
                 </div>
 
@@ -237,7 +239,7 @@
                 </div>
 
                 <div class="dropdown">
-                    <div class="ort-text ort-calismaAlani" data-bs-toggle="dropdown">
+                    <div class="ort-text ort-calismaAlani" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                         <div class="ort-text-span">
                             <span>
                                 Şablonlar
@@ -264,9 +266,9 @@
                             <div class="sablon-trello-info">
                                 <div class="trello-info-logo-text">
                                     <div class="trello-info-logo">
-                                        <span><svg width="24" height="24" role="presentation"
-                                                focusable="false" viewBox="0 0 24 24"
-                                                xmlns="http://www.w3.org/2000/svg">
+                                        <span>
+                                            <svg width="24" height="24" role="presentation" focusable="false"
+                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M7 3C7 2.44772 7.44772 2 8 2H9C9.55228 2 10 2.44772 10 3C10 3.55228 9.55228 4 9 4H8C7.44772 4 7 3.55228 7 3Z"
                                                     fill="currentColor"></path>
@@ -300,7 +302,7 @@
                                     </div>
                                 </div>
                                 <div class="trello-sablon-view-button">
-                                    <button> Şablonları Keşfet</button>
+                                    <button> # Şablonları Keşfet</button>
                                 </div>
                             </div>
                         </div>
@@ -308,31 +310,110 @@
                 </div>
 
                 <div class="dropdown">
-                    <div class="ort-button" data-bs-toggle="dropdown">
+                    <div class="ort-button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                         <button class="ort-text-button">
                             <span>Oluştur</span>
                         </button>
                     </div>
                     <ul class="dropdown-menu dropdown-work">
                         <div class="dropdown-menu-container">
-                            <div class="sablon-trello-info-add">
-                                <div class="trello-info-logo-text-add">
-                                    <div class="trello-info-logo-add">
-                                        <svg width="17" height="17" role="presentation" focusable="false"
-                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5ZM5 6C5 5.44772 5.44772 5 6 5H10C10.5523 5 11 5.44772 11 6V16C11 16.5523 10.5523 17 10 17H6C5.44772 17 5 16.5523 5 16V6ZM14 5C13.4477 5 13 5.44772 13 6V12C13 12.5523 13.4477 13 14 13H18C18.5523 13 19 12.5523 19 12V6C19 5.44772 18.5523 5 18 5H14Z"
-                                                fill="currentColor"></path>
-                                        </svg>
+                            <div class="btn-group">
+                                <div class="sablon-trello-info-add" data-bs-toggle="dropdown"
+                                    aria-expanded="false" data-bs-auto-close="outside">
+                                    <div class="trello-info-logo-text-add">
+                                        <div class="trello-info-logo-add">
+                                            <svg width="17" height="17" role="presentation" focusable="false"
+                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5ZM5 6C5 5.44772 5.44772 5 6 5H10C10.5523 5 11 5.44772 11 6V16C11 16.5523 10.5523 17 10 17H6C5.44772 17 5 16.5523 5 16V6ZM14 5C13.4477 5 13 5.44772 13 6V12C13 12.5523 13.4477 13 14 13H18C18.5523 13 19 12.5523 19 12V6C19 5.44772 18.5523 5 18 5H14Z"
+                                                    fill="currentColor"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="trello-info-text">
+                                            <span>Pano Oluştur</span>
+                                        </div>
                                     </div>
-                                    <div class="trello-info-text">
-                                        <span>Pano Oluştur</span>
+                                    <div class="pano-add-text">
+                                        <span>Listelerde düzenlenen kartlardan bir pano oluşturulur. Projeleri yönetmek,
+                                            bilgileri takip etmek veya bir şeyleri organize etmek için bunu
+                                            kullanabilirsiniz.</span>
                                     </div>
                                 </div>
-                                <div class="pano-add-text">
-                                    <span>Listelerde düzenlenen kartlardan bir pano oluşturulur. Projeleri yönetmek,
-                                        bilgileri takip etmek veya bir şeyleri organize etmek için bunu
-                                        kullanabilirsiniz.</span>
+                                <div class="pano-add-form dropdown-menu" data-bs-auto-close="outside">
+                                    <form action="{{route('pano.add')}}" method="post">
+                                        @csrf
+                                        <div class="d-flex flex-column gap-2">
+                                            <div class="ust-text">
+                                                <div class="text-visibility-pano">
+                                                    <span>Pano Oluştur</span>
+                                                </div>
+                                                <div class="exit-visibility-pano">
+                                                    <span> <i class="bi bi-x"></i> </span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column align-items-center">
+                                                <div class="trl-img">
+                                                    <img src="https://trello.com/assets/14cda5dc635d1f13bc48.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-column">
+                                            <span class="arkpln-text">Arkaplan</span>
+                                            <div class="d-flex flex-column">
+                                                <div class="d-flex flex-column gap-2">
+                                                    <div class="d-flex justify-content-center gap-2">
+                                                        <span class="özel-button" id="image1">
+                                                            <span class="secili-btn">
+                                                                <svg width="24" height="24" role="presentation"
+                                                                    focusable="false" viewBox="0 0 24 24"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M6.73534 12.3223C6.36105 11.9162 5.72841 11.8904 5.3223 12.2647C4.91619 12.639 4.89039 13.2716 5.26467 13.6777L8.87678 17.597C9.41431 18.1231 10.2145 18.1231 10.7111 17.6264C10.7724 17.5662 10.7724 17.5662 11.0754 17.2683C11.3699 16.9785 11.6981 16.6556 12.0516 16.3075C13.0614 15.313 14.0713 14.3169 15.014 13.3848L15.0543 13.3449C16.7291 11.6887 18.0004 10.4236 18.712 9.70223C19.0998 9.30904 19.0954 8.67589 18.7022 8.28805C18.309 7.90022 17.6759 7.90457 17.2881 8.29777C16.5843 9.01131 15.3169 10.2724 13.648 11.9228L13.6077 11.9626C12.6662 12.8937 11.6572 13.8889 10.6483 14.8825C10.3578 15.1685 10.0845 15.4375 9.83288 15.6851L6.73534 12.3223Z"
+                                                                        fill="currentColor"></path>
+                                                                </svg>
+                                                            </span>
+                                                        </span>
+                                                        <span class="özel-button" id="image2"></span>
+                                                        <span class="özel-button" id="image3"></span>
+                                                        <span class="özel-button" id="image4"></span>
+                                                    </div>
+                                                    <div class="d-flex justify-content-center gap-2">
+                                                        <span class="renk-secenek" id="renk-secenek1"></span>
+                                                        <span class="renk-secenek" id="renk-secenek2"></span>
+                                                        <span class="renk-secenek" id="renk-secenek3"></span>
+                                                        <span class="renk-secenek" id="renk-secenek4"></span>
+                                                        <span class="renk-secenek" id="renk-secenek5"></span>
+                                                        <span class="renk-secenek" id="renk-secenek6">
+                                                            <svg width="17" height="17" role="presentation" focusable="false"
+                                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                    d="M5 14C6.10457 14 7 13.1046 7 12C7 10.8954 6.10457 10 5 10C3.89543 10 3 10.8954 3 12C3 13.1046 3.89543 14 5 14ZM12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14ZM21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z"
+                                                                    fill="currentColor"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex flex-column">
+                                                    <div class="pano_add_input">
+                                                        <label for="">Pano Başlığı<span style="color: red;">*</span></label>
+                                                        <input class="panoBasligi_inpt" type="text" name="name">
+                                                        <span class="nameSpan">👋 Pano başlığı gerekli</span>
+                                                    </div>
+                                                    <div class="pano_add_input">
+                                                        <label for="">Görünürlük</label>
+                                                        <select class="panoBasligi_inpt" name="görünürlük" id="">
+                                                            <option value="1">Özel</option>
+                                                            <option value="2" selected>Çalışma Alanı</option>
+                                                            <option value="1">Herkese Açık</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div style="padding: 10px" class="d-flex flex-column gap-1">
+                                                    <button class="pano-add-button none-button">Oluştur</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                             <div class="sablon-trello-info-add">
@@ -368,7 +449,7 @@
                                         </svg>
                                     </div>
                                     <div class="trello-info-text">
-                                        <span>Bir Şabonla Başla</span>
+                                        <span># Bir Şabonla Başla</span>
                                     </div>
                                 </div>
                                 <div class="pano-add-text">
@@ -383,7 +464,7 @@
             <div class="right">
                 <div class="right-premium-button">
                     <button class="button-premium">
-                        15 gün kaldı
+                        # 15 gün kaldı
                         <svg width="17" height="17" viewBox="0 0 24 24" role="presentation">
                             <path fill="currentcolor" fill-rule="evenodd"
                                 d="M9.276 4.382 7.357 9.247l-4.863 1.917a.78.78 0 0 0 0 1.45l4.863 1.918 1.919 4.863a.78.78 0 0 0 1.45 0h-.001l1.918-4.863 4.864-1.919a.781.781 0 0 0 0-1.45l-4.864-1.916-1.918-4.865a.78.78 0 0 0-.44-.438.78.78 0 0 0-1.01.438m8.297-2.03-.743 1.886-1.884.743a.56.56 0 0 0 0 1.038l1.884.743.743 1.886a.558.558 0 0 0 1.038 0l.745-1.886 1.883-.743a.557.557 0 0 0 0-1.038l-1.883-.743-.745-1.885a.55.55 0 0 0-.314-.314.56.56 0 0 0-.724.314m-.704 13.003-.744 1.883-1.883.744a.55.55 0 0 0-.316.314.56.56 0 0 0 .316.724l1.883.743.744 1.884c.057.144.17.258.314.315a.56.56 0 0 0 .724-.315l.744-1.884 1.883-.743a.557.557 0 0 0 0-1.038l-1.883-.744-.744-1.883a.55.55 0 0 0-.315-.316.56.56 0 0 0-.723.316">
@@ -562,15 +643,17 @@
                                     </div>
                                 </div>
                                 <div class="cizgi"></div>
-                                <div class="dropdown-sidebar-exit" onclick="document.getElementById('logout-form').submit();">
-    <div class="trello-nav-item">
-        <span>Çıkış Yap</span>
-    </div>
-</div>
+                                <div class="dropdown-sidebar-exit"
+                                    onclick="document.getElementById('logout-form').submit();">
+                                    <div class="trello-nav-item">
+                                        <span>Çıkış Yap</span>
+                                    </div>
+                                </div>
 
-<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-    @csrf
-</form>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
                             </div>
                         </ul>
                     </div>
@@ -585,12 +668,12 @@
         @yield('main-sidebar')
         @yield('main-container')
         @yield('home')
-        
+
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  
+
 </body>
 
 </html>

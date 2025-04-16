@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <div class="main-left-nav">
+        <div class="main-left-nav overflow-visible">
             <div class="main-nav-div">
                 <div class="main-nav-title">
                     <div class="main-nav-title-logo">
@@ -47,7 +47,7 @@
             <div class="main-nav-div">
                 <div class="main-nav-title">
                     <div class="main-nav-title-text">
-                        <span>Bağlantılar</span>esasdasd
+                        <span>Bağlantılar</span>
                     </div>
                 </div>
                 <div class="main-nav-project">

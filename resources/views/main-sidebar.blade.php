@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="">
-                    <div id="sidebar-texts-main" class="d-flex align-items-center p-2 justify-content-start rounded">
+                    <a href="/dashboard" id="sidebar-texts-main" class="d-flex align-items-center p-2 justify-content-start rounded">
                         <div class="d-flex align-items-center gap-2 ml-7">
                             <svg style="color:#fff" width="17" height="17" role="presentation" focusable="false"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -82,12 +82,12 @@
                                     d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5ZM5 6C5 5.44772 5.44772 5 6 5H10C10.5523 5 11 5.44772 11 6V16C11 16.5523 10.5523 17 10 17H6C5.44772 17 5 16.5523 5 16V6ZM14 5C13.4477 5 13 5.44772 13 6V12C13 12.5523 13.4477 13 14 13H18C18.5523 13 19 12.5523 19 12V6C19 5.44772 18.5523 5 18 5H14Z"
                                     fill="currentColor"></path>
                             </svg>
-                            <a href="/dashboard" style="font-weight:500;font-size:13px; color: #e4e3e3;">
+                            <span style="font-weight:500;font-size:13px; color: #e4e3e3;">
                                 Panolar
-                            </a>
+                            </span>
                         </div>
-                    </div>
-                    <div id="sidebar-texts-main" class="d-flex align-items-center p-2 justify-content-start rounded">
+                    </a>
+                    <a href="/highlights" id="sidebar-texts-main" class="d-flex align-items-center p-2 justify-content-start rounded">
                         <div class="d-flex align-items-center gap-2 ml-7">
                             <svg width="20" height="20" role="presentation" focusable="false" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -100,7 +100,7 @@
                                 Öne Çıkanlar
                             </span>
                         </div>
-                    </div>
+                    </a>
                     <div id="sidebar-texts-main"
                         class="d-flex gorunum align-items-center p-2 justify-content-start rounded">
                         <div class="d-flex align-items-center gap-2 ml-7">

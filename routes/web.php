@@ -42,6 +42,7 @@ Route::middleware([RedirectIfNotAuthenticated::class])->group(function () {
     
     Route::get('/dashboard', [panoController::class, 'dashboard'])->name('dashboard');
     Route::get('/main', [panoController::class, 'home'])->name('home');
+    Route::get('/highlights', [panoController::class, 'home'])->name('home');
     
     
     Route::get('/board/{id}', [panoController::class, 'listPano'])->name('boards');

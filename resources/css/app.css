@@ -209,6 +209,10 @@
     background-color: inherit;
     height: 20px;
     border: none;
+    box-shadow: none !important;
+    width: 100%;
+    padding-left: 0;
+
 }
 
 .input-srch:focus {
@@ -419,11 +423,12 @@
     align-items: center;
     gap: 10px;
     width: 450px;
-    
+
 }
+
 .div-bslk:hover {
- color: white;
-    
+    color: white;
+
 }
 
 #sidebar-texts:hover {
@@ -1463,6 +1468,11 @@ body {
 
 .custom-switch:has(.form-check-input:checked) i.bi-x {
     z-index: 0;
+}
+
+[type='checkbox']:checked,
+[type='radio']:checked {
+    background-size: auto;
 }
 
 /* .custom-switch .form-check-input:before {
@@ -2587,15 +2597,17 @@ body {
     width: 20rem;
 }
 
-.home-container{
+.home-container {
     padding-left: 45px;
     width: 860px;
 
 }
-.main-div{
+
+.main-div {
     width: 420px;
-    
+
 }
+
 .main-img-text {
     display: flex;
     flex-direction: column;
@@ -2614,7 +2626,8 @@ body {
     background-color: #962e60;
     border-radius: 4px;
 }
-.main-text{
+
+.main-text {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2639,7 +2652,8 @@ body {
     text-align: center;
 
 }
-.main-left-nav{
+
+.main-left-nav {
     height: 90vh;
     margin-top: 40px;
     max-width: 342px;
@@ -2651,10 +2665,12 @@ body {
     color: #e6e6e6;
 
 }
-.main-nav-div{
+
+.main-nav-div {
     padding-bottom: 24px;
 }
-.main-nav-title{
+
+.main-nav-title {
     display: flex;
     align-items: baseline;
     justify-content: flex-start;
@@ -2664,7 +2680,8 @@ body {
     align-items: center;
     gap: 10px;
 }
-.main-nav-title-text{
+
+.main-nav-title-text {
     margin-top: 16px;
     font-size: 12px;
     line-height: 16px;
@@ -2673,11 +2690,13 @@ body {
     margin: 0;
     padding: 8px 0;
 }
-.main-nav-project{
+
+.main-nav-project {
     display: inline-block;
     width: 100%;
 }
-.main-nav-project-a{
+
+.main-nav-project-a {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -2685,10 +2704,12 @@ body {
     border-radius: 3px;
     color: #e6e6e6 !important;
 }
-.main-nav-project-a:hover{
+
+.main-nav-project-a:hover {
     background-color: #91295b;
 }
-.project-background-tema{
+
+.project-background-tema {
     display: inline-block;
     position: relative;
     flex: 0 0 auto;
@@ -2699,13 +2720,15 @@ body {
     background-size: cover;
     background-color: rgb(205, 90, 145);
 }
-.main-project-name{
+
+.main-project-name {
     display: flex;
     flex-direction: column;
     padding-top: 0;
     padding-bottom: 0;
 }
-.project-name-bslk{
+
+.project-name-bslk {
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2715,13 +2738,14 @@ body {
     line-height: 18px;
 }
 
-.project-name-text{
+.project-name-text {
     color: var(--ds-text-subtlest, #cacacc);
     font-size: 12px;
     font-weight: 400;
     line-height: 16px;
 }
-.main-nav-project-button{
+
+.main-nav-project-button {
     font-weight: 400;
     margin: 0;
     padding: 0;
@@ -2738,34 +2762,38 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
-.main-nav-project-button:hover{
-        background-color: #91295b;
+
+.main-nav-project-button:hover {
+    background-color: #91295b;
 
 }
-.main-nav-project-button::before{
+
+.main-nav-project-button::before {
     border: none !important;
 }
 
-.main-nav-project-button:hover .main-nav-project-add-icon{
-        background-color: #79214b;
+.main-nav-project-button:hover .main-nav-project-add-icon {
+    background-color: #79214b;
 
 }
-.main-nav-project-add-icon{
+
+.main-nav-project-add-icon {
     font-weight: 500;
-    display: flex ;
+    display: flex;
     flex: 0 0 auto;
     align-items: center;
     justify-content: center;
-    width: 32px ;
-    height: 28px ;
+    width: 32px;
+    height: 28px;
     margin-right: 8px;
     border-radius: 4px;
     font-size: 15px;
     background-color: #91295b;
 }
-.main-nav-project-add-span{
+
+.main-nav-project-add-span {
     font-weight: 400;
-    display: flex ;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 8px;
@@ -2773,6 +2801,5 @@ body {
     font-size: 14px;
     padding: 13px;
 }
-.main-nav-project-add-span:hover{
-}
 
+.main-nav-project-add-span:hover {}
