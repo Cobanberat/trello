@@ -11,4 +11,8 @@ class lists extends Model
     'name',
     'pano_id',
    ];
+   public function cards()
+{
+    return $this->hasMany(card::class);
+}
 }

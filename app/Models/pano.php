@@ -12,5 +12,8 @@ class pano extends Model
         'name',
         'user_id',
     ];
-    
+    public function lists()
+{
+    return $this->hasMany(Lists::class);
+}
 }

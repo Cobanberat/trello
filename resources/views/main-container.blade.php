@@ -16,7 +16,7 @@
                 <h3>Son Görüntülenmeler</h3>
             </div>
             <div class="d-flex">
-                <a href="/ticket">
+                <a href="">
                     <div class="pano-card">
                         <div>
                             <span class="pano-text">Ticket</span>

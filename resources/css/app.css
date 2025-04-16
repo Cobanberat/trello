@@ -419,6 +419,11 @@
     align-items: center;
     gap: 10px;
     width: 450px;
+    
+}
+.div-bslk:hover {
+ color: white;
+    
 }
 
 #sidebar-texts:hover {
@@ -644,15 +649,17 @@ body {
 }
 
 .project-title {
-    width: 70px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     font-size: 18px;
     border-radius: 3px;
-    padding: 4px;
+    padding: 4px 10px;
+    white-space: nowrap;
 }
+
+
 
 .project-title:hover {
     background-color: #b06a8b;
@@ -885,21 +892,28 @@ body {
 
 .card-title {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 
-.card-title span {
+.editable {
     font-size: 13px;
     font-weight: 700;
     color: #67748b;
+    width: 85%;
+    min-height: 100%;
+    white-space: wrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .project-title-logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 14%;
+    width: 32px;
+    height: 32px;
     border-radius: 3px;
     padding: 5px;
 }
@@ -921,7 +935,6 @@ body {
 
 .card-texts {
     position: relative;
-    display: flex;
     padding: 5px;
     width: 100%;
     white-space: wrap;
@@ -931,42 +944,52 @@ body {
     border: 2px solid #ffffff;
     cursor: pointer;
     justify-content: space-between;
+    display: flex;
+}
+
+.card-text-span {
+    width: 95%;
 }
 
 .card-texts:hover {
     border: 2px solid #388bff;
 }
+
 .card-texts:hover .düzenle_svg {
     display: flex;
 }
 
-.düzenle_svg{
+.düzenle_svg {
     align-items: center;
     justify-content: center;
     display: none;
 }
+
 .context-menu {
     display: none;
     position: absolute;
     background-color: white;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     z-index: 1000;
     border-radius: 5px;
     padding: 10px;
-  }
-  .context-menu ul {
+}
+
+.context-menu ul {
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-  .context-menu ul li {
+}
+
+.context-menu ul li {
     padding: 5px 10px;
     cursor: pointer;
-  }
-  .context-menu ul li:hover {
+}
+
+.context-menu ul li:hover {
     background-color: #eee;
-  }
-  
+}
+
 
 .btn-add {
     width: 90%;
@@ -2402,7 +2425,8 @@ body {
 .listAdd-button:hover {
     background-color: #d77ba7;
 }
-.inpt-List{
+
+.inpt-List {
     width: 100%;
     background-color: transparent;
     border-radius: 4px;
@@ -2411,7 +2435,8 @@ body {
     font-size: 14px;
     font-weight: 500;
 }
-.btn-List{
+
+.btn-List {
     background-color: rgb(12, 102, 228);
     height: 32px;
     padding: 10px;
@@ -2421,13 +2446,16 @@ body {
     color: #fff;
     border-radius: 3px;
 }
-.btn-List:hover{
+
+.btn-List:hover {
     background-color: #0055cc;
 }
-.btn-List:active{
+
+.btn-List:active {
     background-color: #09326c;
 }
-.btn-card{
+
+.btn-card {
     background-color: rgb(12, 102, 228);
     height: 32px;
     padding: 10px;
@@ -2437,13 +2465,16 @@ body {
     color: #fff;
     border-radius: 3px;
 }
-.btn-card:hover{
+
+.btn-card:hover {
     background-color: #0055cc;
 }
-.btn-List:active{
+
+.btn-List:active {
     background-color: #09326c;
 }
-.btn-back{
+
+.btn-back {
     width: 32px;
     height: 32px;
     border-radius: 4px;
@@ -2452,14 +2483,16 @@ body {
     justify-content: center;
     cursor: pointer;
 }
-.btn-back:hover{
+
+.btn-back:hover {
     background-color: #d0d4db;
 }
-.btn-back:active{
+
+.btn-back:active {
     background-color: #a9b0bc;
 }
 
-.btn-back-card{
+.btn-back-card {
     width: 32px;
     height: 32px;
     border-radius: 4px;
@@ -2468,28 +2501,32 @@ body {
     justify-content: center;
     cursor: pointer;
 }
-.btn-back-card:hover{
+
+.btn-back-card:hover {
     background-color: #d0d4db;
 }
-.btn-back-card:active{
+
+.btn-back-card:active {
     background-color: #a9b0bc;
 }
 
-.List-add-btn{
+.List-add-btn {
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 14px;
     font-weight: 500;
 }
-.card-add-btn{
+
+.card-add-btn {
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 14px;
     font-weight: 500;
 }
-.List-add-form{
+
+.List-add-form {
     width: 270px;
 }
 
@@ -2505,9 +2542,237 @@ body {
     color: #727e92;
     overflow: hidden;
     resize: none;
-    min-height: 40px; 
+    min-height: 40px;
 }
+
 .card-texts-inpt:focus {
     outline: none;
     box-shadow: var(--ds-shadow-raised, 0px 1px 1px #091e4240, 0px 0px 1px #091e424f);
 }
+
+.modalDialog {
+    max-width: 1000px;
+}
+
+.modalInnerBtn {
+    transition: transform 85ms ease-in;
+}
+
+.modalInnerBtn:hover {
+    transform: translateX(5px);
+}
+
+#modalFreeBtn {
+    background: #EDDBF4;
+}
+
+.edit-input {
+    height: 32px;
+}
+
+#editPanoInput {
+    height: 32px;
+    color: #000000;
+}
+
+#editPanoInput,
+#widthCalculator {
+    font-size: 16px;
+    font-family: inherit;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.firstDropMenu {
+    width: 20rem;
+}
+
+.home-container{
+    padding-left: 45px;
+    width: 860px;
+
+}
+.main-div{
+    width: 420px;
+    
+}
+.main-img-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    position: relative;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    box-shadow: var(--ds-shadow-raised, 0px 1px 1px #091e4240, 0px 0px 1px #091e424f);
+}
+
+
+.main-image {
+    height: 108px;
+    width: 100%;
+    background-color: #962e60;
+    border-radius: 4px;
+}
+.main-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+}
+
+.main-text-bslk {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 24px;
+    color: #e6e6e6;
+}
+
+.main-text-mtn {
+    margin: 10px 0;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+    color: #e6e6e6;
+    text-align: center;
+
+}
+.main-left-nav{
+    height: 90vh;
+    margin-top: 40px;
+    max-width: 342px;
+    overflow-y: auto;
+    padding-left: 50px;
+    position: sticky;
+    top: 40px;
+    width: 100%;
+    color: #e6e6e6;
+
+}
+.main-nav-div{
+    padding-bottom: 24px;
+}
+.main-nav-title{
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    height: 32px;
+    margin-bottom: 8px;
+    padding: 0 0 0 12px;
+    align-items: center;
+    gap: 10px;
+}
+.main-nav-title-text{
+    margin-top: 16px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 8px 0;
+}
+.main-nav-project{
+    display: inline-block;
+    width: 100%;
+}
+.main-nav-project-a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    color: #e6e6e6 !important;
+}
+.main-nav-project-a:hover{
+    background-color: #91295b;
+}
+.project-background-tema{
+    display: inline-block;
+    position: relative;
+    flex: 0 0 auto;
+    width: 40px;
+    height: 32px;
+    border-radius: 4px;
+    opacity: 1;
+    background-size: cover;
+    background-color: rgb(205, 90, 145);
+}
+.main-project-name{
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.project-name-bslk{
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.project-name-text{
+    color: var(--ds-text-subtlest, #cacacc);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+}
+.main-nav-project-button{
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    padding: 8px 40px 8px 8px;
+    border: 0;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.main-nav-project-button:hover{
+        background-color: #91295b;
+
+}
+.main-nav-project-button::before{
+    border: none !important;
+}
+
+.main-nav-project-button:hover .main-nav-project-add-icon{
+        background-color: #79214b;
+
+}
+.main-nav-project-add-icon{
+    font-weight: 500;
+    display: flex ;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 32px ;
+    height: 28px ;
+    margin-right: 8px;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: #91295b;
+}
+.main-nav-project-add-span{
+    font-weight: 400;
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 13px;
+}
+.main-nav-project-add-span:hover{
+}
+
