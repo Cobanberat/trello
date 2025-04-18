@@ -7,10 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class lists extends Model
 {
     protected $table = 'lists';
-   protected $fillable = [
-    'name',
-    'pano_id',
-   ];
+    protected $guarded = [];
    public function cards()
 {
     return $this->hasMany(card::class);

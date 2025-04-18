@@ -10,4 +10,9 @@ class favories extends Model
         'name',
         'pano_id',
     ];
+
+    public function favori()
+    {
+        return $this->hasOne(pano::class, 'id', 'pano_id');
+    }
 }

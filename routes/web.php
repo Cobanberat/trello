@@ -41,7 +41,9 @@ Route::middleware([RedirectIfNotAuthenticated::class])->group(function () {
     Route::delete('/pano/{id}', [panoController::class, 'destroy'])->name('pano.destroy');
     
     Route::get('/dashboard', [panoController::class, 'dashboard'])->name('dashboard');
+    Route::get('/pano', [panoController::class, 'dashboard'])->name('dashboard');
     Route::get('/main', [panoController::class, 'home'])->name('home');
+    Route::get('/profile', [panoController::class, 'profile'])->name('profile');
     Route::get('/highlights', [panoController::class, 'home'])->name('home');
     
     
@@ -52,13 +54,12 @@ Route::middleware([RedirectIfNotAuthenticated::class])->group(function () {
     Route::post("/ListAdd", [panoController::class, 'ListAdd']);
     Route::post("/cardAdd", [panoController::class, 'cardAdd']);
     Route::post("/cardUpdate", [panoController::class, 'cardUpdate']);
+    Route::post("/updateProfile", [panoController::class, 'profileUpdate']);
     Route::post("/listUpdate", [panoController::class, 'listUpdate']);
     Route::post("/cardDelete", [panoController::class, 'cardDelete']);
     Route::post('/update-pano-name', [panoController::class, 'updatePanoName']);
     Route::post('/card/update-list', [panoController::class, 'updateList']);
     Route::post('/getCards', [panoController::class, 'getCards']);
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 });

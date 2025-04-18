@@ -8,10 +8,7 @@ use Illuminate\Support\Facades\Schema;
 
 class pano extends Model
 {
-    protected $fillable = [
-        'name',
-        'user_id',
-    ];
+    protected $guarded = [];
     public function lists()
 {
     return $this->hasMany(Lists::class);

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,9 +24,21 @@
     <title>TRELLO</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
+    @php 
+    $favs = App\Models\favories::with('favori')->get();
+     $user = App\Models\User::where("id", auth()->id())->first();
+    $fullName = $user->name;
+    $words = explode(" ", $fullName);
+    $sonuc = "";
+
+    foreach ($words as $word) {
+        $sonuc .= strtoupper(substr($word, 0, 1));
+    }
+@endphp
 </head>
 
 <body>
+
     <div class="nav">
         <div class="header">
             <div class="left text-center">
@@ -141,7 +154,7 @@
                 <div class="dropdown">
                     <div class="ort-text" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                         <div class="ort-text-span">
-                            <span>Geçmiş</span>
+                            <span>yıldızlı</span>
 
                         </div>
                         <div class="ort-text-logo">
@@ -152,46 +165,60 @@
 
                     </div>
                     <ul class="dropdown-menu dropdown-gecmis">
-                        <a href="/dashboard" class="gecmis-container">
-                            <div class="img-background"></div>
-                            <div class="gecmis-text">
-                                <span class="text-gecmis-span"># trello</span>
-                                <span class="text-gecmis-workarea">Trello Çalışma Alanı</span>
-                            </div>
-                            <div class="gecmis-fav-logo">
-                                <div class="workingas">
-                                    <div class="src" style="margin-right:2px">
-                                        <i class="bi bi-three-dots"></i>
+                        @if ($favs->count() > 0)
+                            @foreach ($favs as $fav)
+                                <a href="/boards/{{ $fav->favori->id }}" class="gecmis-container">
+                                    <div class="img-background"></div>
+                                    <div class="gecmis-text">
+                                        <span class="text-gecmis-span">{{ $fav->favori->name }}</span>
+                                        <span class="text-gecmis-workarea">Trello Çalışma Alanı</span>
                                     </div>
-                                    <label class="star" for="star-input">
-                                        <input type="checkbox" name="star-input" id="star-input">
-                                        <div class="ort-srcs-star">
-                                            <svg class="star-empty" width="17" height="17"
-                                                fill="currentColor" role="presentation" focusable="false"
-                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M7.49495 20.995L11.9999 18.6266L16.5049 20.995C16.8059 21.1533 17.1507 21.2079 17.4859 21.1504C18.3276 21.006 18.893 20.2066 18.7486 19.3649L17.8882 14.3485L21.5328 10.7959C21.7763 10.5585 21.9348 10.2475 21.9837 9.91094C22.1065 9.06576 21.5209 8.28106 20.6758 8.15825L15.6391 7.42637L13.3866 2.86236C13.2361 2.55739 12.9892 2.31054 12.6843 2.16003C11.9184 1.78206 10.9912 2.0965 10.6132 2.86236L8.36072 7.42637L3.32403 8.15825C2.98747 8.20715 2.67643 8.36564 2.43904 8.60917C1.84291 9.22074 1.85542 10.1998 2.46699 10.7959L6.11158 14.3485L5.25121 19.3649C5.19372 19.7 5.24833 20.0448 5.40658 20.3459C5.80401 21.1018 6.739 21.3924 7.49495 20.995ZM19.3457 10.0485L15.6728 13.6287L16.5398 18.684L11.9999 16.2972L7.45995 18.684L8.327 13.6287L4.65411 10.0485L9.72993 9.31093L11.9999 4.71146L14.2699 9.31093L19.3457 10.0485Z"
-                                                    fill="currentColor"></path>
-                                            </svg>
-                                            <svg class="star-fill" width="17" height="17" role="presentation"
-                                                focusable="false" viewBox="0 0 24 24"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M11.9999 18.6266L7.49495 20.995C6.739 21.3924 5.80401 21.1018 5.40658 20.3459C5.24833 20.0448 5.19372 19.7 5.25121 19.3649L6.11158 14.3485L2.46699 10.7959C1.85542 10.1998 1.84291 9.22074 2.43904 8.60917C2.67643 8.36564 2.98747 8.20715 3.32403 8.15825L8.36072 7.42637L10.6132 2.86236C10.9912 2.0965 11.9184 1.78206 12.6843 2.16003C12.9892 2.31054 13.2361 2.55739 13.3866 2.86236L15.6391 7.42637L20.6758 8.15825C21.5209 8.28106 22.1065 9.06576 21.9837 9.91094C21.9348 10.2475 21.7763 10.5585 21.5328 10.7959L17.8882 14.3485L18.7486 19.3649C18.893 20.2066 18.3276 21.006 17.4859 21.1504C17.1507 21.2079 16.8059 21.1533 16.5049 20.995L11.9999 18.6266Z"
-                                                    fill="currentColor"></path>
-                                            </svg>
+                                    <div class="gecmis-fav-logo">
+                                        <div class="workingas">
+                                            <div class="src" style="margin-right:2px">
+                                                <i class="bi bi-three-dots"></i>
+                                            </div>
+                                            <label class="star" for="star-input">
+                                                <input type="checkbox" name="star-input" id="star-input">
+                                                <div class="ort-srcs-star">
+                                                    <svg class="star-empty" width="17" height="17"
+                                                        fill="currentColor" role="presentation" focusable="false"
+                                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M7.49495 20.995L11.9999 18.6266L16.5049 20.995C16.8059 21.1533 17.1507 21.2079 17.4859 21.1504C18.3276 21.006 18.893 20.2066 18.7486 19.3649L17.8882 14.3485L21.5328 10.7959C21.7763 10.5585 21.9348 10.2475 21.9837 9.91094C22.1065 9.06576 21.5209 8.28106 20.6758 8.15825L15.6391 7.42637L13.3866 2.86236C13.2361 2.55739 12.9892 2.31054 12.6843 2.16003C11.9184 1.78206 10.9912 2.0965 10.6132 2.86236L8.36072 7.42637L3.32403 8.15825C2.98747 8.20715 2.67643 8.36564 2.43904 8.60917C1.84291 9.22074 1.85542 10.1998 2.46699 10.7959L6.11158 14.3485L5.25121 19.3649C5.19372 19.7 5.24833 20.0448 5.40658 20.3459C5.80401 21.1018 6.739 21.3924 7.49495 20.995ZM19.3457 10.0485L15.6728 13.6287L16.5398 18.684L11.9999 16.2972L7.45995 18.684L8.327 13.6287L4.65411 10.0485L9.72993 9.31093L11.9999 4.71146L14.2699 9.31093L19.3457 10.0485Z"
+                                                            fill="currentColor"></path>
+                                                    </svg>
+                                                    <svg class="star-fill" width="17" height="17"
+                                                        role="presentation" focusable="false" viewBox="0 0 24 24"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11.9999 18.6266L7.49495 20.995C6.739 21.3924 5.80401 21.1018 5.40658 20.3459C5.24833 20.0448 5.19372 19.7 5.25121 19.3649L6.11158 14.3485L2.46699 10.7959C1.85542 10.1998 1.84291 9.22074 2.43904 8.60917C2.67643 8.36564 2.98747 8.20715 3.32403 8.15825L8.36072 7.42637L10.6132 2.86236C10.9912 2.0965 11.9184 1.78206 12.6843 2.16003C12.9892 2.31054 13.2361 2.55739 13.3866 2.86236L15.6391 7.42637L20.6758 8.15825C21.5209 8.28106 22.1065 9.06576 21.9837 9.91094C21.9348 10.2475 21.7763 10.5585 21.5328 10.7959L17.8882 14.3485L18.7486 19.3649C18.893 20.2066 18.3276 21.006 17.4859 21.1504C17.1507 21.2079 16.8059 21.1533 16.5049 20.995L11.9999 18.6266Z"
+                                                            fill="currentColor"></path>
+                                                    </svg>
+                                                </div>
+                                            </label>
                                         </div>
-                                    </label>
+                                    </div>
+                                </a>
+                            @endforeach
+                        @else
+                            <div class="star-main">
+                                <div class="starImg">
+                                    <img src="https://trello.com/assets/cc47d0a8c646581ccd08.svg" alt="">
+                                </div>
+                                <div class="starText">
+                                    <span>Hızla ve kolayca erişmek için önemli panoları favori olarak işaretleyin.</span>
                                 </div>
                             </div>
-                        </a>
+                        @endif
+
                     </ul>
                 </div>
 
                 <div class="dropdown">
-                    <div class="ort-text" data-bs-toggle="dropdown">
+                    <div class="ort-text" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                         <div class="ort-text-span">
-                            <span>Yıldızlı</span>
+                            <span>geçmiş</span>
 
                         </div>
                         <div class="ort-text-logo">
@@ -205,7 +232,7 @@
                         <div class="gecmis-container">
                             <div class="img-background"></div>
                             <div class="gecmis-text">
-                                <span class="text-gecmis-span">ticket</span>
+                                <span class="text-gecmis-span"># trello</span>
                                 <span class="text-gecmis-workarea">Trello Çalışma Alanı</span>
                             </div>
                             <div class="gecmis-fav-logo">
@@ -318,8 +345,8 @@
                     <ul class="dropdown-menu dropdown-work">
                         <div class="dropdown-menu-container">
                             <div class="btn-group">
-                                <div class="sablon-trello-info-add" data-bs-toggle="dropdown"
-                                    aria-expanded="false" data-bs-auto-close="outside">
+                                <div class="sablon-trello-info-add" data-bs-toggle="dropdown" aria-expanded="false"
+                                    data-bs-auto-close="outside">
                                     <div class="trello-info-logo-text-add">
                                         <div class="trello-info-logo-add">
                                             <svg width="17" height="17" role="presentation" focusable="false"
@@ -340,7 +367,7 @@
                                     </div>
                                 </div>
                                 <div class="pano-add-form dropdown-menu" data-bs-auto-close="outside">
-                                    <form action="{{route('pano.add')}}" method="post">
+                                    <form action="{{ route('pano.add') }}" method="post">
                                         @csrf
                                         <div class="d-flex flex-column gap-2">
                                             <div class="ust-text">
@@ -353,7 +380,8 @@
                                             </div>
                                             <div class="d-flex flex-column align-items-center">
                                                 <div class="trl-img">
-                                                    <img src="https://trello.com/assets/14cda5dc635d1f13bc48.svg" alt="">
+                                                    <img src="https://trello.com/assets/14cda5dc635d1f13bc48.svg"
+                                                        alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -364,8 +392,9 @@
                                                     <div class="d-flex justify-content-center gap-2">
                                                         <span class="özel-button" id="image1">
                                                             <span class="secili-btn">
-                                                                <svg width="24" height="24" role="presentation"
-                                                                    focusable="false" viewBox="0 0 24 24"
+                                                                <svg width="24" height="24"
+                                                                    role="presentation" focusable="false"
+                                                                    viewBox="0 0 24 24"
                                                                     xmlns="http://www.w3.org/2000/svg">
                                                                     <path
                                                                         d="M6.73534 12.3223C6.36105 11.9162 5.72841 11.8904 5.3223 12.2647C4.91619 12.639 4.89039 13.2716 5.26467 13.6777L8.87678 17.597C9.41431 18.1231 10.2145 18.1231 10.7111 17.6264C10.7724 17.5662 10.7724 17.5662 11.0754 17.2683C11.3699 16.9785 11.6981 16.6556 12.0516 16.3075C13.0614 15.313 14.0713 14.3169 15.014 13.3848L15.0543 13.3449C16.7291 11.6887 18.0004 10.4236 18.712 9.70223C19.0998 9.30904 19.0954 8.67589 18.7022 8.28805C18.309 7.90022 17.6759 7.90457 17.2881 8.29777C16.5843 9.01131 15.3169 10.2724 13.648 11.9228L13.6077 11.9626C12.6662 12.8937 11.6572 13.8889 10.6483 14.8825C10.3578 15.1685 10.0845 15.4375 9.83288 15.6851L6.73534 12.3223Z"
@@ -384,8 +413,9 @@
                                                         <span class="renk-secenek" id="renk-secenek4"></span>
                                                         <span class="renk-secenek" id="renk-secenek5"></span>
                                                         <span class="renk-secenek" id="renk-secenek6">
-                                                            <svg width="17" height="17" role="presentation" focusable="false"
-                                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                            <svg width="17" height="17" role="presentation"
+                                                                focusable="false" viewBox="0 0 24 24"
+                                                                xmlns="http://www.w3.org/2000/svg">
                                                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                                                     d="M5 14C6.10457 14 7 13.1046 7 12C7 10.8954 6.10457 10 5 10C3.89543 10 3 10.8954 3 12C3 13.1046 3.89543 14 5 14ZM12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14ZM21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z"
                                                                     fill="currentColor"></path>
@@ -395,13 +425,16 @@
                                                 </div>
                                                 <div class="d-flex flex-column">
                                                     <div class="pano_add_input">
-                                                        <label for="">Pano Başlığı<span style="color: red;">*</span></label>
-                                                        <input class="panoBasligi_inpt" type="text" name="name">
+                                                        <label for="">Pano Başlığı<span
+                                                                style="color: red;">*</span></label>
+                                                        <input class="panoBasligi_inpt" type="text"
+                                                            name="name">
                                                         <span class="nameSpan">👋 Pano başlığı gerekli</span>
                                                     </div>
                                                     <div class="pano_add_input">
                                                         <label for="">Görünürlük</label>
-                                                        <select class="panoBasligi_inpt" name="görünürlük" id="">
+                                                        <select class="panoBasligi_inpt" name="görünürlük"
+                                                            id="">
                                                             <option value="1">Özel</option>
                                                             <option value="2" selected>Çalışma Alanı</option>
                                                             <option value="1">Herkese Açık</option>
@@ -506,9 +539,6 @@
                                             </div>
                                         </span>
                                     </div>
-                                    <span class="ayarlar-logo">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </span>
                                 </div>
                             </div>
                             <div class="notification-body">
@@ -560,7 +590,7 @@
                 <div class="right-icon" id="pf">
                     <div class="dropdown">
                         <button data-bs-toggle="dropdown" data-bs-auto-close="outside">
-                            AU
+                            {{ $sonuc }}
                         </button>
                         <ul class="dropdown-menu dropdown-sidebar">
                             <div class="dropdown-sidebar-container">
@@ -571,16 +601,16 @@
                                     <div class="user-button-info">
                                         <button class="userProfileButton" data-bs-toggle="dropdown"
                                             data-bs-auto-close="outside">
-                                            AU
+                                            {{ $sonuc }}
                                         </button>
                                         <div class="sidebar-button-info-text">
-                                            <span id="info-name">apk usta</span>
-                                            <span id="info-email">cobanberat71@gmail.com</span>
+                                            <span id="info-name">{{ $user->name }}</span>
+                                            <span id="info-email">{{ $user->email }}</span>
                                         </div>
                                     </div>
                                     <div class="nav-item-sidebar">
-                                        <ul>Hesap Değiştir</ul>
-                                        <ul class="ul-yönet">Hesabı Yönet<svg width="17" height="17"
+                                        <ul># Hesap Değiştir</ul>
+                                        <ul class="ul-yönet"># Hesabı Yönet<svg width="17" height="17"
                                                 viewBox="0 0 24 24" role="presentation">
                                                 <g fill="currentcolor">
                                                     <path
@@ -602,20 +632,20 @@
                                             <span>TRELLO</span>
                                         </div>
                                         <div class="trello-nav">
-                                            <div class="trello-nav-item">
+                                            <a href="/profile" class="trello-nav-item">
                                                 <span>Profil ve Görünürlük</span>
+                                            </a>
+                                            <div class="trello-nav-item">
+                                                <span># Etkinlik</span>
                                             </div>
                                             <div class="trello-nav-item">
-                                                <span>Etkinlik</span>
+                                                <span># Kartlar</span>
                                             </div>
                                             <div class="trello-nav-item">
-                                                <span>Kartlar</span>
+                                                <span># Ayarlar</span>
                                             </div>
                                             <div class="trello-nav-item">
-                                                <span>Ayarlar</span>
-                                            </div>
-                                            <div class="trello-nav-item">
-                                                <span>Tema <i class="bi bi-chevron-right"></i></span>
+                                                <span># Tema <i class="bi bi-chevron-right"></i></span>
                                             </div>
                                         </div>
                                     </div>
@@ -624,6 +654,7 @@
                                 <div class="cizgi"></div>
                                 <div class="dropdown-sidebar-calisma-add">
                                     <span class="trello-nav-item-add">
+                                        <span>#</span>
                                         <svg width="17" height="17" role="presentation" focusable="false"
                                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -636,10 +667,10 @@
                                 <div class="cizgi"></div>
                                 <div class="dropdown-sidebar-help">
                                     <div class="trello-nav-item">
-                                        <span>Yardım</span>
+                                        <span># Yardım</span>
                                     </div>
                                     <div class="trello-nav-item">
-                                        <span>Kısayollar</span>
+                                        <span># Kısayollar</span>
                                     </div>
                                 </div>
                                 <div class="cizgi"></div>
@@ -668,6 +699,7 @@
         @yield('main-sidebar')
         @yield('main-container')
         @yield('home')
+        @yield('profile')
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>

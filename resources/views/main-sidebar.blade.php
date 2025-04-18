@@ -5,8 +5,9 @@
         <div class="main-sidebar" style="width:250px">
             <div class="sdbr d-flex flex-column gap-2">
                 <div class="sidebar-options gap-2">
-                    <div class="rounded sidebar-active" id="sidebar-texts-main">
-                        <a href="/dashboard" class="div-bslk">
+                    @php $aktifLink = request()->segment(1) @endphp
+                    <div class="rounded {{ $aktifLink == 'dashboard' ? ' sidebar-active' : '' }}" id="sidebar-texts-main">
+                        <a href="/dashboard" class="div-bslk ">
                             <svg style="color:#fff" width="17" height="17" role="presentation" focusable="false"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -16,7 +17,7 @@
                             <span>Panolar</span>
                         </a>
                     </div>
-                    <div class="rounded" id="sidebar-texts-main">
+                    <div class="rounded " id="sidebar-texts-main">
                         <div class="div-bslk">
                             <svg width="17" height="17" role="presentation" focusable="false" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -49,7 +50,7 @@
                             <span># Şablonlar</span>
                         </div>
                     </div>
-                    <div class="rounded" id="sidebar-texts-main">
+                    <div class="rounded  {{ $aktifLink == 'main' ? 'sidebar-active' : '' }}" id="sidebar-texts-main">
                         <a href="/main" class="div-bslk">
                             <i class="bi bi-activity"></i>
                             <span>Anasayfa</span>
@@ -74,7 +75,7 @@
                     </div>
                 </div>
                 <div class="">
-                    <a href="/dashboard" id="sidebar-texts-main" class="d-flex align-items-center p-2 justify-content-start rounded">
+                    <a href="/pano" id="sidebar-texts-main" class="d-flex align-items-center p-2 justify-content-start rounded  {{ $aktifLink == 'pano' ? 'sidebar-active' : '' }}">
                         <div class="d-flex align-items-center gap-2 ml-7">
                             <svg style="color:#fff" width="17" height="17" role="presentation" focusable="false"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -87,7 +88,7 @@
                             </span>
                         </div>
                     </a>
-                    <a href="/highlights" id="sidebar-texts-main" class="d-flex align-items-center p-2 justify-content-start rounded">
+                    <a href="/highlights" id="sidebar-texts-main" class="d-flex align-items-center p-2 justify-content-start rounded  {{ $aktifLink == 'highlights' ? 'sidebar-active' : '' }}">
                         <div class="d-flex align-items-center gap-2 ml-7">
                             <svg width="20" height="20" role="presentation" focusable="false" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -104,7 +105,7 @@
                     <div id="sidebar-texts-main"
                         class="d-flex gorunum align-items-center p-2 justify-content-start rounded">
                         <div class="d-flex align-items-center gap-2 ml-7">
-                            <svg width="20" height="20" role="presentation" focusable="false" viewBox="0 0 24 24"
+                           # <svg width="20" height="20" role="presentation" focusable="false" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M3 5C3 3.89543 3.89543 3 5 3H9C10.1046 3 11 3.89543 11 5V9C11 10.1046 10.1046 11 9 11H5C3.89543 11 3 10.1046 3 9V5ZM5 5H9V9H5V5Z"
@@ -130,7 +131,7 @@
                     <div id="sidebar-texts-main"
                         class="d-flex uyeler align-items-center p-2 justify-content-start rounded">
                         <div class="d-flex align-items-center gap-2 ml-7">
-                            <svg width="20" height="20" role="presentation" focusable="false"
+                            # <svg width="20" height="20" role="presentation" focusable="false"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M12.5048 5.67168C11.9099 5.32669 11.2374 5.10082 10.5198 5.0267C11.2076 3.81639 12.5085 3 14 3C16.2092 3 18 4.79086 18 7C18 7.99184 17.639 8.89936 17.0413 9.59835C19.9512 10.7953 22 13.6584 22 17C22 17.5523 21.5523 18 21 18H18.777C18.6179 17.2987 18.3768 16.6285 18.0645 16H19.917C19.4892 13.4497 17.4525 11.445 14.8863 11.065C14.9608 10.7218 15 10.3655 15 10C15 9.58908 14.9504 9.18974 14.857 8.80763C15.5328 8.48668 16 7.79791 16 7C16 5.89543 15.1046 5 14 5C13.4053 5 12.8711 5.25961 12.5048 5.67168ZM10 12C11.1046 12 12 11.1046 12 10C12 8.89543 11.1046 8 10 8C8.89543 8 8 8.89543 8 10C8 11.1046 8.89543 12 10 12ZM14 10C14 10.9918 13.639 11.8994 13.0412 12.5984C15.9512 13.7953 18 16.6584 18 20C18 20.5523 17.5523 21 17 21H3C2.44772 21 2 20.5523 2 20C2 16.6584 4.04879 13.7953 6.95875 12.5984C6.36099 11.8994 6 10.9918 6 10C6 7.79086 7.79086 6 10 6C12.2091 6 14 7.79086 14 10ZM9.99999 14C12.973 14 15.441 16.1623 15.917 19H4.08295C4.55902 16.1623 7.02699 14 9.99999 14Z"
@@ -148,7 +149,7 @@
                     <div id="sidebar-texts-main"
                         class="d-flex ayarlar align-items-center p-2 justify-content-start rounded">
                         <div class="d-flex align-items-center gap-2 ml-7">
-                            <svg width="20" height="20" role="presentation" focusable="false"
+                           # <svg width="20" height="20" role="presentation" focusable="false"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M12.0017 17.0009C9.23868 17.0009 6.99968 14.7609 6.99968 11.9989C6.99968 9.23586 9.23868 6.99686 12.0017 6.99686C14.7647 6.99686 17.0037 9.23586 17.0037 11.9989C17.0037 14.7609 14.7647 17.0009 12.0017 17.0009ZM20.3697 13.8839C19.5867 13.6119 19.0237 12.8749 19.0237 11.9989C19.0237 11.1229 19.5867 10.3859 20.3687 10.1139C20.6057 10.0319 20.7517 9.78086 20.6837 9.53986C20.4847 8.83586 20.2017 8.16886 19.8477 7.54686C19.7297 7.33886 19.4707 7.26186 19.2497 7.35186C18.8647 7.50986 18.4197 7.55086 17.9587 7.43286C17.2847 7.25886 16.7337 6.70986 16.5557 6.03686C16.4337 5.57386 16.4747 5.12686 16.6317 4.73986C16.7207 4.51986 16.6437 4.26086 16.4357 4.14286C15.8187 3.79386 15.1567 3.51386 14.4607 3.31686C14.2187 3.24886 13.9687 3.39386 13.8867 3.63086C13.6147 4.41386 12.8777 4.97686 12.0017 4.97686C11.1267 4.97686 10.3887 4.41386 10.1177 3.63186C10.0347 3.39486 9.78368 3.24886 9.54268 3.31686C8.83468 3.51686 8.16368 3.80186 7.53868 4.15886C7.33768 4.27386 7.25268 4.52586 7.34068 4.74086C7.48768 5.10186 7.53268 5.51386 7.43868 5.94386C7.28368 6.64986 6.72468 7.24086 6.02568 7.42786C5.56768 7.55086 5.12768 7.51186 4.74568 7.35986C4.52568 7.27186 4.26768 7.34986 4.15068 7.55586C3.79768 8.17786 3.51568 8.84586 3.31768 9.54986C3.24968 9.78886 3.39268 10.0369 3.62568 10.1219C4.39668 10.3999 4.94868 11.1319 4.94868 11.9989C4.94868 12.8659 4.39668 13.5979 3.62468 13.8759C3.39168 13.9599 3.24968 14.2079 3.31668 14.4469C3.49368 15.0739 3.73868 15.6729 4.03968 16.2369C4.15868 16.4589 4.43468 16.5349 4.66368 16.4299C5.25868 16.1569 6.00668 16.1659 6.76768 16.6679C6.88468 16.7449 6.99268 16.8529 7.06968 16.9689C7.59668 17.7679 7.58168 18.5489 7.26768 19.1559C7.15268 19.3789 7.21968 19.6569 7.43568 19.7839C8.08968 20.1679 8.79768 20.4709 9.54468 20.6809C9.78568 20.7489 10.0337 20.6049 10.1147 20.3679C10.3837 19.5819 11.1237 19.0149 12.0017 19.0149C12.8797 19.0149 13.6197 19.5819 13.8887 20.3679C13.9697 20.6039 14.2177 20.7489 14.4587 20.6809C15.1957 20.4739 15.8947 20.1749 16.5427 19.7979C16.7607 19.6709 16.8267 19.3899 16.7097 19.1669C16.3917 18.5589 16.3727 17.7739 16.9007 16.9719C16.9777 16.8559 17.0857 16.7469 17.2027 16.6699C17.9747 16.1589 18.7297 16.1569 19.3277 16.4399C19.5567 16.5479 19.8357 16.4729 19.9557 16.2499C20.2597 15.6859 20.5047 15.0859 20.6837 14.4569C20.7517 14.2159 20.6067 13.9659 20.3697 13.8839Z"

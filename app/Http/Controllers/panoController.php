@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\pano;
 use App\Models\lists;
 use App\Models\card;
+use App\Models\favories;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -83,6 +85,7 @@ class panoController extends Controller
             'main-sidebar' => view('main-sidebar', compact('pano')),
         ]);
     }
+
     public function home()
     {
         $pano = pano::where('user_id', Auth::id())->orderBy('id', 'asc')->get();
@@ -153,28 +156,52 @@ class panoController extends Controller
     public function destroy($id)
     {
         $pano = pano::findOrFail($id);
-    
+
         $listeler = $pano->lists;
-    
+
         foreach ($listeler as $liste) {
-            $liste->cards()->delete(); 
+            $liste->cards()->delete();
         }
-    
-        $pano->lists()->delete(); 
-    
+
+        $pano->lists()->delete();
+
         $pano->delete();
-    
+
         return redirect('/dashboard')->with('success', 'Pano ve içeriği başarıyla silindi.');
     }
     public function deleleList($id)
-{
-    $list = lists::findOrFail($id);
+    {
+        $list = lists::findOrFail($id);
 
-    $list->cards()->delete();
+        $list->cards()->delete();
 
-    $list->delete();
+        $list->delete();
 
-    return response()->json(['success' => true, 'message' => 'Liste ve kartları silindi.']);
-}
+        return response()->json(['success' => true, 'message' => 'Liste ve kartları silindi.']);
+    }
+    public function profileUpdate(request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+        $user = User::find(Auth::user()->id);
+        $user->name = $request->name;
+        $user->save();
+        return response()->json(['success' => true ,'name' => $user->name, 'message' => 'Kaydedildi']);
+    }
+    public function profile()
+    {
 
+        $user = User::where("id", Auth::id())->first();
+        $fullName = $user->name;
+        $words = explode(" ", $fullName);
+        $sonuc = "";
+
+        foreach ($words as $word) {
+            $sonuc .= strtoupper(substr($word, 0, 1));
+        }
+        return view('layouts.app', [
+            'profile' => view('profile', compact("user", 'sonuc'))
+        ]);
+    }
 }

@@ -1,34 +1,35 @@
-
-import Alpine from 'alpinejs';
+import Alpine from "alpinejs";
 
 window.Alpine = Alpine;
 
 Alpine.start();
 
 const sortHandle = () => {
-    $('.sortable').sortable({
-        connectWith: '.sortable',
+    $(".sortable").sortable({
+        connectWith: ".sortable",
         start: function (event, ui) {
-            ui.item.addClass('tilt');
-            ui.item.css('opacity', '0.7');
-            ui.item.css('border', 'none');
+            ui.item.addClass("tilt");
+            ui.item.css("opacity", "0.7");
+            ui.item.css("border", "none");
         },
         stop: function (event, ui) {
-            ui.item.removeClass('tilt');
-            ui.item.css('opacity', '');
-            $('.card').removeClass('hover-border');
-            $('.card-texts').hover(function () {
-                $(this).css('border', '2px solid #388bff');
-            }, function () {
-                $(this).css('border', '');
-            });
+            ui.item.removeClass("tilt");
+            ui.item.css("opacity", "");
+            $(".card").removeClass("hover-border");
+            $(".card-texts").hover(
+                function () {
+                    $(this).css("border", "2px solid #388bff");
+                },
+                function () {
+                    $(this).css("border", "");
+                }
+            );
         },
         placeholder: "beratholder",
-        group: 'nested',
+        group: "nested",
         afterMove: function (placeholder, container) {
             if (oldContainer != container) {
-                if (oldContainer)
-                    oldContainer.el.removeClass("active");
+                if (oldContainer) oldContainer.el.removeClass("active");
                 container.el.addClass("active");
 
                 oldContainer = container;
@@ -36,61 +37,71 @@ const sortHandle = () => {
         },
         over: function (event, ui) {
             $(ui.placeholder).css({ height: ui.item.height() + 10 });
-            $(ui.placeholder).closest('.card').addClass('hover-border').css('box-shadow', '0 4px 8px rgba(0, 0, 0, 0.2)');
+            $(ui.placeholder)
+                .closest(".card")
+                .addClass("hover-border")
+                .css("box-shadow", "0 4px 8px rgba(0, 0, 0, 0.2)");
         },
         out: function (event, ui) {
-            $(ui.placeholder).closest('.card').removeClass('hover-border').css('box-shadow', '');
+            $(ui.placeholder)
+                .closest(".card")
+                .removeClass("hover-border")
+                .css("box-shadow", "");
         },
         update: function (event, ui) {
-            let cardId = ui.item.data('card-id');
-            let NListId = ui.item.closest('.sortable-container').data('list-id');
+            let cardId = ui.item.data("card-id");
+            let NListId = ui.item
+                .closest(".sortable-container")
+                .data("list-id");
 
             $.ajax({
-                url: '/card/update-list',
-                method: 'POST',
+                url: "/card/update-list",
+                method: "POST",
                 data: {
-                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    _token: $('meta[name="csrf-token"]').attr("content"),
                     card_id: cardId,
-                    new_list_id: NListId
+                    new_list_id: NListId,
                 },
             });
-        }
+        },
     });
-}
+};
 
 $(document).ready(function () {
     sortHandle();
 
-    $('<style>.hover-border { border: 2px solid #007bff; }</style>').appendTo('head');
+    $("<style>.hover-border { border: 2px solid #007bff; }</style>").appendTo(
+        "head"
+    );
 
-    const input = $('.input-srch');
-    const noneElement = $('.right-search');
-    const premiumButton = $('.right-premium-button');
+    const input = $(".input-srch");
+    const noneElement = $(".right-search");
+    const premiumButton = $(".right-premium-button");
 
-    input.on('focus', () => {
+    input.on("focus", () => {
         noneElement.css({
-            width: '600px',
-            'background-color': 'white',
-            color: '#975173',
+            width: "600px",
+            "background-color": "white",
+            color: "#975173",
         });
-        input.css('background-color', 'white');
-        input.addClass('focused');
+        input.css("background-color", "white");
+        input.addClass("focused");
         premiumButton.hide();
     });
 
-    input.on('blur', () => {
+    input.on("blur", () => {
         premiumButton.show();
-        input.removeClass('focused');
+        input.removeClass("focused");
         input.css({
-            width: '100%',
-            'background-color': '#975173',
-            color: '#975173',
+            width: "100%",
+            "background-color": "#975173",
+            color: "#975173",
         });
         noneElement.css({
-            width: '',
-            'background-color': '#975173',
-            color: '#ffff',
-            display: 'flex',
+            width: "",
+            "background-color": "#975173",
+            color: "#ffff",
+            display: "flex",
         });
     });
     $(".formListAdd").on("submit", function (e) {
@@ -98,17 +109,19 @@ $(document).ready(function () {
         var form = $(this).serialize(e);
 
         $.ajax({
-            url: '/ListAdd',
-            type: 'POST',
+            url: "/ListAdd",
+            type: "POST",
             data: {
-                name: $(this).find('input[name=name]').val(),
-                pano_id: $(this).find('input[name=pano_id]').val(),
-                _token: $(this).find('input[name=_token]').val()
+                name: $(this).find("input[name=name]").val(),
+                pano_id: $(this).find("input[name=pano_id]").val(),
+                _token: $(this).find("input[name=_token]").val(),
             },
-            dataType: 'json',
+            dataType: "json",
             success: function (response) {
                 const listId = response.id;
-                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                const csrfToken = document
+                    .querySelector('meta[name="csrf-token"]')
+                    .getAttribute("content");
                 const cardHtml = `
                     <div class="sortable-container" data-list-id="${listId}">
                         <div class="card" style="width: 17rem">
@@ -210,13 +223,11 @@ $(document).ready(function () {
                         </div>
                     </div>`;
 
-                $('.card-container').append(cardHtml);
+                $(".card-container").append(cardHtml);
                 sortHandle();
-            }
-
-        })
+            },
+        });
     }),
-
         $(".card-container").on("submit", ".card-add-form", function (e) {
             e.preventDefault();
 
@@ -224,10 +235,10 @@ $(document).ready(function () {
             let formData = $form.serialize();
 
             $.ajax({
-                url: '/cardAdd',
-                type: 'POST',
+                url: "/cardAdd",
+                type: "POST",
                 data: formData,
-                dataType: 'json',
+                dataType: "json",
                 success: function (response) {
                     console.log(response);
 
@@ -316,60 +327,71 @@ $(document).ready(function () {
                                       
                                       `;
 
-                    $form.closest(".card").find(".card-text-body").append(cardHtml);
+                    $form
+                        .closest(".card")
+                        .find(".card-text-body")
+                        .append(cardHtml);
 
                     $form[0].reset();
-                    $form.closest('.card').find(".addCardDiv").addClass("d-none");
-                    $form.closest('.card').find(".card-add").removeClass("d-none");
+                    $form
+                        .closest(".card")
+                        .find(".addCardDiv")
+                        .addClass("d-none");
+                    $form
+                        .closest(".card")
+                        .find(".card-add")
+                        .removeClass("d-none");
                 },
                 error: function (xhr) {
                     console.log(xhr.responseJSON);
-                }
+                },
             });
         });
-    $(document).on('click', '.modalAddBtn', function () {
-        var $form = $(this).closest('form');
-        var cardId = $(this).closest('.modal').attr('id').replace('btn', '');
+    $(document).on("click", ".modalAddBtn", function () {
+        var $form = $(this).closest("form");
+        var cardId = $(this).closest(".modal").attr("id").replace("btn", "");
         var updatedName = $form.find('textarea[name="name"]').val();
 
         var formData = {
-            _token: $('meta[name="csrf-token"]').attr('content'),
+            _token: $('meta[name="csrf-token"]').attr("content"),
             id: cardId,
-            name: updatedName
+            name: updatedName,
         };
 
         $.ajax({
-            url: '/cardUpdate',
-            type: 'POST',
+            url: "/cardUpdate",
+            type: "POST",
             data: formData,
-            dataType: 'json',
+            dataType: "json",
             success: function (response) {
                 console.log(response);
 
                 var cardHtml = `<span>${response.name}</span>`;
-                $(`ul[data-card-id="${response.id}"]`).find('.card-text-span').html(cardHtml);
+                $(`ul[data-card-id="${response.id}"]`)
+                    .find(".card-text-span")
+                    .html(cardHtml);
 
-                $form.closest('.modal').modal('hide');
-                $('.modal-backdrop').remove();
+                $form.closest(".modal").modal("hide");
+                $(".modal-backdrop").remove();
             },
             error: function (xhr) {
                 console.log(xhr.responseJSON);
-            }
+            },
         });
     }),
-        $(document).on('click', '.editable', function () {
+        $(document).on("click", ".editable", function () {
             var $span = $(this);
-            var $input = $span.next('.edit-input');
+            var $input = $span.next(".edit-input");
 
-            $span.addClass('d-none');
-            $input.removeClass('d-none').focus().select();
+            $span.addClass("d-none");
+            $input.removeClass("d-none").focus().select();
         });
 
-    $(document).on('blur', '.edit-input', function () {
+    $(document).on("blur", ".edit-input", function () {
         updateListName($(this));
     });
 
-    $(document).on('keypress', '.edit-input', function (e) {
+    $(document).on("keypress", ".edit-input", function (e) {
         if (e.which === 13) {
             e.preventDefault();
             updateListName($(this));
@@ -378,8 +400,8 @@ $(document).ready(function () {
 
     function updateListName($input) {
         var newName = $input.val();
-        var id = $input.data('id');
-        var $span = $input.prev('.editable');
+        var id = $input.data("id");
+        var $span = $input.prev(".editable");
 
         if (!newName.trim()) {
             alert("İsim boş olamaz.");
@@ -387,135 +409,130 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: '/listUpdate',
-            type: 'POST',
+            url: "/listUpdate",
+            type: "POST",
             data: {
-                _token: $('meta[name="csrf-token"]').attr('content'),
+                _token: $('meta[name="csrf-token"]').attr("content"),
                 id: id,
-                name: newName
+                name: newName,
             },
             success: function (response) {
                 $span.text(response.name);
             },
-            error: function () {
-            },
+            error: function () {},
             complete: function () {
-                $input.addClass('d-none');
-                $span.removeClass('d-none');
-            }
+                $input.addClass("d-none");
+                $span.removeClass("d-none");
+            },
         });
     }
 
-    $(document).on('click', '.deleteCardBtn', function () {
-        var cardId = $(this).data('id');
+    $(document).on("click", ".deleteCardBtn", function () {
+        var cardId = $(this).data("id");
         var $cardElement = $(`ul[data-card-id="${cardId}"]`);
 
         $.ajax({
-            url: '/cardDelete',
-            type: 'POST',
+            url: "/cardDelete",
+            type: "POST",
             data: {
-                _token: $('meta[name="csrf-token"]').attr('content'),
-                id: cardId
+                _token: $('meta[name="csrf-token"]').attr("content"),
+                id: cardId,
             },
             success: function (response) {
                 $cardElement.remove();
 
-                $('.modal').modal('hide');
-                $('.modal-backdrop').remove();
-                $('body').removeClass('modal-open').css('padding-right', '');
+                $(".modal").modal("hide");
+                $(".modal-backdrop").remove();
+                $("body").removeClass("modal-open").css("padding-right", "");
             },
-            error: function () {
-            }
+            error: function () {},
         });
     });
 
-    $('#panoName').on('click', function () {
+    $("#panoName").on("click", function () {
         const $span = $(this);
-        const $input = $('#editPanoInput');
-        const $widthCalc = $('#widthCalculator');
-        const $projectTitleContainer = $('.project-title');
-        const panoId = $span.data('card-id');
+        const $input = $("#editPanoInput");
+        const $widthCalc = $("#widthCalculator");
+        const $projectTitleContainer = $(".project-title");
+        const panoId = $span.data("card-id");
 
-        if (!$input.hasClass('d-none')) {
+        if (!$input.hasClass("d-none")) {
             const updatedName = $input.val();
             $.ajax({
-                url: '/update-pano-name',
-                type: 'POST',
+                url: "/update-pano-name",
+                type: "POST",
                 data: {
-                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    _token: $('meta[name="csrf-token"]').attr("content"),
                     name: updatedName,
-                    pano_id: panoId
+                    pano_id: panoId,
                 },
                 success: function (response) {
                     if (response.success) {
                         $span.text(updatedName);
-                        $input.addClass('d-none');
-                        $projectTitleContainer.removeClass('d-none');
+                        $input.addClass("d-none");
+                        $projectTitleContainer.removeClass("d-none");
                     } else {
                     }
                 },
-                error: function () {
-                }
+                error: function () {},
             });
         } else {
-            $input.removeClass('d-none').focus();
-            $projectTitleContainer.addClass('d-none');
+            $input.removeClass("d-none").focus();
+            $projectTitleContainer.addClass("d-none");
 
             $widthCalc.text($input.val());
             $input.width($widthCalc.width() + 20);
         }
     });
 
-    $('#editPanoInput').on('keydown', function (e) {
-        if (e.key === 'Enter') {
-            e.preventDefault(); 
+    $("#editPanoInput").on("keydown", function (e) {
+        if (e.key === "Enter") {
+            e.preventDefault();
             const updatedName = $(this).val();
-            const panoId = $('#panoName').data('card-id');
-            const $span = $('#panoName');
+            const panoId = $("#panoName").data("card-id");
+            const $span = $("#panoName");
             const $input = $(this);
-            const $projectTitleContainer = $('.project-title');
-    
+            const $projectTitleContainer = $(".project-title");
+
             $.ajax({
-                url: '/update-pano-name',
-                type: 'POST',
+                url: "/update-pano-name",
+                type: "POST",
                 data: {
-                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    _token: $('meta[name="csrf-token"]').attr("content"),
                     name: updatedName,
-                    pano_id: panoId
+                    pano_id: panoId,
                 },
                 success: function (response) {
                     if (response.success) {
                         $span.text(updatedName);
-                        $input.addClass('d-none');
-                        $projectTitleContainer.removeClass('d-none');
+                        $input.addClass("d-none");
+                        $projectTitleContainer.removeClass("d-none");
                     } else {
                     }
                 },
-                error: function () {
-                }
+                error: function () {},
             });
         }
     });
 
-
-
-
-
     $("#canvasSidebar").click(function () {
         $(this).addClass("d-none");
         $(".container-two").addClass("flex-shrink-1");
-    })
+    });
     $(".listAdd-button").click(function () {
         $(this).addClass("d-none");
         $(".List-add-form").removeClass("d-none");
         $(".inpt-List").focus();
-    })
+    });
     $(".btn-back").click(function () {
         $(".List-add-form").addClass("d-none");
         $(".listAdd-button").removeClass("d-none");
-    })
+    });
     $(document).on("click", function (e) {
-        if (!$(e.target).closest('.List-add-form').length && !$(e.target).hasClass('listAdd-button')) {
+        if (
+            !$(e.target).closest(".List-add-form").length &&
+            !$(e.target).hasClass("listAdd-button")
+        ) {
             $(".List-add-form").addClass("d-none");
             $(".listAdd-button").removeClass("d-none");
         }
@@ -524,13 +541,18 @@ $(document).ready(function () {
     $(".panoBasligi_inpt").on("input", function () {
         if ($(this).val().length === 0) {
             $(".nameSpan").show();
-            $(".pano-add-button").addClass("none-button").removeClass("pano-add-button").prop("disabled", true);
+            $(".pano-add-button")
+                .addClass("none-button")
+                .removeClass("pano-add-button")
+                .prop("disabled", true);
         } else {
             $(".nameSpan").hide();
-            $(".none-button").addClass("pano-add-button").removeClass("none-button").prop("disabled", false);
+            $(".none-button")
+                .addClass("pano-add-button")
+                .removeClass("none-button")
+                .prop("disabled", false);
         }
     });
-
 
     $("#canvasSidebarClose").click(function (e) {
         $("#canvasSidebar").removeClass("d-none");
@@ -539,47 +561,47 @@ $(document).ready(function () {
 
     $(".sidebar-main-button").click(function (e) {
         $(".sidebar").addClass("d-none");
-        $(".sidebar-open-button").removeClass('d-none');
+        $(".sidebar-open-button").removeClass("d-none");
         $(".container-two").css({
-            width: 'calc(100% - 0px)'
+            width: "calc(100% - 0px)",
         });
         $(".container-sidebar-right").css({
-            'padding-right': '16px'
+            "padding-right": "16px",
         });
     });
     $(".sidebar-open-button").click(function (e) {
         $(".sidebar").removeClass("d-none");
-        $(".sidebar-open-button").addClass('d-none');
+        $(".sidebar-open-button").addClass("d-none");
         $(".container-two").css({
-            width: 'calc(100% - 260px)'
+            width: "calc(100% - 260px)",
         });
         $(".container-sidebar-right").css({
-            'padding-right': '0px'
+            "padding-right": "0px",
         });
     });
 });
 
 $(".card-container").on("click", ".btn-add", function (e) {
-    let card = $(this).closest('.card');
+    let card = $(this).closest(".card");
     card.find(".addCardDiv").removeClass("d-none");
     card.find(".card-add").addClass("d-none");
 });
 
 $(".card-container").on("click", ".btn-back-card", function (e) {
-    let card = $(this).closest('.card');
+    let card = $(this).closest(".card");
     card.find(".addCardDiv").addClass("d-none");
     card.find(".card-add").removeClass("d-none");
 });
 $(document).ready(function () {
-    $('.delete-list-btn').on("click", function (e) {
+    $(".delete-list-btn").on("click", function (e) {
         e.preventDefault();
-        let listId = $(this).data('list-id');
+        let listId = $(this).data("list-id");
 
         $.ajax({
-            url: '/list/delete/' + listId,
-            type: 'DELETE',
+            url: "/list/delete/" + listId,
+            type: "DELETE",
             data: {
-                _token: $('meta[name="csrf-token"]').attr('content'),
+                _token: $('meta[name="csrf-token"]').attr("content"),
             },
             success: function (response) {
                 if (response.success) {
@@ -587,8 +609,8 @@ $(document).ready(function () {
                 }
             },
             error: function (xhr) {
-                alert('Bir hata oluştu.');
-            }
+                alert("Bir hata oluştu.");
+            },
         });
     });
 });
@@ -596,7 +618,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const textarea = document.querySelector(".card-texts-inpt");
 
     if (textarea) {
-        textarea.setAttribute("style", "height:" + textarea.scrollHeight + "px;overflow-y:hidden;");
+        textarea.setAttribute(
+            "style",
+            "height:" + textarea.scrollHeight + "px;overflow-y:hidden;"
+        );
         textarea.addEventListener("input", function () {
             this.style.height = "auto";
             this.style.height = this.scrollHeight + "px";
@@ -604,7 +629,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 $(".card-container").on("click", ".modalBtn", function () {
-    
     let a = $(this).parent().offset().top;
     let b = $(this).parent().offset().left;
     $(this)
@@ -615,9 +639,37 @@ $(".card-container").on("click", ".modalBtn", function () {
         });
 });
 
-
 function resizeInput() {
-    $(this).attr('size', $(this).val().length);
+    $(this).attr("size", $(this).val().length);
 }
 
-$('input#editPanoInput[type="text"]').keyup(resizeInput)
+$('input#editPanoInput[type="text"]').keyup(resizeInput);
+
+$(document).ready(function () {
+    $(".profile-form").on("submit", function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: "/updateProfile",
+            type: "POST",
+            data: new FormData(e.target),
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function (response) {
+                var cardHtml = `
+                <div class="alert alert-success alert-bottom-left">
+            ${response.message}
+        </div>
+                `;
+                $(".profile").append(cardHtml);
+                $(".profile-form-input").val(response.name);
+
+                $(".profile-span-name").text(response.name);
+            },
+            error: function (xhr) {
+                alert("Bir hata oluştu.");
+            },
+        });
+    });
+});
