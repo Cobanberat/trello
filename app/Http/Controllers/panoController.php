@@ -162,7 +162,7 @@ class panoController extends Controller
         foreach ($listeler as $liste) {
             $liste->cards()->delete();
         }
-
+        $pano->favories()->delete();
         $pano->lists()->delete();
 
         $pano->delete();
@@ -187,7 +187,7 @@ class panoController extends Controller
         $user = User::find(Auth::user()->id);
         $user->name = $request->name;
         $user->save();
-        return response()->json(['success' => true ,'name' => $user->name, 'message' => 'Kaydedildi']);
+        return response()->json(['success' => true, 'name' => $user->name, 'message' => 'Kaydedildi']);
     }
     public function profile()
     {

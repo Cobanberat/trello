@@ -10,7 +10,11 @@ class pano extends Model
 {
     protected $guarded = [];
     public function lists()
-{
-    return $this->hasMany(Lists::class);
-}
+    {
+        return $this->hasMany(Lists::class);
+    }
+    public function favories()
+    {
+        return $this->hasMany(favories::class);
+    }
 }

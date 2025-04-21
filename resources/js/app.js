@@ -646,6 +646,22 @@ function resizeInput() {
 $('input#editPanoInput[type="text"]').keyup(resizeInput);
 
 $(document).ready(function () {
+    $('.trello-click-btn').on('click', function () {
+        $('.trello-click-btn-sidebar').slideToggle(200);
+    
+        const icon = $(this).find('i');
+    
+        if (icon.hasClass('bi-chevron-up')) {
+            icon.removeClass('bi-chevron-up').addClass('bi-chevron-down');
+        } else {
+            icon.removeClass('bi-chevron-down').addClass('bi-chevron-up');
+        }
+    });
+    
+
+
+
+
     $(".profile-form").on("submit", function (e) {
         e.preventDefault();
 

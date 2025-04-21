@@ -62,7 +62,7 @@
                     <div style="font-size:12px;font-weight:500; color: #cfcfcf;">
                         <span>Çalışma Alanları</span>
                     </div>
-                    <div id="sidebar-texts-main" class="d-flex align-items-center p-2 justify-content-start rounded">
+                    <div id="sidebar-texts-main" class="d-flex align-items-center p-2 justify-content-start rounded trello-click-btn">
                         <div class="d-flex align-items-center gap-2">
                             <span class="main-s-alt-logo p-1">T</span>
                             <span style="font-weight:500;font-size:13px; color: #e4e3e3;">
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="">
+                <div class="trello-click-btn-sidebar">
                     <a href="/pano" id="sidebar-texts-main" class="d-flex align-items-center p-2 justify-content-start rounded  {{ $aktifLink == 'pano' ? 'sidebar-active' : '' }}">
                         <div class="d-flex align-items-center gap-2 ml-7">
                             <svg style="color:#fff" width="17" height="17" role="presentation" focusable="false"

@@ -795,10 +795,12 @@ body {
     justify-content: center;
     border-radius: 100%;
     background-color: #00a3bf;
-    padding: 6px;
+    padding: 7px;
     font-weight: 720;
     font-size: 11px;
     color: #153859;
+    width: 30px;
+    height: 30px;
 }
 
 .profile-top {
@@ -816,6 +818,7 @@ body {
     background-image: url(/public/chevron-up.png);
     background-repeat: round;
 }
+
 
 .project-bottom-logo-right {
     display: flex;
@@ -1042,6 +1045,96 @@ body {
     padding: 5px;
     border-radius: 8px;
 }
+
+.dropdown-toggle::after {
+    border: none !important;
+}
+
+.background-dropdown-profile {
+    width: 304px;
+    height: 213px;
+}
+
+.background-dropdown-profile::before {
+    position: relative;
+    display: flex;
+    content: '';
+    width: 100%;
+    height: 40%;
+    background-color: #0c66e4;
+    bottom: 8px;
+    border-radius: 4px 4px 0 0;
+}
+
+.profile-bg {
+    width: 100%;
+    height: 60%;
+    display: flex;
+}
+
+.top-logo-profile {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    border-radius: 100%;
+    border: 1px solid #fff;
+    background-color: #00a3bf;
+    bottom: 50%;
+    left: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #172b4d;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.top-logo-profile-info {
+    position: relative;
+    width: 182px;
+    height: 40px;
+    bottom: 50%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    color: #172b4d;
+    font-size: 35px;
+}
+
+.profile-info-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+}
+
+.profile-info-email {
+    font-size: 10px;
+    font-weight: 500;
+    color: white;
+}
+
+.profile-info-btns {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    bottom: -10px;
+    height: 50%;
+    gap: 5px;
+
+}
+
+.profile-info-btns a {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px;
+    color: #172b4d;
+}
+.profile-info-btns a:hover {
+    color: #172b4d !important;
+    background-color: rgb(233, 233, 233);
+}
+
 
 .logo-dropdown-menu {
     z-index: 9999;
@@ -2177,10 +2270,13 @@ body {
 
 .project-button-main-container:hover {
     background-color: #c95b8e;
+    color: #ffffff;
+
 }
 
 .project-button-main-container:active {
     background-color: #df679f;
+    color: #ffffff;
 }
 
 .main-sidebar-container {
@@ -2846,8 +2942,9 @@ body {
 .profile-container {
     width: 100%;
     height: 100%;
-    
+
 }
+
 .scroller {
     height: 100%;
     overflow-y: scroll;
@@ -3100,9 +3197,11 @@ body {
 .profile-form-button:active {
     background-color: #0000000f;
 }
-.navLinksActive{
+
+.navLinksActive {
     border-color: #d33d85 !important;
 }
+
 .alert {
     visibility: hidden;
     position: fixed;
@@ -3126,6 +3225,7 @@ body {
         opacity: 1;
         visibility: visible;
     }
+
     100% {
         opacity: 0;
         visibility: hidden;
@@ -3140,22 +3240,25 @@ body {
     background-image: linear-gradient(to right, #dd1d0c, #b71c1c);
 }
 
-.alert-bottom-left{
+.alert-bottom-left {
     bottom: 20px;
     left: 20px;
 }
-.alert-bottom-right{
+
+.alert-bottom-right {
     bottom: 20px;
     right: 20px;
 }
-.alert-right{
- top: 20px;
- right: 20px;
+
+.alert-right {
+    top: 20px;
+    right: 20px;
 }
-.alert-left{
+
+.alert-left {
     top: 20px;
     left: 20px;
-   }
+}
 
 .alert::after {
     content: "";
@@ -3172,10 +3275,12 @@ body {
 .alert:hover::after {
     animation-play-state: paused;
 }
+
 @keyframes progressBar {
     from {
         width: 100%;
     }
+
     to {
         width: 0;
     }

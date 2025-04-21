@@ -25,8 +25,8 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     @php 
-    $favs = App\Models\favories::with('favori')->get();
-     $user = App\Models\User::where("id", auth()->id())->first();
+        $favs = App\Models\favories::with('favori')->where('user_id', Auth::id())->get();
+        $user = App\Models\User::where("id", auth()->id())->first();
     $fullName = $user->name;
     $words = explode(" ", $fullName);
     $sonuc = "";
