@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 class favories extends Model
 {
     protected $fillable = [
-        'name',
         'pano_id',
         'user_id',
     ];

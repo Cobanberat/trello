@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\favoriController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\panoController;
 use App\Http\Middleware\RedirectIfNotAuthenticated; 
@@ -60,6 +61,10 @@ Route::middleware([RedirectIfNotAuthenticated::class])->group(function () {
     Route::post('/update-pano-name', [panoController::class, 'updatePanoName']);
     Route::post('/card/update-list', [panoController::class, 'updateList']);
     Route::post('/getCards', [panoController::class, 'getCards']);
+
+    Route::post('/favori-ekle', [favoriController::class, 'ekle']);
+    Route::post('/favori-sil', [favoriController::class, 'sil']);;
+    
 
 
 });

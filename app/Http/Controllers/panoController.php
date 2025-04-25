@@ -69,12 +69,14 @@ class panoController extends Controller
     public function listPano($id)
     {
         $liste = lists::where('pano_id', $id)->orderBy('id', 'asc')->get();
-        $pano = pano::where('user_id', Auth::id())->orderBy('id', direction: 'asc')->get();
-        $panoName = pano::where('user_id', Auth::id())->first();
+        $pano = pano::with('favori')->where('user_id', Auth::id())->orderBy('id', direction: 'asc')->get();
+        $panoName = pano::where('user_id', Auth::id())->find($id);
+
+        $isFavori = favories::where('user_id', auth()->id())->where('pano_id', $id)->exists();
 
         return view('layouts.app', [
             'sidebar' => view('sidebar', compact('liste', 'pano', 'panoName')),
-            'container' => view('container', compact('liste', 'pano', 'panoName')),
+            'container' => view('container', compact('liste', 'pano', 'panoName', 'isFavori')),
         ]);
     }
     public function dashboard()

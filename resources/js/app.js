@@ -646,21 +646,17 @@ function resizeInput() {
 $('input#editPanoInput[type="text"]').keyup(resizeInput);
 
 $(document).ready(function () {
-    $('.trello-click-btn').on('click', function () {
-        $('.trello-click-btn-sidebar').slideToggle(200);
-    
-        const icon = $(this).find('i');
-    
-        if (icon.hasClass('bi-chevron-up')) {
-            icon.removeClass('bi-chevron-up').addClass('bi-chevron-down');
+    $(".trello-click-btn").on("click", function () {
+        $(".trello-click-btn-sidebar").slideToggle(200);
+
+        const icon = $(this).find("i");
+
+        if (icon.hasClass("bi-chevron-up")) {
+            icon.removeClass("bi-chevron-up").addClass("bi-chevron-down");
         } else {
-            icon.removeClass('bi-chevron-down').addClass('bi-chevron-up');
+            icon.removeClass("bi-chevron-down").addClass("bi-chevron-up");
         }
     });
-    
-
-
-
 
     $(".profile-form").on("submit", function (e) {
         e.preventDefault();
@@ -687,5 +683,47 @@ $(document).ready(function () {
                 alert("Bir hata oluştu.");
             },
         });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const exitBtn = document.querySelector(".exit-visibility");
+
+    if (exitBtn) {
+        exitBtn.addEventListener("click", function () {
+            const dropdownInstance =
+                bootstrap.Dropdown.getInstance(dropdownToggle) ||
+                new bootstrap.Dropdown(dropdownToggle);
+            dropdownInstance.hide();
+        });
+    }
+});
+
+document.querySelectorAll(".star-toggle").forEach(function (checkbox) {
+    checkbox.addEventListener("change", function () {
+        const panoId = this.dataset.panoId;
+        const isChecked = this.checked;
+
+        const url = isChecked ? "/favori-ekle" : "/favori-sil";
+
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document
+                    .querySelector('meta[name="csrf-token"]')
+                    .getAttribute("content"),
+            },
+            body: JSON.stringify({
+                pano_id: panoId,
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data.message);
+            })
+            .catch((error) => {
+                console.error("İstek başarısız:", error);
+            });
     });
 });

@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 
 class pano extends Model
 {
@@ -16,5 +14,9 @@ class pano extends Model
     public function favories()
     {
         return $this->hasMany(favories::class);
+    }
+    public function favori()
+    {
+        return $this->hasOne(favories::class, 'pano_id', 'id');
     }
 }

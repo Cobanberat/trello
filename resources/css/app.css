@@ -747,8 +747,7 @@ body {
     width: 210px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    gap: 3px;
+    gap: 4px;
 }
 
 .project-bottom-logo {
@@ -1130,6 +1129,7 @@ body {
     padding: 10px;
     color: #172b4d;
 }
+
 .profile-info-btns a:hover {
     color: #172b4d !important;
     background-color: rgb(233, 233, 233);
@@ -1880,6 +1880,7 @@ body {
     color: #465164;
 }
 
+
 .exit-visibility {
     width: 30%;
     display: flex;
@@ -1904,6 +1905,22 @@ body {
 }
 
 .option-baslik {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 14px;
+    font-weight: 400;
+    color:rgb(196, 192, 192) ;
+    cursor: no-drop;
+
+}
+.option-baslik input {
+   
+    border:none;
+    background-color: rgb(226, 223, 223) ; 
+
+}
+.option-baslik-act {
     display: flex;
     align-items: center;
     gap: 3px;
@@ -1948,7 +1965,6 @@ body {
 .dropdown-appearance {
     transform: translate(0px, 40px) !important;
     width: 300px;
-    min-height: 550px;
     border-radius: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -1964,6 +1980,13 @@ body {
     color: #465164;
 }
 
+.text-visibility-appearance span {
+    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .ort-option-appearance {
     padding: 10px;
     display: flex;
@@ -1972,6 +1995,16 @@ body {
 }
 
 .option-text-s {
+    font-size: 13px;
+    font-weight: 400;
+    color: #9f9fa0;
+    display: flex;
+    gap: 3px;
+    width: 100%;
+    justify-content: space-between;
+    cursor: no-drop;
+}
+.option-text-s-act {
     font-size: 13px;
     font-weight: 400;
     color: #44546f;
@@ -2824,6 +2857,7 @@ body {
     flex-direction: column;
     padding-top: 0;
     padding-bottom: 0;
+    width: 100%;
 }
 
 .project-name-bslk {
@@ -3284,4 +3318,100 @@ body {
     to {
         width: 0;
     }
+}
+
+.body-select-ust {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #172B4D;
+}
+
+.ort-text-body-select {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.ort-text-body-select:hover {
+    background-color: #dcdfe4;
+}
+
+.body-select-text {
+    display: flex;
+    font-size: 12px;
+    color: #4d5c76;
+    font-weight: 400;
+
+}
+
+.powerUpUlBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 15px;
+}
+
+.powerBody-img {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.powerBody-img {
+    width: 164px;
+    height: 147px;
+}
+
+.powerBody-text {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.powerBody-text span {
+    width: 90%;
+    color: #172b4d;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    display: flex;
+}
+
+
+
+.powerBody-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.powerBody-button button {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #0c66e4;
+    border-radius: 4px;
+    color: wheat;
+}
+
+.powerBody-button button:hover {
+    background-color: #0055cc;
+}
+
+.powerBody-button button:active {
+    background-color: #09326c;
 }

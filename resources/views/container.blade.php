@@ -9,6 +9,8 @@
         foreach ($words as $word) {
             $sonuc .= strtoupper(substr($word, 0, 1));
         }
+        $favs = App\Models\favories::with('favori')->where('user_id', Auth::id())->get();
+
     @endphp
     <div class="container-two">
         <div class="container-main">
@@ -23,24 +25,29 @@
 
                     <div class="project-logo-container">
                         <div class="project-fav">
-                            <label class="star" for="star-input">
-                                <input type="checkbox" name="star-input" id="star-input">
-                                <div class="srcs-p">
-                                    <svg class="star-empty" width="17" height="17" fill="currentColor"
-                                        role="presentation" focusable="false" viewBox="0 0 24 24"
+
+                            <label class="star" style="cursor:pointer;">
+                                <input type="checkbox" class="star-toggle" data-pano-id="{{ $panoName->id }}"
+                                    @if ($isFavori) checked @endif style="display: none;">
+
+
+                                <div class="ort-srcs">
+                                    <svg class="star-fill" width="20" height="20" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M7.49495 20.995L11.9999 18.6266L16.5049 20.995C16.8059 21.1533 17.1507 21.2079 17.4859 21.1504C18.3276 21.006 18.893 20.2066 18.7486 19.3649L17.8882 14.3485L21.5328 10.7959C21.7763 10.5585 21.9348 10.2475 21.9837 9.91094C22.1065 9.06576 21.5209 8.28106 20.6758 8.15825L15.6391 7.42637L13.3866 2.86236C13.2361 2.55739 12.9892 2.31054 12.6843 2.16003C11.9184 1.78206 10.9912 2.0965 10.6132 2.86236L8.36072 7.42637L3.32403 8.15825C2.98747 8.20715 2.67643 8.36564 2.43904 8.60917C1.84291 9.22074 1.85542 10.1998 2.46699 10.7959L6.11158 14.3485L5.25121 19.3649C5.19372 19.7 5.24833 20.0448 5.40658 20.3459C5.80401 21.1018 6.739 21.3924 7.49495 20.995ZM19.3457 10.0485L15.6728 13.6287L16.5398 18.684L11.9999 16.2972L7.45995 18.684L8.327 13.6287L4.65411 10.0485L9.72993 9.31093L11.9999 4.71146L14.2699 9.31093L19.3457 10.0485Z"
-                                            fill="currentColor"></path>
-                                    </svg>
-                                    <svg class="star-fill" width="17" height="17" role="presentation"
-                                        focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M11.9999 18.6266L7.49495 20.995C6.739 21.3924 5.80401 21.1018 5.40658 20.3459C5.24833 20.0448 5.19372 19.7 5.25121 19.3649L6.11158 14.3485L2.46699 10.7959C1.85542 10.1998 1.84291 9.22074 2.43904 8.60917C2.67643 8.36564 2.98747 8.20715 3.32403 8.15825L8.36072 7.42637L10.6132 2.86236C10.9912 2.0965 11.9184 1.78206 12.6843 2.16003C12.9892 2.31054 13.2361 2.55739 13.3866 2.86236L15.6391 7.42637L20.6758 8.15825C21.5209 8.28106 22.1065 9.06576 21.9837 9.91094C21.9348 10.2475 21.7763 10.5585 21.5328 10.7959L17.8882 14.3485L18.7486 19.3649C18.893 20.2066 18.3276 21.006 17.4859 21.1504C17.1507 21.2079 16.8059 21.1533 16.5049 20.995L11.9999 18.6266Z"
-                                            fill="currentColor"></path>
+                                            fill="currentColor" />
+                                    </svg>
+
+                                    <svg class="star-empty" width="20" height="20" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M7.49495 20.995L11.9999 18.6266L16.5049 20.995C16.8059 21.1533 17.1507 21.2079 17.4859 21.1504C18.3276 21.006 18.893 20.2066 18.7486 19.3649L17.8882 14.3485L21.5328 10.7959C21.7763 10.5585 21.9348 10.2475 21.9837 9.91094C22.1065 9.06576 21.5209 8.28106 20.6758 8.15825L15.6391 7.42637L13.3866 2.86236C13.2361 2.55739 12.9892 2.31054 12.6843 2.16003C11.9184 1.78206 10.9912 2.0965 10.6132 2.86236L8.36072 7.42637L3.32403 8.15825C2.98747 8.20715 2.67643 8.36564 2.43904 8.60917C1.84291 9.22074 1.85542 10.1998 2.46699 10.7959L6.11158 14.3485L5.25121 19.3649C5.19372 19.7 5.24833 20.0448 5.40658 20.3459C5.80401 21.1018 6.739 21.3924 7.49495 20.995ZM19.3457 10.0485L15.6728 13.6287L16.5398 18.684L11.9999 16.2972L7.45995 18.684L8.327 13.6287L4.65411 10.0485L9.72993 9.31093L11.9999 4.71146L14.2699 9.31093L19.3457 10.0485Z"
+                                            fill="currentColor" />
                                     </svg>
                                 </div>
                             </label>
+
                         </div>
                         <div class="dropdown">
                             <div class="project-web" data-bs-toggle="dropdown" data-bs-auto-close="outside">
@@ -61,9 +68,11 @@
                                     </div>
                                 </div>
                                 <div class="ort-option">
-                                    <div class="option-baslik">
-                                        <span style="color:red"><svg width="16" height="16" role="presentation"
-                                                focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <div class="option-baslik-act">
+                                        <span>#</span>
+                                        <span style="color:red">
+                                            <svg width="16" height="16" role="presentation" focusable="false"
+                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                                     d="M5 11C5 9.89543 5.89543 9 7 9H8H10H14H16H17C18.1046 9 19 9.89543 19 11V19C19 20.1046 18.1046 21 17 21H7C5.89543 21 5 20.1046 5 19V11ZM10 11H14H16H17V19H7V11H8H10ZM14 15C14 16.1046 13.1046 17 12 17C10.8954 17 10 16.1046 10 15C10 13.8954 10.8954 13 12 13C13.1046 13 14 13.8954 14 15Z"
                                                     fill="currentColor"></path>
@@ -80,7 +89,7 @@
                                     </div>
                                 </div>
                                 <div class="ort-option">
-                                    <div class="option-baslik">
+                                    <div class="option-baslik-act">
                                         <span style="color:#44546f;">
                                             <svg width="17" height="17" role="presentation" focusable="false"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +137,8 @@
                                     </div>
                                 </div>
                                 <div class="ort-option">
-                                    <div class="option-baslik">
+                                    <div class="option-baslik-act">
+                                        <span>#</span>
                                         <span style="color:#22a06b">
                                             <svg width="17" height="17" role="presentation" focusable="false"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -163,15 +173,16 @@
                             </svg>
                             <span>Pano</span>
                         </div>
-                        <div class="project-table-left">
-                            <svg width="17" height="17" role="presentation" focusable="false"
-                                viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M1.66683 9.66665C0.93045 9.66665 0.333496 9.06969 0.333496 8.33331V1.66665C0.333496 0.930267 0.93045 0.333313 1.66683 0.333313H12.3335C13.0699 0.333313 13.6668 0.930267 13.6668 1.66665V8.33331C13.6668 9.06969 13.0699 9.66665 12.3335 9.66665H1.66683ZM12.3335 5.66665V4.33331H5.66683V5.66665H12.3335ZM12.3335 2.99998V1.66665H5.66683V2.99998H12.3335ZM12.3335 6.99998V8.33331H5.66683V6.99998H12.3335ZM1.66683 4.33331V5.66665H4.3335V4.33331H1.66683ZM1.66683 6.99998V8.33331H4.3335V6.99998H1.66683ZM1.66683 2.99998V1.66665H4.3335V2.99998H1.66683Z"
-                                    fill="currentColor"></path>
-                            </svg>
-                            <span>Tablo</span>
-                        </div>
+                        <!-- #region <div class="project-table-left">
+                                                        <svg width="17" height="17" role="presentation" focusable="false"
+                                                            viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M1.66683 9.66665C0.93045 9.66665 0.333496 9.06969 0.333496 8.33331V1.66665C0.333496 0.930267 0.93045 0.333313 1.66683 0.333313H12.3335C13.0699 0.333313 13.6668 0.930267 13.6668 1.66665V8.33331C13.6668 9.06969 13.0699 9.66665 12.3335 9.66665H1.66683ZM12.3335 5.66665V4.33331H5.66683V5.66665H12.3335ZM12.3335 2.99998V1.66665H5.66683V2.99998H12.3335ZM12.3335 6.99998V8.33331H5.66683V6.99998H12.3335ZM1.66683 4.33331V5.66665H4.3335V4.33331H1.66683ZM1.66683 6.99998V8.33331H4.3335V6.99998H1.66683ZM1.66683 2.99998V1.66665H4.3335V2.99998H1.66683Z"
+                                                                fill="currentColor"></path>
+                                                        </svg>
+                                                        <span>Tablo</span>
+                                                    </div>
+                                                    -->
                         <div class="dropdown">
                             <div class="project-bottom-logo" data-bs-toggle="dropdown" data-bs-auto-close="outside"
                                 style="cursor: pointer;">
@@ -187,7 +198,7 @@
                                     </div>
                                 </div>
                                 <div class="ort-option-appearance">
-                                    <div class="option-baslik">
+                                    <div class="option-baslik-act">
                                         <span>
                                             <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
                                                 <g fill="currentcolor" fill-rule="evenodd">
@@ -200,9 +211,9 @@
                                                 </g>
                                             </svg>
                                         </span>
-                                        <span><input class="none-color" type="checkbox"></span>
+                                        <span><input class="none-color" checked disabled type="checkbox"></span>
                                     </div>
-                                    <div class="option-text-s">
+                                    <div class="option-text-s-act">
                                         <span class="option-text-s-span">
                                             <svg width="17" height="17" role="presentation" focusable="false"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -217,6 +228,46 @@
                                                     fill="currentColor"></path>
                                             </svg>
                                             <span>Pano</span>
+                                        </span>
+                                        <span>
+                                            <svg width="17" height="17" role="presentation" focusable="false"
+                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M5 11C5 9.89543 5.89543 9 7 9H8H10H14H16H17C18.1046 9 19 9.89543 19 11V19C19 20.1046 18.1046 21 17 21H7C5.89543 21 5 20.1046 5 19V11ZM10 11H14H16H17V19H7V11H8H10ZM14 15C14 16.1046 13.1046 17 12 17C10.8954 17 10 16.1046 10 15C10 13.8954 10.8954 13 12 13C13.1046 13 14 13.8954 14 15Z"
+                                                    fill="currentColor"></path>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10.3817 5.69846C10.0982 6.10344 10 6.63103 10 7V9H8V7C8 6.36897 8.15175 5.39656 8.74327 4.55154C9.37523 3.64874 10.4367 3 12 3C13.5633 3 14.6248 3.64874 15.2567 4.55154C15.8482 5.39656 16 6.36897 16 7V9H14V7C14 6.63103 13.9018 6.10344 13.6183 5.69846C13.3752 5.35126 12.9367 5 12 5C11.0633 5 10.6248 5.35126 10.3817 5.69846Z"
+                                                    fill="currentColor"></path>
+
+                                            </svg></span>
+                                    </div>
+                                </div>
+
+                                <div class="ort-option-appearance">
+                                    <div class="option-baslik">
+                                        <span>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+                                                <g fill="currentcolor" fill-rule="evenodd">
+                                                    <circle cx="10" cy="8" r="1"></circle>
+                                                    <circle cx="14" cy="8" r="1"></circle>
+                                                    <circle cx="10" cy="16" r="1"></circle>
+                                                    <circle cx="14" cy="16" r="1"></circle>
+                                                    <circle cx="10" cy="12" r="1"></circle>
+                                                    <circle cx="14" cy="12" r="1"></circle>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                        <span><input type="checkbox" disabled></span>
+                                    </div>
+                                    <div class="option-text-s">
+                                        <span class="option-text-s-span">
+                                            <svg width="17" height="17" role="presentation" focusable="false"
+                                                viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M1.66683 9.66665C0.93045 9.66665 0.333496 9.06969 0.333496 8.33331V1.66665C0.333496 0.930267 0.93045 0.333313 1.66683 0.333313H12.3335C13.0699 0.333313 13.6668 0.930267 13.6668 1.66665V8.33331C13.6668 9.06969 13.0699 9.66665 12.3335 9.66665H1.66683ZM12.3335 5.66665V4.33331H5.66683V5.66665H12.3335ZM12.3335 2.99998V1.66665H5.66683V2.99998H12.3335ZM12.3335 6.99998V8.33331H5.66683V6.99998H12.3335ZM1.66683 4.33331V5.66665H4.3335V4.33331H1.66683ZM1.66683 6.99998V8.33331H4.3335V6.99998H1.66683ZM1.66683 2.99998V1.66665H4.3335V2.99998H1.66683Z"
+                                                    fill="currentColor"></path>
+                                            </svg>
+                                            <span>Tablo</span>
                                         </span>
                                         <span><svg width="17" height="17" role="presentation" focusable="false"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -244,23 +295,17 @@
                                                 </g>
                                             </svg>
                                         </span>
-                                        <span><input type="checkbox"></span>
+                                        <span><input type="checkbox" disabled></span>
                                     </div>
                                     <div class="option-text-s">
                                         <span class="option-text-s-span">
                                             <svg width="17" height="17" role="presentation" focusable="false"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M2 7V15C2 16.1046 2.89543 17 4 17H6C7.10457 17 8 16.1046 8 15V7C8 5.89543 7.10457 5 6 5H4C2.89543 5 2 5.89543 2 7ZM4 7V15H6V7L4 7Z"
-                                                    fill="currentColor"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M9 7V13C9 14.1046 9.89543 15 11 15H13C14.1046 15 15 14.1046 15 13V7C15 5.89543 14.1046 5 13 5H11C9.89543 5 9 5.89543 9 7ZM11 7V13H13V7L11 7Z"
-                                                    fill="currentColor"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M16 17V7C16 5.89543 16.8954 5 18 5H20C21.1046 5 22 5.89543 22 7V17C22 18.1046 21.1046 19 20 19H18C16.8954 19 16 18.1046 16 17ZM18 17V7L20 7V17H18Z"
+                                                    d="M6 4V5H4.995C3.892 5 3 5.893 3 6.994V19.006C3 20.106 3.893 21 4.995 21H19.005C20.108 21 21 20.107 21 19.006V6.994C21 5.895 20.107 5 19.005 5H18V4C18 3.448 17.552 3 17 3C16.448 3 16 3.448 16 4V5H8V4C8 3.448 7.552 3 7 3C6.448 3 6 3.448 6 4ZM5.25 9.571V17.718C5.25 18.273 5.694 18.714 6.243 18.714H17.758C18.3 18.714 18.75 18.268 18.75 17.718V9.571H5.25ZM9 13V10.999H7V13H9ZM17 10.999V13H15V10.999H17ZM11 13H13.001V10.999H11V13ZM7 17V15H9V17H7ZM11 17H13.001V15H11V17ZM17 15V17H15V15H17Z"
                                                     fill="currentColor"></path>
                                             </svg>
-                                            <span>Pano</span>
+                                            <span>Takvim</span>
                                         </span>
                                         <span><svg width="17" height="17" role="presentation" focusable="false"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -288,23 +333,28 @@
                                                 </g>
                                             </svg>
                                         </span>
-                                        <span><input type="checkbox"></span>
+                                        <span>
+                                            <input type="checkbox" disabled>
+                                        </span>
                                     </div>
                                     <div class="option-text-s">
                                         <span class="option-text-s-span">
                                             <svg width="17" height="17" role="presentation" focusable="false"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M2 7V15C2 16.1046 2.89543 17 4 17H6C7.10457 17 8 16.1046 8 15V7C8 5.89543 7.10457 5 6 5H4C2.89543 5 2 5.89543 2 7ZM4 7V15H6V7L4 7Z"
+                                                    d="M4.5 4H11.5C12.8807 4 14 5.11929 14 6.5C14 7.88071 12.8807 9 11.5 9H4.5C3.11929 9 2 7.88071 2 6.5C2 5.11929 3.11929 4 4.5 4ZM11.5 7C11.7761 7 12 6.77614 12 6.5C12 6.22386 11.7761 6 11.5 6H4.5C4.22386 6 4 6.22386 4 6.5C4 6.77614 4.22386 7 4.5 7H11.5Z"
                                                     fill="currentColor"></path>
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M9 7V13C9 14.1046 9.89543 15 11 15H13C14.1046 15 15 14.1046 15 13V7C15 5.89543 14.1046 5 13 5H11C9.89543 5 9 5.89543 9 7ZM11 7V13H13V7L11 7Z"
+                                                    d="M6.5 10H13.5C14.8807 10 16 11.1193 16 12.5C16 13.8807 14.8807 15 13.5 15H6.5C5.11929 15 4 13.8807 4 12.5C4 11.1193 5.11929 10 6.5 10ZM13.5 13C13.7761 13 14 12.7761 14 12.5C14 12.2239 13.7761 12 13.5 12H6.5C6.22386 12 6 12.2239 6 12.5C6 12.7761 6.22386 13 6.5 13H13.5Z"
                                                     fill="currentColor"></path>
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M16 17V7C16 5.89543 16.8954 5 18 5H20C21.1046 5 22 5.89543 22 7V17C22 18.1046 21.1046 19 20 19H18C16.8954 19 16 18.1046 16 17ZM18 17V7L20 7V17H18Z"
+                                                    d="M18.5 16H11.5C10.1193 16 9 17.1193 9 18.5C9 19.8807 10.1193 21 11.5 21H18.5C19.8807 21 21 19.8807 21 18.5C21 17.1193 19.8807 16 18.5 16ZM11.5 19C11.2239 19 11 18.7761 11 18.5C11 18.2239 11.2239 18 11.5 18H18.5C18.7761 18 19 18.2239 19 18.5C19 18.7761 18.7761 19 18.5 19H11.5Z"
+                                                    fill="currentColor"></path>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M17.5 4H19.5C20.8807 4 22 5.11929 22 6.5C22 7.88071 20.8807 9 19.5 9H17.5C16.1193 9 15 7.88071 15 6.5C15 5.11929 16.1193 4 17.5 4ZM19.5 7C19.7761 7 20 6.77614 20 6.5C20 6.22386 19.7761 6 19.5 6H17.5C17.2239 6 17 6.22386 17 6.5C17 6.77614 17.2239 7 17.5 7H19.5Z"
                                                     fill="currentColor"></path>
                                             </svg>
-                                            <span>Pano</span>
+                                            <span>Zaman Çizelgesi</span>
                                         </span>
                                         <span><svg width="17" height="17" role="presentation" focusable="false"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -332,23 +382,17 @@
                                                 </g>
                                             </svg>
                                         </span>
-                                        <span><input type="checkbox"></span>
+                                        <span><input type="checkbox" disabled></span>
                                     </div>
                                     <div class="option-text-s">
                                         <span class="option-text-s-span">
                                             <svg width="17" height="17" role="presentation" focusable="false"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M2 7V15C2 16.1046 2.89543 17 4 17H6C7.10457 17 8 16.1046 8 15V7C8 5.89543 7.10457 5 6 5H4C2.89543 5 2 5.89543 2 7ZM4 7V15H6V7L4 7Z"
-                                                    fill="currentColor"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M9 7V13C9 14.1046 9.89543 15 11 15H13C14.1046 15 15 14.1046 15 13V7C15 5.89543 14.1046 5 13 5H11C9.89543 5 9 5.89543 9 7ZM11 7V13H13V7L11 7Z"
-                                                    fill="currentColor"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M16 17V7C16 5.89543 16.8954 5 18 5H20C21.1046 5 22 5.89543 22 7V17C22 18.1046 21.1046 19 20 19H18C16.8954 19 16 18.1046 16 17ZM18 17V7L20 7V17H18Z"
+                                                    d="M18.1586 10.6697C18.6953 11.6601 19 12.7945 19 14V15C19 15.5523 18.5523 16 18 16H6C5.44772 16 5 15.5523 5 15V14C5 10.134 8.13401 7 12 7C13.2055 7 14.3398 7.30472 15.3301 7.84134L16.2419 6.92954C16.447 6.72443 16.6856 6.57318 16.9401 6.4758C15.522 5.54283 13.8244 5 12 5C7.02944 5 3 9.02944 3 14V16C3 17.1046 3.89543 18 5 18H19C20.1046 18 21 17.1046 21 16V14C21 12.1756 20.4571 10.4779 19.5241 9.05977C19.4267 9.31425 19.2755 9.55284 19.0704 9.75796L18.1586 10.6697ZM13 9C13 9.55228 12.5523 10 12 10C11.4477 10 11 9.55228 11 9C11 8.44772 11.4477 8 12 8C12.5523 8 13 8.44772 13 9ZM16.1989 11.2152L12.7071 14.707C12.3166 15.0976 11.6834 15.0976 11.2929 14.707C10.9023 14.3165 10.9023 13.6833 11.2929 13.2928L16.949 7.63667C17.3395 7.24615 17.9727 7.24615 18.3632 7.63667C18.7538 8.0272 18.7538 8.66036 18.3632 9.05089L16.2152 11.1989L16.1989 11.2152ZM18 14C18 14.5523 17.5523 15 17 15C16.4477 15 16 14.5523 16 14C16 13.4477 16.4477 13 17 13C17.5523 13 18 13.4477 18 14ZM7 15C7.55228 15 8 14.5523 8 14C8 13.4477 7.55228 13 7 13C6.44772 13 6 13.4477 6 14C6 14.5523 6.44772 15 7 15ZM9.5 10.5C9.5 11.0523 9.05228 11.5 8.5 11.5C7.94772 11.5 7.5 11.0523 7.5 10.5C7.5 9.94772 7.94772 9.5 8.5 9.5C9.05228 9.5 9.5 9.94772 9.5 10.5Z"
                                                     fill="currentColor"></path>
                                             </svg>
-                                            <span>Pano</span>
+                                            <span>Gösterge Panosu</span>
                                         </span>
                                         <span><svg width="17" height="17" role="presentation" focusable="false"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -376,69 +420,20 @@
                                                 </g>
                                             </svg>
                                         </span>
-                                        <span><input type="checkbox"></span>
+                                        <span><input type="checkbox" disabled></span>
                                     </div>
                                     <div class="option-text-s">
                                         <span class="option-text-s-span">
-                                            <svg width="17" height="17" role="presentation" focusable="false"
+                                            <svg width="17" height="24" role="presentation" focusable="false"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M2 7V15C2 16.1046 2.89543 17 4 17H6C7.10457 17 8 16.1046 8 15V7C8 5.89543 7.10457 5 6 5H4C2.89543 5 2 5.89543 2 7ZM4 7V15H6V7L4 7Z"
-                                                    fill="currentColor"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M9 7V13C9 14.1046 9.89543 15 11 15H13C14.1046 15 15 14.1046 15 13V7C15 5.89543 14.1046 5 13 5H11C9.89543 5 9 5.89543 9 7ZM11 7V13H13V7L11 7Z"
-                                                    fill="currentColor"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M16 17V7C16 5.89543 16.8954 5 18 5H20C21.1046 5 22 5.89543 22 7V17C22 18.1046 21.1046 19 20 19H18C16.8954 19 16 18.1046 16 17ZM18 17V7L20 7V17H18Z"
+                                                    d="M12 21C14.2802 21 18 12.3137 18 9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9C6 12.3137 9.71981 21 12 21ZM12 12C13.6081 12 14.9118 10.6964 14.9118 9.08823C14.9118 7.48011 13.6081 6.17647 12 6.17647C10.3919 6.17647 9.08824 7.48011 9.08824 9.08823C9.08824 10.6964 10.3919 12 12 12Z"
                                                     fill="currentColor"></path>
                                             </svg>
-                                            <span>Pano</span>
+                                            <span>Harita</span>
                                         </span>
-                                        <span><svg width="17" height="17" role="presentation" focusable="false"
-                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M5 11C5 9.89543 5.89543 9 7 9H8H10H14H16H17C18.1046 9 19 9.89543 19 11V19C19 20.1046 18.1046 21 17 21H7C5.89543 21 5 20.1046 5 19V11ZM10 11H14H16H17V19H7V11H8H10ZM14 15C14 16.1046 13.1046 17 12 17C10.8954 17 10 16.1046 10 15C10 13.8954 10.8954 13 12 13C13.1046 13 14 13.8954 14 15Z"
-                                                    fill="currentColor"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M10.3817 5.69846C10.0982 6.10344 10 6.63103 10 7V9H8V7C8 6.36897 8.15175 5.39656 8.74327 4.55154C9.37523 3.64874 10.4367 3 12 3C13.5633 3 14.6248 3.64874 15.2567 4.55154C15.8482 5.39656 16 6.36897 16 7V9H14V7C14 6.63103 13.9018 6.10344 13.6183 5.69846C13.3752 5.35126 12.9367 5 12 5C11.0633 5 10.6248 5.35126 10.3817 5.69846Z"
-                                                    fill="currentColor"></path>
-
-                                            </svg></span>
-                                    </div>
-                                </div>
-                                <div class="ort-option-appearance">
-                                    <div class="option-baslik">
                                         <span>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
-                                                <g fill="currentcolor" fill-rule="evenodd">
-                                                    <circle cx="10" cy="8" r="1"></circle>
-                                                    <circle cx="14" cy="8" r="1"></circle>
-                                                    <circle cx="10" cy="16" r="1"></circle>
-                                                    <circle cx="14" cy="16" r="1"></circle>
-                                                    <circle cx="10" cy="12" r="1"></circle>
-                                                    <circle cx="14" cy="12" r="1"></circle>
-                                                </g>
-                                            </svg>
-                                        </span>
-                                        <span><input type="checkbox"></span>
-                                    </div>
-                                    <div class="option-text-s">
-                                        <span class="option-text-s-span">
                                             <svg width="17" height="17" role="presentation" focusable="false"
-                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M2 7V15C2 16.1046 2.89543 17 4 17H6C7.10457 17 8 16.1046 8 15V7C8 5.89543 7.10457 5 6 5H4C2.89543 5 2 5.89543 2 7ZM4 7V15H6V7L4 7Z"
-                                                    fill="currentColor"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M9 7V13C9 14.1046 9.89543 15 11 15H13C14.1046 15 15 14.1046 15 13V7C15 5.89543 14.1046 5 13 5H11C9.89543 5 9 5.89543 9 7ZM11 7V13H13V7L11 7Z"
-                                                    fill="currentColor"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M16 17V7C16 5.89543 16.8954 5 18 5H20C21.1046 5 22 5.89543 22 7V17C22 18.1046 21.1046 19 20 19H18C16.8954 19 16 18.1046 16 17ZM18 17V7L20 7V17H18Z"
-                                                    fill="currentColor"></path>
-                                            </svg>
-                                            <span>Pano</span>
-                                        </span>
-                                        <span><svg width="17" height="17" role="presentation" focusable="false"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                                     d="M5 11C5 9.89543 5.89543 9 7 9H8H10H14H16H17C18.1046 9 19 9.89543 19 11V19C19 20.1046 18.1046 21 17 21H7C5.89543 21 5 20.1046 5 19V11ZM10 11H14H16H17V19H7V11H8H10ZM14 15C14 16.1046 13.1046 17 12 17C10.8954 17 10 16.1046 10 15C10 13.8954 10.8954 13 12 13C13.1046 13 14 13.8954 14 15Z"
@@ -447,7 +442,8 @@
                                                     d="M10.3817 5.69846C10.0982 6.10344 10 6.63103 10 7V9H8V7C8 6.36897 8.15175 5.39656 8.74327 4.55154C9.37523 3.64874 10.4367 3 12 3C13.5633 3 14.6248 3.64874 15.2567 4.55154C15.8482 5.39656 16 6.36897 16 7V9H14V7C14 6.63103 13.9018 6.10344 13.6183 5.69846C13.3752 5.35126 12.9367 5 12 5C11.0633 5 10.6248 5.35126 10.3817 5.69846Z"
                                                     fill="currentColor"></path>
 
-                                            </svg></span>
+                                            </svg>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="alt-texts">
@@ -459,7 +455,7 @@
                                             fazlasını doğrudan Trello panonuzdan görüntüleyin.</span>
                                     </div>
                                     <div class="alt-text-premium-upgrade">
-                                        <button>Çalışma Alanını Premium'a Yükselt</button>
+                                        <button># Çalışma Alanını Premium'a Yükselt</button>
                                     </div>
                                     <div class="alt-text-footer">
                                         <span>Trello premium hakkında daha fazlasını</span>
@@ -485,20 +481,32 @@
                                         fill="currentColor"></path>
                                 </svg>
                             </div>
-                            <ul data-bs-auto-close="outside" class="dropdown-menu dropdown-appearance">
+                            <ul class="dropdown-menu dropdown-appearance">
                                 <div class="ust-text">
                                     <div class="text-visibility-appearance">
-                                        <span>Görünümler için Yükseltin</span>
+                                        <span>Power-Up'lar</span>
                                     </div>
                                     <div class="exit-visibility">
                                         <span> <i class="bi bi-x"></i> </span>
                                     </div>
                                 </div>
+                                <div class="powerUpUlBody">
+                                    <div class="powerBody-img">
+                                        <img src="https://trello.com/assets/42f8533548e4eeb72589.png" alt="">
+                                    </div>
+                                    <div class="powerBody-text">
+                                        <span>Panolarınıza ek özellikler getirin ve Google Drive, Slack ve daha fazlası gibi
+                                            uygulamalarla entegrasyon yapın.</span>
+                                    </div>
+                                    <div class="powerBody-button">
+                                        <button>Power-Up'lar Ekle</button>
+                                    </div>
+                                </div>
                             </ul>
                         </div>
                         <div class="dropdown">
-                            <div class="project-bottom-logo-right" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                                style="cursor: pointer;">
+                            <div class="project-bottom-logo-right dropdown-toggle" data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside" style="cursor: pointer;">
                                 <svg width="17" height="17" role="presentation" focusable="false"
                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -509,36 +517,102 @@
                             <ul data-bs-auto-close="outside" class="dropdown-menu dropdown-appearance">
                                 <div class="ust-text">
                                     <div class="text-visibility-appearance">
-                                        <span>Görünümler için Yükseltin</span>
+                                        <span>Otomasyon</span>
                                     </div>
                                     <div class="exit-visibility">
                                         <span> <i class="bi bi-x"></i> </span>
                                     </div>
                                 </div>
-                            </ul>
-                        </div>
-                        <div class="dropdown">
-                            <div class="project-table" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                                style="cursor: pointer;">
-                                <svg width="17" height="17" role="presentation" focusable="false"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M4.61799 6C3.87461 6 3.39111 6.78231 3.72356 7.44721L3.99996 8H20L20.2763 7.44721C20.6088 6.78231 20.1253 6 19.3819 6H4.61799ZM10.8618 17.7236C10.9465 17.893 11.1196 18 11.309 18H12.6909C12.8803 18 13.0535 17.893 13.1382 17.7236L14 16H9.99996L10.8618 17.7236ZM17 13H6.99996L5.99996 11H18L17 13Z"
-                                        fill="currentColor"></path>
-                                </svg>
-                                <span>Filtreler</span>
-                            </div>
-                            <ul data-bs-auto-close="outside" class="dropdown-menu dropdown-appearance">
-                                <div class="ust-text">
-                                    <div class="text-visibility-appearance">
-                                        <span>Görünümler için Yükseltin</span>
+                                <div class="ort-text-body">
+                                    <div class="ort-text-body-select">
+                                        <div class="body-select-ust">
+                                            #
+                                            <svg width="17" height="17" role="presentation" focusable="false"
+                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M8 5C9.31173 5 10.4264 5.84116 10.8342 7.01368C10.8881 7.00468 10.9435 7 11 7H20C20.5523 7 21 7.44772 21 8C21 8.55228 20.5523 9 20 9H11C10.9435 9 10.8881 8.99532 10.8342 8.98632C10.4264 10.1588 9.31173 11 8 11C6.68827 11 5.57361 10.1588 5.1658 8.98632C5.11187 8.99532 5.05648 9 5 9H4C3.44772 9 3 8.55228 3 8C3 7.44772 3.44772 7 4 7H5C5.05648 7 5.11187 7.00468 5.1658 7.01368C5.57361 5.84116 6.68827 5 8 5ZM18.8342 15.0137C18.4264 13.8412 17.3117 13 16 13C14.6883 13 13.5736 13.8412 13.1658 15.0137C13.1119 15.0047 13.0565 15 13 15H4C3.44772 15 3 15.4477 3 16C3 16.5523 3.44771 17 4 17H13C13.0565 17 13.1119 16.9953 13.1658 16.9863C13.5736 18.1588 14.6883 19 16 19C17.3117 19 18.4264 18.1588 18.8342 16.9863C18.8881 16.9953 18.9435 17 19 17H20C20.5523 17 21 16.5523 21 16C21 15.4477 20.5523 15 20 15H19C18.9435 15 18.8881 15.0047 18.8342 15.0137ZM17 16C17 16.5527 16.5527 17 16 17C15.4473 17 15 16.5527 15 16C15 15.4473 15.4473 15 16 15C16.5527 15 17 15.4473 17 16ZM8 9C8.55272 9 9 8.55272 9 8C9 7.44728 8.55272 7 8 7C7.44728 7 7 7.44728 7 8C7 8.55272 7.44728 9 8 9Z"
+                                                    fill="currentColor"></path>
+                                            </svg>
+                                            <span>Kurallar</span>
+                                        </div>
+                                        <div class="body-select-text">
+                                            <span>İşlemlere, çizelgelere veya bir kartın bitiş tarihine otomatik yanıt veren
+                                                kurallar oluşturun.</span>
+                                        </div>
                                     </div>
-                                    <div class="exit-visibility">
-                                        <span> <i class="bi bi-x"></i> </span>
+                                    <div class="ort-text-body-select">
+                                        <div class="body-select-ust">
+                                            #
+                                            <svg width="17" height="17" role="presentation" focusable="false"
+                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M5 5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5ZM19 7H5V13H19V7ZM17 16C17 16.5523 17.4477 17 18 17C18.5523 17 19 16.5523 19 16C19 15.4477 18.5523 15 18 15C17.4477 15 17 15.4477 17 16ZM6 17C5.44772 17 5 16.5523 5 16C5 15.4477 5.44772 15 6 15H10C10.5523 15 11 15.4477 11 16C11 16.5523 10.5523 17 10 17H6Z"
+                                                    fill="currentColor"></path>
+                                            </svg>
+                                            <span>Düğmeler</span>
+                                        </div>
+                                        <div class="body-select-text">
+                                            <span>Her kartın arkasında veya panonun en üstünde özel düğmeler
+                                                oluşturun</span>
+                                        </div>
+                                    </div>
+                                    <div class="ort-text-body-select">
+                                        <div class="body-select-ust">
+                                            #
+                                            <svg width="17" height="17" role="presentation" focusable="false"
+                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M5 17V8.831L9.756 13.586C10.973 14.805 12.948 14.805 14.166 13.586L19 8.752V17H5ZM17.924 7L12.752 12.172C12.315 12.609 11.607 12.609 11.169 12.172L5.998 7H17.924ZM19 5H5C3.9 5 3 5.9 3 7V17C3 18.1 3.9 19 5 19H19C20.1 19 21 18.1 21 17V7C21 5.9 20.1 5 19 5Z"
+                                                    fill="currentColor"></path>
+                                            </svg>
+                                            <span>E-posta raporları</span>
+                                        </div>
+                                        <div class="body-select-text">
+                                            <span>Bitiş tarihi 7 gün içinde olan tüm kartların haftalık özeti gibi e-posta
+                                                raporları ayarlayın.</span>
+                                        </div>
+                                    </div>
+                                    <div class="ort-text-body-select">
+                                        <div class="body-select-ust">
+                                            #
+                                            <svg width="17" height="17" role="presentation" focusable="false"
+                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M18.7361 4.34202C19.34 4.16086 19.9475 4.57579 20.0169 5.1837L20.0234 5.29985V17.3102C20.0234 17.9406 19.4514 18.4033 18.8492 18.2951L18.7361 18.268L11.0234 15.9532V17.7999C11.0234 19.1806 9.90415 20.2999 8.52344 20.2999C7.19795 20.2999 6.1134 19.2683 6.02876 17.9642L6.02344 17.7999V15.3102C4.96908 15.3102 4.10527 14.4943 4.02892 13.4594L4.02344 13.3102V9.29985C4.02344 8.24549 4.83932 7.38168 5.87418 7.30534L6.02344 7.29985L8.87544 7.29919L18.7361 4.34202ZM8.87644 15.3092H8.02344V17.7999C8.02344 18.076 8.2473 18.2999 8.52344 18.2999C8.7689 18.2999 8.97305 18.123 9.01538 17.8897L9.02344 17.7999V15.3532L8.87644 15.3092ZM18.0234 6.64285L10.0234 9.04285V13.5659L18.0234 15.9659V6.64285ZM8.02344 9.29985H6.02344V13.3102L6.93934 13.3082L7.02344 13.3047L7.10644 13.3092L8.02344 13.3099V9.29985Z"
+                                                    fill="currentColor"></path>
+                                            </svg>
+                                            <span>Geri Bildirim Gönder</span>
+                                        </div>
+                                        <div class="body-select-text">
+                                            <span>Otomasyonlarınızı geliştirmemize yardımcı olun.</span>
+                                        </div>
                                     </div>
                                 </div>
                             </ul>
                         </div>
+
+                        <div class="project-table" style="cursor: pointer;">
+                            #
+                            <svg width="17" height="17" role="presentation" focusable="false"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M4.61799 6C3.87461 6 3.39111 6.78231 3.72356 7.44721L3.99996 8H20L20.2763 7.44721C20.6088 6.78231 20.1253 6 19.3819 6H4.61799ZM10.8618 17.7236C10.9465 17.893 11.1196 18 11.309 18H12.6909C12.8803 18 13.0535 17.893 13.1382 17.7236L14 16H9.99996L10.8618 17.7236ZM17 13H6.99996L5.99996 11H18L17 13Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                            <span>Filtreler</span>
+                        </div>
+                        <!--  <ul data-bs-auto-close="outside" class="dropdown-menu dropdown-appearance">
+                                                        <div class="ust-text">
+                                                            <div class="text-visibility-appearance">
+                                                                <span></span>
+                                                            </div>
+                                                            <div class="exit-visibility">
+                                                                <span> <i class="bi bi-x"></i> </span>
+                                                            </div>
+                                                        </div>
+                                                    </ul>
+                                                    -->
+
                     </div>
                     <div class="brdr-ort"></div>
                     <div class="container-sidebar-rr">
