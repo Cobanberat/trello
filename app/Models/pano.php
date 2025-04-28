@@ -14,6 +14,7 @@ class pano extends Model
     public function favories()
     {
         return $this->hasMany(favories::class);
+        
     }
     public function favori()
     {
