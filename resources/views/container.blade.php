@@ -174,15 +174,15 @@
                             <span>Pano</span>
                         </div>
                         <!-- #region <div class="project-table-left">
-                                                        <svg width="17" height="17" role="presentation" focusable="false"
-                                                            viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
-                                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                d="M1.66683 9.66665C0.93045 9.66665 0.333496 9.06969 0.333496 8.33331V1.66665C0.333496 0.930267 0.93045 0.333313 1.66683 0.333313H12.3335C13.0699 0.333313 13.6668 0.930267 13.6668 1.66665V8.33331C13.6668 9.06969 13.0699 9.66665 12.3335 9.66665H1.66683ZM12.3335 5.66665V4.33331H5.66683V5.66665H12.3335ZM12.3335 2.99998V1.66665H5.66683V2.99998H12.3335ZM12.3335 6.99998V8.33331H5.66683V6.99998H12.3335ZM1.66683 4.33331V5.66665H4.3335V4.33331H1.66683ZM1.66683 6.99998V8.33331H4.3335V6.99998H1.66683ZM1.66683 2.99998V1.66665H4.3335V2.99998H1.66683Z"
-                                                                fill="currentColor"></path>
-                                                        </svg>
-                                                        <span>Tablo</span>
-                                                    </div>
-                                                    -->
+                                                                <svg width="17" height="17" role="presentation" focusable="false"
+                                                                    viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                        d="M1.66683 9.66665C0.93045 9.66665 0.333496 9.06969 0.333496 8.33331V1.66665C0.333496 0.930267 0.93045 0.333313 1.66683 0.333313H12.3335C13.0699 0.333313 13.6668 0.930267 13.6668 1.66665V8.33331C13.6668 9.06969 13.0699 9.66665 12.3335 9.66665H1.66683ZM12.3335 5.66665V4.33331H5.66683V5.66665H12.3335ZM12.3335 2.99998V1.66665H5.66683V2.99998H12.3335ZM12.3335 6.99998V8.33331H5.66683V6.99998H12.3335ZM1.66683 4.33331V5.66665H4.3335V4.33331H1.66683ZM1.66683 6.99998V8.33331H4.3335V6.99998H1.66683ZM1.66683 2.99998V1.66665H4.3335V2.99998H1.66683Z"
+                                                                        fill="currentColor"></path>
+                                                                </svg>
+                                                                <span>Tablo</span>
+                                                            </div>
+                                                            -->
                         <div class="dropdown">
                             <div class="project-bottom-logo" data-bs-toggle="dropdown" data-bs-auto-close="outside"
                                 style="cursor: pointer;">
@@ -602,16 +602,16 @@
                             <span>Filtreler</span>
                         </div>
                         <!--  <ul data-bs-auto-close="outside" class="dropdown-menu dropdown-appearance">
-                                                        <div class="ust-text">
-                                                            <div class="text-visibility-appearance">
-                                                                <span></span>
-                                                            </div>
-                                                            <div class="exit-visibility">
-                                                                <span> <i class="bi bi-x"></i> </span>
-                                                            </div>
-                                                        </div>
-                                                    </ul>
-                                                    -->
+                                                                <div class="ust-text">
+                                                                    <div class="text-visibility-appearance">
+                                                                        <span></span>
+                                                                    </div>
+                                                                    <div class="exit-visibility">
+                                                                        <span> <i class="bi bi-x"></i> </span>
+                                                                    </div>
+                                                                </div>
+                                                            </ul>
+                                                            -->
 
                     </div>
                     <div class="brdr-ort"></div>
@@ -754,41 +754,41 @@
                                                                             class="btn btn-dark shadow-none modalInnerBtn me-auto"
                                                                             type="button">
                                                                             <i class="fa-solid fa-tachograph-digital"></i>
-                                                                            Kartı Aç
+                                                                           # Kartı Aç
                                                                         </button>
                                                                         <button
                                                                             class="btn btn-dark shadow-none modalInnerBtn me-auto"
                                                                             type="button">
-                                                                            <i class="fa-solid fa-tag"></i> Etiketleri
+                                                                            <i class="fa-solid fa-tag"></i># Etiketleri
                                                                             Düzenle
                                                                         </button>
                                                                         <button
                                                                             class="btn btn-dark shadow-none modalInnerBtn me-auto"
                                                                             type="button">
-                                                                            <i class="fa-solid fa-user"></i> Üyeleri
+                                                                            <i class="fa-solid fa-user"></i># Üyeleri
                                                                             Değiştir
                                                                         </button>
                                                                         <button
                                                                             class="btn btn-dark shadow-none modalInnerBtn me-auto"
                                                                             type="button">
-                                                                            <i class="fa-solid fa-credit-card"></i> Kapağı
+                                                                            <i class="fa-solid fa-credit-card"></i># Kapağı
                                                                             Değiştir
                                                                         </button>
                                                                         <button
                                                                             class="btn btn-dark shadow-none modalInnerBtn me-auto"
                                                                             type="button">
-                                                                            <i class="fa-solid fa-arrow-right"></i> Taşı
+                                                                            <i class="fa-solid fa-arrow-right"></i># Taşı
                                                                         </button>
                                                                         <button
                                                                             class="btn btn-dark shadow-none modalInnerBtn me-auto"
                                                                             type="button">
                                                                             <i class="fa-solid fa-tachograph-digital"></i>
-                                                                            Kopyala
+                                                                            # Kopyala
                                                                         </button>
                                                                         <button
                                                                             class="btn btn-dark shadow-none modalInnerBtn me-auto"
                                                                             type="button">
-                                                                            <i class="fa-regular fa-clock"></i> Tarihleri
+                                                                            <i class="fa-regular fa-clock"></i># Tarihleri
                                                                             Düzenle
                                                                         </button>
                                                                         <button
@@ -818,29 +818,53 @@
                                                     fill="currentColor"></path>
                                             </svg></span>Kart
                                         Ekle</button>
-                                    <div class="project-title-logo" id="card-add-logo">
-                                        <svg width="17" height="14" role="presentation" focusable="false"
-                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M3 6V5C3 3.89543 3.89543 3 5 3H6C6.55228 3 7 3.44772 7 4C7 4.55228 6.55228 5 6 5H5V6C5 6.55228 4.55228 7 4 7C3.44772 7 3 6.55228 3 6Z"
-                                                fill="currentColor"></path>
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M6 8C6 6.89543 6.89543 6 8 6H19C20.1046 6 21 6.89543 21 8V18C21 19.1046 20.1046 20 19 20H8C6.89543 20 6 19.1046 6 18V8ZM8 8H19V14H8V8ZM18 18C17.4477 18 17 17.5523 17 17C17 16.4477 17.4477 16 18 16C18.5523 16 19 16.4477 19 17C19 17.5523 18.5523 18 18 18ZM8 17C8 17.5523 8.44772 18 9 18H12C12.5523 18 13 17.5523 13 17C13 16.4477 12.5523 16 12 16H9C8.44772 16 8 16.4477 8 17Z"
-                                                fill="currentColor"></path>
-                                            <path
-                                                d="M4 14C3.44772 14 3 14.4477 3 15V16C3 17.1046 3.89543 18 5 18V15C5 14.4477 4.55228 14 4 14Z"
-                                                fill="currentColor"></path>
-                                            <path
-                                                d="M3 9C3 8.44772 3.44772 8 4 8C4.55228 8 5 8.44772 5 9V12C5 12.5523 4.55228 13 4 13C3.44772 13 3 12.5523 3 12V9Z"
-                                                fill="currentColor"></path>
-                                            <path
-                                                d="M8 4C8 3.44772 8.44772 3 9 3H13C13.5523 3 14 3.44772 14 4C14 4.55228 13.5523 5 13 5H9C8.44772 5 8 4.55228 8 4Z"
-                                                fill="currentColor"></path>
-                                            <path
-                                                d="M16 3C15.4477 3 15 3.44772 15 4C15 4.55228 15.4477 5 16 5H19C19 3.89543 18.1046 3 17 3H16Z"
-                                                fill="currentColor"></path>
-                                        </svg>
+                                    <div class="btn-group">
+                                        <div class="project-title-logo cursor-pointer dropdown-toggle"
+                                            data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false"
+                                            id="card-add-logo">
+                                            <svg width="17" height="14" role="presentation" focusable="false"
+                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M3 6V5C3 3.89543 3.89543 3 5 3H6C6.55228 3 7 3.44772 7 4C7 4.55228 6.55228 5 6 5H5V6C5 6.55228 4.55228 7 4 7C3.44772 7 3 6.55228 3 6Z"
+                                                    fill="currentColor"></path>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M6 8C6 6.89543 6.89543 6 8 6H19C20.1046 6 21 6.89543 21 8V18C21 19.1046 20.1046 20 19 20H8C6.89543 20 6 19.1046 6 18V8ZM8 8H19V14H8V8ZM18 18C17.4477 18 17 17.5523 17 17C17 16.4477 17.4477 16 18 16C18.5523 16 19 16.4477 19 17C19 17.5523 18.5523 18 18 18ZM8 17C8 17.5523 8.44772 18 9 18H12C12.5523 18 13 17.5523 13 17C13 16.4477 12.5523 16 12 16H9C8.44772 16 8 16.4477 8 17Z"
+                                                    fill="currentColor"></path>
+                                                <path
+                                                    d="M4 14C3.44772 14 3 14.4477 3 15V16C3 17.1046 3.89543 18 5 18V15C5 14.4477 4.55228 14 4 14Z"
+                                                    fill="currentColor"></path>
+                                                <path
+                                                    d="M3 9C3 8.44772 3.44772 8 4 8C4.55228 8 5 8.44772 5 9V12C5 12.5523 4.55228 13 4 13C3.44772 13 3 12.5523 3 12V9Z"
+                                                    fill="currentColor"></path>
+                                                <path
+                                                    d="M8 4C8 3.44772 8.44772 3 9 3H13C13.5523 3 14 3.44772 14 4C14 4.55228 13.5523 5 13 5H9C8.44772 5 8 4.55228 8 4Z"
+                                                    fill="currentColor"></path>
+                                                <path
+                                                    d="M16 3C15.4477 3 15 3.44772 15 4C15 4.55228 15.4477 5 16 5H19C19 3.89543 18.1046 3 17 3H16Z"
+                                                    fill="currentColor"></path>
+                                            </svg>
+                                        </div>
+                                        <ul class="dropdown-menu dropdown-menu-lg-start dropdown-appearance-card">
+                                            <div class="ust-text">
+                                                <div class="text-visibility-appearance">
+                                                    <span>Kart Şablonları</span>
+                                                </div>
+                                                <div class="exit-visibility">
+                                                    <span> <i class="bi bi-x"></i> </span>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown-body d-flex flex-column gap-2">
+                                                <div class="dropdown-body-span">
+                                                <span>Hiçbir şablonunuz yok. Kartları
+                                                    kopyalamayı kolaylaştırmak için bir şablon oluşturun.</span>
+                                                </div>
+                                                <div class="powerBody-button">
+                                                    <button># Yeni Bir Şablon Oluştur</button>
+                                                </div>
+                                            </div>
+                                        </ul>
                                     </div>
+
                                 </div>
                                 <form class="card-add-form" method="POST">
                                     @csrf
@@ -1119,8 +1143,8 @@
                 @csrf
                 @method('DELETE')
                 <button type="submit" style="all:unset; cursor:pointer;" class="d-flex align-items-center gap-2 p-2">
-                    <svg style=" color:#1f3253;" width="20" height="20" role="presentation" focusable="false"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg style=" color:#1f3253;" width="20" height="20" role="presentation"
+                        focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <rect x="3" y="11" width="18" height="2" rx="1" fill="currentColor"></rect>
                     </svg>
                     <span style="font-size: 14px; color:#1f3253;"> Panoyu Kapat</span>

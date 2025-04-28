@@ -97,6 +97,7 @@
                         </div>
                         <div class="main-nav-project">
                             <a href="#" class="main-nav-project-a">
+                                #
                                 <div class="project-background-tema"></div>
                                 <div class="main-project-name">
                                     <span class="project-name-bslk">proje</span>

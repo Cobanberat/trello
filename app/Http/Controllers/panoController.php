@@ -87,6 +87,14 @@ class panoController extends Controller
             'main-sidebar' => view('main-sidebar', compact('pano')),
         ]);
     }
+    public function table()
+    {
+        $pano = pano::where('user_id', Auth::id())->orderBy('id', 'asc')->get();
+        return view('layouts.app', [
+            'sidebar' => view('sidebar', compact('pano')),
+            'table' => view('table', compact('pano')),
+        ]);
+    }
 
     public function home()
     {

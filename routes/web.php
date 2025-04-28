@@ -8,30 +8,49 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\panoController;
 use App\Http\Middleware\RedirectIfNotAuthenticated; 
 
-
 Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect('dashboard');
+    }
     return view('welcome');
 });
 
+
 Route::get('/login', function () {
+    if (Auth::check()) {
+        return redirect('dashboard');
+    }
     return view('auth.login');
 });
 Route::get('/register', function () {
+    if (Auth::check()) {
+        return redirect('dashboard');
+    }
     return view('auth.register');
 })->name('register.view');
 
-Route::post('/register-email', [AuthController::class, 'registerEmail'])->name('register.email');
+
 Route::get('/verify-register', function () {
+    if (Auth::check()) {
+        return redirect('dashboard');
+    }
     return view('auth.verifyRegister');
 })->name('register.verify.view');
 
-Route::post('/verify-code', [AuthController::class, 'verifyCode'])->name('register.verify');
+
 Route::get('/register-form', function () {
+    if (Auth::check()) {
+        return redirect('dashboard');
+    }
     return view('auth.register-form');
 })->name('register.form.view');
 
-Route::post('/complete-registration', [AuthController::class, 'completeRegistration'])->name('register.complete');
-Route::post('/logincontrol', [AuthController::class, 'login'])->name('logincontrol');
+Route::middleware('guest')->group(function () {
+    Route::post('/verify-code', [AuthController::class, 'verifyCode'])->name('register.verify');
+    Route::post('/complete-registration', [AuthController::class, 'completeRegistration'])->name('register.complete');
+    Route::post('/logincontrol', [AuthController::class, 'login'])->name('logincontrol');
+    Route::post('/register-email', [AuthController::class, 'registerEmail'])->name('register.email');
+});
 
 Route::middleware([RedirectIfNotAuthenticated::class])->group(function () {
     
@@ -46,6 +65,7 @@ Route::middleware([RedirectIfNotAuthenticated::class])->group(function () {
     Route::get('/main', [panoController::class, 'home'])->name('home');
     Route::get('/profile', [panoController::class, 'profile'])->name('profile');
     Route::get('/highlights', [panoController::class, 'home'])->name('home');
+    Route::get('/table', [panoController::class, 'table'])->name('table');
     
     
     Route::get('/board/{id}', [panoController::class, 'listPano'])->name('boards');
