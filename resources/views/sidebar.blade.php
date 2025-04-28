@@ -144,7 +144,6 @@
                                 <input type="checkbox" class="star-toggle" data-pano-id="{{ $row->id }}"
                                     @if (isset($row->favori->pano_id)) checked @endif style="display: none;">
 
-
                                 <div class="srcs">
                                     <svg class="star-fill" width="17" height="17" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
