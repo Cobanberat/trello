@@ -174,15 +174,15 @@
                             <span>Pano</span>
                         </div>
                         <!-- #region <div class="project-table-left">
-                                                                <svg width="17" height="17" role="presentation" focusable="false"
-                                                                    viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                        d="M1.66683 9.66665C0.93045 9.66665 0.333496 9.06969 0.333496 8.33331V1.66665C0.333496 0.930267 0.93045 0.333313 1.66683 0.333313H12.3335C13.0699 0.333313 13.6668 0.930267 13.6668 1.66665V8.33331C13.6668 9.06969 13.0699 9.66665 12.3335 9.66665H1.66683ZM12.3335 5.66665V4.33331H5.66683V5.66665H12.3335ZM12.3335 2.99998V1.66665H5.66683V2.99998H12.3335ZM12.3335 6.99998V8.33331H5.66683V6.99998H12.3335ZM1.66683 4.33331V5.66665H4.3335V4.33331H1.66683ZM1.66683 6.99998V8.33331H4.3335V6.99998H1.66683ZM1.66683 2.99998V1.66665H4.3335V2.99998H1.66683Z"
-                                                                        fill="currentColor"></path>
-                                                                </svg>
-                                                                <span>Tablo</span>
-                                                            </div>
-                                                            -->
+                                                                                    <svg width="17" height="17" role="presentation" focusable="false"
+                                                                                        viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                                            d="M1.66683 9.66665C0.93045 9.66665 0.333496 9.06969 0.333496 8.33331V1.66665C0.333496 0.930267 0.93045 0.333313 1.66683 0.333313H12.3335C13.0699 0.333313 13.6668 0.930267 13.6668 1.66665V8.33331C13.6668 9.06969 13.0699 9.66665 12.3335 9.66665H1.66683ZM12.3335 5.66665V4.33331H5.66683V5.66665H12.3335ZM12.3335 2.99998V1.66665H5.66683V2.99998H12.3335ZM12.3335 6.99998V8.33331H5.66683V6.99998H12.3335ZM1.66683 4.33331V5.66665H4.3335V4.33331H1.66683ZM1.66683 6.99998V8.33331H4.3335V6.99998H1.66683ZM1.66683 2.99998V1.66665H4.3335V2.99998H1.66683Z"
+                                                                                            fill="currentColor"></path>
+                                                                                    </svg>
+                                                                                    <span>Tablo</span>
+                                                                                </div>
+                                                                                -->
                         <div class="dropdown">
                             <div class="project-bottom-logo" data-bs-toggle="dropdown" data-bs-auto-close="outside"
                                 style="cursor: pointer;">
@@ -602,16 +602,16 @@
                             <span>Filtreler</span>
                         </div>
                         <!--  <ul data-bs-auto-close="outside" class="dropdown-menu dropdown-appearance">
-                                                                <div class="ust-text">
-                                                                    <div class="text-visibility-appearance">
-                                                                        <span></span>
-                                                                    </div>
-                                                                    <div class="exit-visibility">
-                                                                        <span> <i class="bi bi-x"></i> </span>
-                                                                    </div>
-                                                                </div>
-                                                            </ul>
-                                                            -->
+                                                                                    <div class="ust-text">
+                                                                                        <div class="text-visibility-appearance">
+                                                                                            <span></span>
+                                                                                        </div>
+                                                                                        <div class="exit-visibility">
+                                                                                            <span> <i class="bi bi-x"></i> </span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </ul>
+                                                                                -->
 
                     </div>
                     <div class="brdr-ort"></div>
@@ -754,7 +754,7 @@
                                                                             class="btn btn-dark shadow-none modalInnerBtn me-auto"
                                                                             type="button">
                                                                             <i class="fa-solid fa-tachograph-digital"></i>
-                                                                           # Kartı Aç
+                                                                            # Kartı Aç
                                                                         </button>
                                                                         <button
                                                                             class="btn btn-dark shadow-none modalInnerBtn me-auto"
@@ -768,12 +768,159 @@
                                                                             <i class="fa-solid fa-user"></i># Üyeleri
                                                                             Değiştir
                                                                         </button>
-                                                                        <button
-                                                                            class="btn btn-dark shadow-none modalInnerBtn me-auto"
-                                                                            type="button">
-                                                                            <i class="fa-solid fa-credit-card"></i># Kapağı
-                                                                            Değiştir
-                                                                        </button>
+                                                                        <div class="dropdown">
+
+                                                                            <button data-bs-toggle="dropdown"
+                                                                                aria-expanded="false"
+                                                                                data-bs-auto-close="outside"
+                                                                                class="btn btn-dark shadow-none modalInnerBtn me-auto"
+                                                                                type="button">
+                                                                                <i class="fa-solid fa-credit-card"></i>
+                                                                                Kapağı
+                                                                                Değiştir
+                                                                            </button>
+                                                                            <div class="pano-add-form dropdown-menu "
+                                                                                data-bs-auto-close="outside">
+                                                                                <form method="post">
+                                                                                    @csrf
+                                                                                    <div class="d-flex flex-column gap-2">
+                                                                                        <div class="ust-text">
+                                                                                            <div
+                                                                                                class="text-visibility-imgAdd">
+                                                                                                <span>Kapak</span>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="exit-visibility-imgAdd">
+                                                                                                <span> <i
+                                                                                                        class="bi bi-x"></i>
+                                                                                                </span>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                    <div class="d-flex flex-column">
+                                                                                        <span
+                                                                                            class="arkpln-text">Boyut</span>
+                                                                                        <div class="d-flex flex-column">
+                                                                                            <div class="d-flex gap-2">
+                                                                                                <div
+                                                                                                    class="d-flex flex-column img-show gap-2">
+                                                                                                    <div class="check-img">
+                                                                                                    </div>
+                                                                                                    <div
+                                                                                                        class="check-img-bgColor">
+                                                                                                        <div
+                                                                                                            class="cizgi-full">
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="cizgi-ort">
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="cizgi-low">
+                                                                                                            <div
+                                                                                                                class="d-flex align-items-center w-100 gap-1">
+                                                                                                                <span
+                                                                                                                    class="cizgi-low-tp"></span>
+                                                                                                                <span
+                                                                                                                    class="cizgi-low-tp"></span>
+                                                                                                            </div>
+                                                                                                            <span
+                                                                                                                class="cizgi-top"></span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="d-flex flex-column justify-content-end img-show-two gap-2">
+
+                                                                                                    <div
+                                                                                                        class="check-img-bgColor">
+                                                                                                        <div
+                                                                                                            class="cizgi-full-two">
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="cizgi-ort-two">
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <br>
+                                                                                            <div
+                                                                                                class="d-flex flex-column gap-2">
+                                                                                                <span
+                                                                                                    class="arkpln-text">Renkler</span>
+                                                                                                <div style="padding-left:5px;padding-right:5px;"
+                                                                                                    class="d-flex justify-content-center flex-wrap gap-2">
+                                                                                                    @for ($i = 1; $i <= 10; $i++)
+                                                                                                        @php
+                                                                                                            $colors = [
+                                                                                                                '#4bce97',
+                                                                                                                '#f5cd47',
+                                                                                                                '#fea362',
+                                                                                                                '#f87168',
+                                                                                                                '#9f8fef',
+                                                                                                                '#579dff',
+                                                                                                                '#6cc3e0',
+                                                                                                                '#94c748',
+                                                                                                                '#e774bb',
+                                                                                                                '#8590a2',
+                                                                                                            ];
+                                                                                                            $colorCode =
+                                                                                                                $colors[
+                                                                                                                    $i -
+                                                                                                                        1
+                                                                                                                ];
+                                                                                                        @endphp
+                                                                                                        <span
+                                                                                                            class="renk-button select-color"
+                                                                                                            id="renk{{ $i }}"
+                                                                                                            data-color="{{ $colorCode }}"
+                                                                                                            data-card-id="{{ $row->id }}"></span>
+                                                                                                    @endfor
+                                                                                                </div>
+
+                                                                                                <br>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="d-flex flex-column">
+                                                                                                <div
+                                                                                                    class="d-flex align-items-center justify-content-center w-100">
+                                                                                                    <div
+                                                                                                        class="img-rnk-text">
+                                                                                                        # Renk körlüğü
+                                                                                                        erişilebilirlik
+                                                                                                        modunu etkinleştir
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <br>
+                                                                                                <div
+                                                                                                    class="w-100 d-flex align-items-center justify-content-center">
+                                                                                                    <div
+                                                                                                        class="cizgi-file">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <br>
+                                                                                                <span class="arkpln-text"
+                                                                                                    style="padding-left:15px; ">Eklentiler</span>
+                                                                                                <div
+                                                                                                    class="d-flex align-items-center justify-content-center w-100">
+                                                                                                    <div
+                                                                                                        class="img-rnk-text-kapak">
+                                                                                                        <label
+                                                                                                            for="kapak-sec"
+                                                                                                            class="img-select-label"># Sadece
+                                                                                                            bir kapak resmi
+                                                                                                            yükleyin</label>
+                                                                                                        
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <br>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
                                                                         <button
                                                                             class="btn btn-dark shadow-none modalInnerBtn me-auto"
                                                                             type="button">
@@ -855,8 +1002,8 @@
                                             </div>
                                             <div class="dropdown-body d-flex flex-column gap-2">
                                                 <div class="dropdown-body-span">
-                                                <span>Hiçbir şablonunuz yok. Kartları
-                                                    kopyalamayı kolaylaştırmak için bir şablon oluşturun.</span>
+                                                    <span>Hiçbir şablonunuz yok. Kartları
+                                                        kopyalamayı kolaylaştırmak için bir şablon oluşturun.</span>
                                                 </div>
                                                 <div class="powerBody-button">
                                                     <button># Yeni Bir Şablon Oluştur</button>

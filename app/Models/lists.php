@@ -12,4 +12,5 @@ class lists extends Model
 {
     return $this->hasMany(card::class);
 }
+
 }

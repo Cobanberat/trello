@@ -100,7 +100,7 @@
                                 #
                                 <div class="project-background-tema"></div>
                                 <div class="main-project-name">
-                                    <span class="project-name-bslk">proje</span>
+                                    <span class="project-name-bslk">Trello</span>
                                     <span class="project-name-text">Trello Çalışma Alanı</span>
                                 </div>
                             </a>

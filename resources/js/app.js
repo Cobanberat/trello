@@ -757,3 +757,43 @@ document.querySelectorAll(".star-toggle").forEach(function (checkbox) {
             });
     });
 });
+$(document).ready(function() {
+    $('.select-color').click(function() {
+        var cardId = $(this).data('card-id');  
+        var selectedColor = $(this).data('color');  
+
+       
+        if (!cardId || !selectedColor) {
+            console.log('Card ID veya renk seçilmedi.');
+            return; 
+        }
+
+        var formData = new FormData();
+        formData.append('card_id', cardId);  
+        formData.append('selectedColor', selectedColor);  
+
+        
+        var selectedImage = ''; 
+        if (selectedImage) {
+            formData.append('selectedImage', selectedImage);
+        }
+
+        $.ajax({
+            url: '/save-selection', 
+            method: 'POST',
+            data: formData,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                
+            },
+            error: function(xhr, status, error) {
+                
+                alert('Hata oluştu: ' + error);
+            }
+        });
+    });
+});

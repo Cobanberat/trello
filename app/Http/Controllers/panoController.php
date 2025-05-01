@@ -6,6 +6,7 @@ use App\Models\lists;
 use App\Models\card;
 use App\Models\favories;
 use App\Models\User;
+use App\Models\backgrounds;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -51,6 +52,7 @@ class panoController extends Controller
         $cards = card::where('lists_id', $request->lists_id)->get();
 
         return response()->json($cards);
+
     }
     public function cardAdd(request $request)
     {
@@ -214,4 +216,36 @@ class panoController extends Controller
             'profile' => view('profile', compact("user", 'sonuc'))
         ]);
     }
+    public function saveSelection(Request $request)
+{
+    try {
+        $color = $request->input('selectedColor');
+        $image = $request->file('selectedImage');
+        $cardId = $request->input('card_id'); 
+
+        if ($color) {
+            $backg = new backgrounds();
+            $backg->renk = $color;
+            $backg->card_id = $cardId; 
+            $backg->type = '0'; 
+            $backg->save();
+        }
+
+        if ($image) {
+            $imagePath = $image->store('cards'); 
+            $backg = new backgrounds();
+            $backg->img = $imagePath;
+            $backg->card_id = $cardId; 
+            $backg->type = '1'; 
+            $backg->save();
+        }
+
+        return response()->json(['message' => 'Seçim başarıyla kaydedildi!']);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
+    }
+}
+
+
+
 }

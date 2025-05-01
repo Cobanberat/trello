@@ -81,6 +81,7 @@ Route::middleware([RedirectIfNotAuthenticated::class])->group(function () {
     Route::post('/update-pano-name', [panoController::class, 'updatePanoName']);
     Route::post('/card/update-list', [panoController::class, 'updateList']);
     Route::post('/getCards', [panoController::class, 'getCards']);
+    Route::post('/save-selection', [panoController::class, 'saveSelection']);
 
     Route::post('/favori-ekle', [favoriController::class, 'ekle']);
     Route::post('/favori-sil', [favoriController::class, 'sil']);;

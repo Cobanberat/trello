@@ -19,7 +19,7 @@
                 <a href="">
                     <div class="pano-card">
                         <div>
-                            <span class="pano-text">Ticket</span>
+                            <span class="pano-text"># Trello</span>
                         </div>
                         <div class="pano-alt">
                             <span>
@@ -54,7 +54,7 @@
                         Trello Çalışma Alanı</span>
                 </div>
                 <div class="d-flex align-items-center gap-2">
-                    <a href="" class="project-button-main-container">
+                    <a href="/pano" class="project-button-main-container">
                         <svg style="color:#ffffff" width="17" height="17" role="presentation" focusable="false"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -63,7 +63,7 @@
                         </svg>
                         Panolar
                     </a>
-                    <a href="" class="project-button-main-container">
+                    <a href="/table" class="project-button-main-container">
                         <svg width="20" height="20" role="presentation" focusable="false" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -82,6 +82,7 @@
                         Görünümler
                     </a>
                     <a href="" class="project-button-main-container">
+                        #
                         <svg style="color:#ffffff" width="17" height="17" role="presentation" focusable="false"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -91,6 +92,7 @@
                         Üyeler (1)
                     </a>
                     <a href="" class="project-button-main-container">
+                        #
                         <svg width="20" height="20" role="presentation" focusable="false" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -221,7 +223,7 @@
         </div>
         <div class="">
             <button class="project-button-main-container">
-                Tüm kapalı Panoları Görüntüle
+               # Tüm kapalı Panoları Görüntüle
             </button>
         </div>
     </div>
