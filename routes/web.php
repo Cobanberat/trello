@@ -82,6 +82,13 @@ Route::middleware([RedirectIfNotAuthenticated::class])->group(function () {
     Route::post('/card/update-list', [panoController::class, 'updateList']);
     Route::post('/getCards', [panoController::class, 'getCards']);
     Route::post('/save-selection', [panoController::class, 'saveSelection']);
+    Route::post('/save-last-board', function (Illuminate\Http\Request $request) {
+        $user = auth()->user();
+        $user->last_board_id = $request->board_id;
+        $user->save();
+    
+        return response()->json(['message' => 'Kaydedildi']);
+    })->middleware('auth');
 
     Route::post('/favori-ekle', [favoriController::class, 'ekle']);
     Route::post('/favori-sil', [favoriController::class, 'sil']);;

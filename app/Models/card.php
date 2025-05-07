@@ -9,7 +9,7 @@ class Card extends Model
     protected $guarded = [];
     
     public function backgrounds()
-{
-    return $this->hasOne(backgrounds::class, 'card_id', 'id');
-}
+    {
+        return $this->hasOne(backgrounds::class, 'card_id', 'id');
+    }
 }

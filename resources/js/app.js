@@ -7,6 +7,7 @@ Alpine.start();
 const sortHandle = () => {
     $(".sortable").sortable({
         connectWith: ".sortable",
+        cancel: ".modal",
         start: function (event, ui) {
             ui.item.addClass("tilt");
             ui.item.css("opacity", "0.7");
@@ -145,7 +146,7 @@ $(document).ready(function () {
                                         aria-labelledby="dropdown${response.id}">
                                         <div class="text-center fw-light projectName">
                                         ${response.name}
-                                            <button type="button" class="btn-close shadow-none position-absolute end-0 px-3" data-bs-auto-close="outside"
+                                            <button type="button" class="btn-close shadow-none position-absolute end-0 px-3" onclick="document.body.click()" data-bs-auto-close="outside"
                                                 aria-label="close"></button>
                                         </div>
                                         <div class="px-3">
@@ -268,7 +269,11 @@ $(document).ready(function () {
                     const cardHtml = `
                     
                        <ul class="card-texts" data-card-id="${response.id}">
-                                            <span class="card-text-span">${response.name}</span>
+                       <div class="cardColor d-none" data-card-id="${response.id}">
+                                            </div>
+                                           <div data-card-id='${response.id}'
+                                            class="d-flex align-items-center justify-content-between w-100 pDiv">
+                                                <span class="card-text-span">${response.name}</span>
                                             <div>
                                                 <button class="düzenle_svg modalBtn" data-bs-toggle="modal"
                                                     data-bs-target="#btn${response.id}">
@@ -279,72 +284,220 @@ $(document).ready(function () {
                                                     </svg>
                                                 </button>
 
-                                                <div class="modal fade modalMenu2" id="btn${response.id}" tabindex="-1"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog position-absolute w-100 m-0">
-                                                        <div class="modal-content bg-transparent border-0">
-                                                            <button type="button" class="btn btn-secondary d-none closeModal"
-                                                                data-bs-dismiss="modal"></button>
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <form class="modalEditForm" method="POST">
-                                                                        <textarea name="name" class="form-control shadow-none mb-2"
-                                                                            rows="4">${response.name}</textarea>
-                                                                        <button
-                                                                            class="btn btn-primary shadow-none me-auto modalAddBtn"
-                                                                            type="button">
-                                                                            Kaydet
-                                                                        </button>
-                                                                    </form>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="d-flex flex-column gap-1">
-                                                                        <button
-                                                                            class="btn btn-dark shadow-none modalInnerBtn me-auto"
-                                                                            type="button">
-                                                                            <i class="fa-solid fa-tachograph-digital"></i> Kartı Aç
-                                                                        </button>
-                                                                        <button
-                                                                            class="btn btn-dark shadow-none modalInnerBtn me-auto"
-                                                                            type="button">
-                                                                            <i class="fa-solid fa-tag"></i> Etiketleri Düzenle
-                                                                        </button>
-                                                                        <button
-                                                                            class="btn btn-dark shadow-none modalInnerBtn me-auto"
-                                                                            type="button">
-                                                                            <i class="fa-solid fa-user"></i> Üyeleri Değiştir
-                                                                        </button>
-                                                                        <button
-                                                                            class="btn btn-dark shadow-none modalInnerBtn me-auto"
-                                                                            type="button">
-                                                                            <i class="fa-solid fa-credit-card"></i> Kapağı Değiştir
-                                                                        </button>
-                                                                        <button
-                                                                            class="btn btn-dark shadow-none modalInnerBtn me-auto"
-                                                                            type="button">
-                                                                            <i class="fa-solid fa-arrow-right"></i> Taşı
-                                                                        </button>
-                                                                        <button
-                                                                            class="btn btn-dark shadow-none modalInnerBtn me-auto"
-                                                                            type="button">
-                                                                            <i class="fa-solid fa-tachograph-digital"></i> Kopyala
-                                                                        </button>
-                                                                        <button
-                                                                            class="btn btn-dark shadow-none modalInnerBtn me-auto"
-                                                                            type="button">
-                                                                            <i class="fa-regular fa-clock"></i> Tarihleri Düzenle
-                                                                        </button>
-                                                                        <button
-                                                                            class="btn btn-dark shadow-none modalInnerBtn me-auto deleteCardBtn"
-                                                                            type="button" data-id="${response.id}">
-                                                                            <i class="fa-solid fa-box-archive"></i> Sil
-                                                                        </button>
+                                                  <div class="modal fade modalMenu2" id="btn${response.id}"
+                                                        tabindex="-1">
+                                                        <div class="modal-dialog position-absolute w-100 m-0">
+                                                            <div class="modal-content bg-transparent border-0">
+                                                                <button type="button"
+                                                                    class="btn btn-secondary d-none closeModal"
+                                                                    data-bs-dismiss="modal"></button>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <form class="modalEditForm" method="POST">                                                                            <textarea name="name" class="form-control shadow-none mb-2" rows="4">${response.name}</textarea>
+                                                                            <button
+                                                                                class="btn btn-primary shadow-none me-auto modalAddBtn"
+                                                                                type="button">
+                                                                                Kaydet
+                                                                            </button>
+                                                                        </form>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="d-flex flex-column gap-1">
+                                                                            <button
+                                                                                class="btn btn-dark shadow-none modalInnerBtn me-auto"
+                                                                                type="button">
+                                                                                <i
+                                                                                    class="fa-solid fa-tachograph-digital"></i>
+                                                                                # Kartı Aç
+                                                                            </button>
+                                                                            <button
+                                                                                class="btn btn-dark shadow-none modalInnerBtn me-auto"
+                                                                                type="button">
+                                                                                <i class="fa-solid fa-tag"></i># Etiketleri
+                                                                                Düzenle
+                                                                            </button>
+                                                                            <button
+                                                                                class="btn btn-dark shadow-none modalInnerBtn me-auto"
+                                                                                type="button">
+                                                                                <i class="fa-solid fa-user"></i># Üyeleri
+                                                                                Değiştir
+                                                                            </button>
+                                                                            <div class="dropend">
+                                                                                <button data-bs-toggle="dropdown"
+                                                                                
+                                                                                    aria-expanded="false"
+                                                                                    data-bs-auto-close="outside"
+                                                                                    class="btn btn-dark shadow-none modalInnerBtn me-auto"
+                                                                                    type="button">
+                                                                                    <i class="fa-solid fa-credit-card"></i>
+                                                                                    Kapağı
+                                                                                    Değiştir
+                                                                                </button>
+                                                                                <div class="pano-add-form dropdown-menu"
+                                                                                    data-bs-auto-close="outside">
+                                                                                    <form method="post">
+                                                                                        @csrf
+                                                                                        <div
+                                                                                            class="d-flex flex-column gap-2">
+                                                                                            <div class="ust-text">
+                                                                                                <div
+                                                                                                    class="text-visibility-imgAdd">
+                                                                                                    <span>Kapak</span>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="exit-visibility-imgAdd">
+                                                                                                    <span onclick="document.body.click()"> <i
+                                                                                                            class="bi bi-x"></i>
+                                                                                                    </span>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                        <div class="d-flex flex-column">
+                                                                                            <span
+                                                                                                class="arkpln-text">Boyut</span>
+                                                                                            <div
+                                                                                                class="d-flex flex-column">
+                                                                                                <div class="d-flex gap-2">
+                                                                                                    <div
+                                                                                                        class="d-flex flex-column img-show gap-2">
+                                                                                                        <div
+                                                                                                            class="check-img">
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="check-img-bgColor">
+                                                                                                            <div
+                                                                                                                class="cizgi-full">
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="cizgi-ort">
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="cizgi-low">
+                                                                                                                <div
+                                                                                                                    class="d-flex align-items-center w-100 gap-1">
+                                                                                                                    <span
+                                                                                                                        class="cizgi-low-tp"></span>
+                                                                                                                    <span
+                                                                                                                        class="cizgi-low-tp"></span>
+                                                                                                                </div>
+                                                                                                                <span
+                                                                                                                    class="cizgi-top"></span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div
+                                                                                                        class="d-flex flex-column justify-content-end img-show-two gap-2">
+
+                                                                                                        <div
+                                                                                                            class="check-img-bgColor">
+                                                                                                            <div
+                                                                                                                class="cizgi-full-two">
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="cizgi-ort-two">
+                                                                                                            </div>
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <br>
+                                                                                                <div
+                                                                                                    class="d-flex flex-column gap-2">
+                                                                                                    <span
+                                                                                                        class="arkpln-text">Renkler</span>
+                                                                                                    <div style="padding-left:5px;padding-right:5px;"
+                                                                                                        class="d-flex justify-content-center flex-wrap gap-2">
+                                                                                                        <span class="renk-button select-color" id="renk1" data-color="#4bce97" data-card-id="${response.id}"></span>
+                                                                                                        <span class="renk-button select-color" id="renk2" data-color="#f5cd47" data-card-id="${response.id}"></span>
+                                                                                                        <span class="renk-button select-color" id="renk3" data-color="#fea362" data-card-id="${response.id}"></span>
+                                                                                                        <span class="renk-button select-color" id="renk4" data-color="#f87168" data-card-id="${response.id}"></span>
+                                                                                                        <span class="renk-button select-color" id="renk5" data-color="#9f8fef" data-card-id="${response.id}"></span>
+                                                                                                        <span class="renk-button select-color" id="renk6" data-color="#579dff" data-card-id="${response.id}"></span>
+                                                                                                        <span class="renk-button select-color" id="renk7" data-color="#6cc3e0" data-card-id="${response.id}"></span>
+                                                                                                        <span class="renk-button select-color" id="renk8" data-color="#94c748" data-card-id="${response.id}"></span>
+                                                                                                        <span class="renk-button select-color" id="renk9" data-color="#e774bb" data-card-id="${response.id}"></span>
+                                                                                                        <span class="renk-button select-color" id="renk10" data-color="#8590a2" data-card-id="${response.id}"></span>
+                                                                                                    </div>
+
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="d-flex flex-column">
+                                                                                                    <div
+                                                                                                        class="d-flex align-items-center justify-content-center w-100">
+                                                                                                        <div
+                                                                                                            class="img-rnk-text">
+                                                                                                            # Renk körlüğü
+                                                                                                            erişilebilirlik
+                                                                                                            modunu
+                                                                                                            etkinleştir     
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <br>
+                                                                                                    <div
+                                                                                                        class="w-100 d-flex align-items-center justify-content-center">
+                                                                                                        <div
+                                                                                                            class="cizgi-file">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <br>
+                                                                                                    <span
+                                                                                                        class="arkpln-text"
+                                                                                                        style="padding-left:15px; ">Eklentiler</span>
+                                                                                                    <div
+                                                                                                        class="d-flex align-items-center justify-content-center w-100">
+                                                                                                        <div
+                                                                                                            class="img-rnk-text-kapak">
+                                                                                                            <label
+                                                                                                                for="kapak-sec"
+                                                                                                                class="img-select-label">#
+                                                                                                                Sadece
+                                                                                                                bir kapak
+                                                                                                                resmi
+                                                                                                                yükleyin</label>
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <button
+                                                                                class="btn btn-dark shadow-none modalInnerBtn me-auto"
+                                                                                type="button">
+                                                                                <i class="fa-solid fa-arrow-right"></i>#
+                                                                                Taşı
+                                                                            </button>
+                                                                            <button
+                                                                                class="btn btn-dark shadow-none modalInnerBtn me-auto"
+                                                                                type="button">
+                                                                                <i
+                                                                                    class="fa-solid fa-tachograph-digital"></i>
+                                                                                # Kopyala
+                                                                            </button>
+                                                                            <button
+                                                                                class="btn btn-dark shadow-none modalInnerBtn me-auto"
+                                                                                type="button">
+                                                                                <i class="fa-regular fa-clock"></i>#
+                                                                                Tarihleri
+                                                                                Düzenle
+                                                                            </button>
+                                                                            <button
+                                                                                class="btn btn-dark shadow-none modalInnerBtn me-auto deleteCardBtn"
+                                                                                type="button"
+                                                                                data-id="${response.id}">
+                                                                                <i class="fa-solid fa-box-archive"></i> Sil
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
                                         </ul>
                                       
                                       
@@ -390,7 +543,7 @@ $(document).ready(function () {
                 console.log(response);
 
                 var cardHtml = `<span>${response.name}</span>`;
-                $(`ul[data-card-id="${response.id}"]`)
+                $(`.cardColor[data-card-id="${response.id}"] ~ .pDiv`)
                     .find(".card-text-span")
                     .html(cardHtml);
 
@@ -452,7 +605,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".deleteCardBtn", function () {
         var cardId = $(this).data("id");
-        var $cardElement = $(`ul[data-card-id="${cardId}"]`);
+        var $cardElement = $(`.card-texts[data-card-id="${cardId}"]`);
 
         $.ajax({
             url: "/cardDelete",
@@ -560,12 +713,12 @@ $(document).ready(function () {
             $(".listAdd-button").removeClass("d-none");
         }
     });
-    if ($(".panoBasligi_inpt").val().length === 0) { 
+    if ($(".panoBasligi_inpt").val().length === 0) {
         $(".nameSpan").show();
-            $(".pano-add-button")
-                .addClass("none-button")
-                .removeClass("pano-add-button")
-                .prop("disabled", true);
+        $(".pano-add-button")
+            .addClass("none-button")
+            .removeClass("pano-add-button")
+            .prop("disabled", true);
     }
 
     $(".panoBasligi_inpt").on("input", function () {
@@ -659,10 +812,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 $(".card-container").on("click", ".modalBtn", function () {
-    let a = $(this).parent().offset().top;
-    let b = $(this).parent().offset().left;
+    let a = $(this).parent().parent().offset().top;
+    let b = $(this).parent().parent().offset().left;
+
     $(this)
         .siblings(".modalMenu2")
+        .children(".modal-dialog")
         .css({
             top: a + "px",
             left: b + "px",
@@ -757,43 +912,95 @@ document.querySelectorAll(".star-toggle").forEach(function (checkbox) {
             });
     });
 });
-$(document).ready(function() {
-    $('.select-color').click(function() {
-        var cardId = $(this).data('card-id');  
-        var selectedColor = $(this).data('color');  
+$(document).ready(function () {
+    $('.board-link').on('click', function (e) {
+        e.preventDefault();
+    
+        const boardId = $(this).data('id');
+        const boardUrl = $(this).attr('href');
+    
+        $.ajax({
+            url: '/save-last-board',
+            method: 'POST',
+            data: {
+                board_id: boardId,
+                _token: $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function () {
+                window.location.href = boardUrl;
+            }
+        });
+    });
 
-       
+
+    $(document).on("click", ".select-color", function () {
+        var cardId = $(this).data("card-id");
+        var selectedColor = $(this).data("color");
+
+        $(".select-color").removeClass("selected-color");
+
+        $(this).addClass("selected-color");
+
         if (!cardId || !selectedColor) {
-            console.log('Card ID veya renk seçilmedi.');
-            return; 
+            console.log("Card ID veya renk seçilmedi.");
+            return;
         }
 
         var formData = new FormData();
-        formData.append('card_id', cardId);  
-        formData.append('selectedColor', selectedColor);  
+        formData.append("card_id", cardId);
+        formData.append("selectedColor", selectedColor);
 
-        
-        var selectedImage = ''; 
+        var selectedImage = "";
         if (selectedImage) {
-            formData.append('selectedImage', selectedImage);
+            formData.append("selectedImage", selectedImage);
         }
 
         $.ajax({
-            url: '/save-selection', 
-            method: 'POST',
+            url: "/save-selection",
+            method: "POST",
             data: formData,
             headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
             processData: false,
             contentType: false,
-            success: function(response) {
+            success: function (response) {
+                const cardColorDiv = $(
+                    ".cardColor[data-card-id='" + cardId + "']"
+                );
+                const cizgiImg  = $('.check-img');  
+                const cizgiImgTwo  = $('.img-show-two');  
+
+                cizgiImg
+                    .css("background-color", response.renk);
+                    cizgiImgTwo
+                    .css("background-color", response.renk);
+               
+
+                cardColorDiv
+                    .removeClass("d-none")
+                    .css("background-color", response.renk);
+
+                $('.pDiv[data-card-id="' + cardId + '"]').addClass("p-2");
                 
+                if (response.deleted) {
+                    cardColorDiv.addClass("d-none");
+                    $('.pDiv[data-card-id="' + cardId + '"]').removeClass("p-2");
+
+                    $(
+                        ".select-color[data-card-id='" + cardId + "']"
+                    ).removeClass("selected-color");
+                    cizgiImg
+                    .css("background-color", '#52273c');
+                    cizgiImgTwo
+                    .css("background-color", '#52273c');
+                 
+                } else {
+                }
             },
-            error: function(xhr, status, error) {
-                
-                alert('Hata oluştu: ' + error);
-            }
+            error: function (xhr, status, error) {
+                console.log("Hata oluştu: ", error);
+            },
         });
     });
 });

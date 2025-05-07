@@ -7,9 +7,7 @@
 
     <title>Trello</title>
 
-    <!-- Fonts -->
 
-    <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
     @endif
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -90,7 +88,7 @@
                         <ul class="d-flex align-items-center gap-3">
                             <li class="d-flex align-items-center gap-1">
                                 <span class="header-options-text"
-                                    style="font-size: 1rem; font-weight:500;color: rgb(23, 43, 77);">Features</span>
+                                    style="font-size: 1rem; font-weight:500;color: rgb(23, 43, 77);"># Features</span>
                                 <span><svg fill="currentColor" width="8" height="8" viewBox="0 0 13 8"
                                         width="13" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -102,7 +100,7 @@
                         <ul class="d-flex align-items-center gap-3">
                             <li class="d-flex align-items-center gap-1 ">
                                 <span class="header-options-text"
-                                    style="font-size: 1rem; font-weight:500;color: rgb(23, 43, 77);">Solutions</span>
+                                    style="font-size: 1rem; font-weight:500;color: rgb(23, 43, 77);"># Solutions</span>
                                 <span><svg fill="currentColor" width="8" height="8" viewBox="0 0 13 8"
                                         width="13" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -114,7 +112,7 @@
                         <ul class="d-flex align-items-center gap-3">
                             <li class="d-flex align-items-center gap-1">
                                 <span class="header-options-text"
-                                    style="font-size: 1rem; font-weight:500;color: rgb(23, 43, 77);">Plans</span>
+                                    style="font-size: 1rem; font-weight:500;color: rgb(23, 43, 77);"># Plans</span>
                                 <span><svg fill="currentColor" width="8" height="8" viewBox="0 0 13 8"
                                         width="13" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -126,14 +124,14 @@
                         <ul class="d-flex align-items-center gap-3">
                             <li class="d-flex align-items-center gap-1">
                                 <span class="header-options-text"
-                                    style="font-size: 1rem; font-weight:500;color: rgb(23, 43, 77);">Pricing</span>
+                                    style="font-size: 1rem; font-weight:500;color: rgb(23, 43, 77);"># Pricing</span>
                                
                             </li>
                         </ul>
                         <ul class="d-flex align-items-center gap-3">
                             <li class="d-flex align-items-center gap-1 ">
                                 <span class="header-options-text"
-                                    style="font-size: 1rem; font-weight:500;color: rgb(23, 43, 77);">Resources</span>
+                                    style="font-size: 1rem; font-weight:500;color: rgb(23, 43, 77);"># Resources</span>
                                 <span><svg fill="currentColor" width="8" height="8" viewBox="0 0 13 8"
                                         width="13" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -182,7 +180,7 @@
                     <a href="register" class="p-3 signUpButton"> Sign up - it's free!</a>
                 </div>
                 <br>
-                <span style="font-size:1.10rem;" class="watchVClass gap-2 d-flex align-items-center"> watch video <svg
+                <span style="font-size:1.10rem;" class="watchVClass gap-2 d-flex align-items-center"># watch video<svg
                         fill="none" height="24" viewBox="0 0 24 24" width="24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="m5 5h14v14h-14z"></path>
@@ -207,7 +205,7 @@
                 <span style="color: rgb(9 30 78); width:632px; font-weight: 500; font-size:1.25rem;">Simple, flexible,
                     and powerful. All it takes are boards, lists, and cards to get a clear view of
                     who’s doing what and what needs to get done. Learn more in our <a class="LearnMoreText"
-                        href="">guide for getting
+                        href=""># guide for getting
                         started</a>.</span>
             </div>
             <br>
@@ -427,7 +425,7 @@
                 <span style="font-size:1.2rem; font-weight: 500; color: #092c66; width: 65%">No need to start from
                     scratch. Jump-start your workflow with a proven playbook designed for different teams. Customize it
                     to make it yours.</span>
-                <button class="exploreButton">Explore all Use Cases</button>
+                <button class="exploreButton"># Explore all Use Cases</button>
             </div>
         </div>
         <br>
@@ -445,7 +443,7 @@
                         <span>the task at hand.</span>
                     </div>
                     </span>
-                    <button class="discoverButton">Discover all Trello views</button>
+                    <button class="discoverButton"># Discover all Trello views</button>
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-center gap-5">
                     <div class="cardSmain">
@@ -469,7 +467,7 @@
                                 sprints to annual planning, Timeline view keeps all tasks on track. Quickly get a
                                 glimpse of what’s coming down the pipeline and identify any gaps that might impede your
                                 team’s progress.</span>
-                            <span class="LearnMoreText" style="font-weight:500; font-size: 1.2rem;">Learn more about
+                            <span class="LearnMoreText" style="font-weight:500; font-size: 1.2rem;"># Learn more about
                                 Timeline view</span>
                         </div>
                     </div>
@@ -494,7 +492,7 @@
                                 without any surprises. Whether scheduling an editorial calendar or staying on top of
                                 to-dos, Calendar view is like a crystal ball giving you a clear vision of what work lies
                                 ahead.</span>
-                            <span class="LearnMoreText" style="font-weight:500; font-size: 1.2rem;">Learn more about
+                            <span class="LearnMoreText" style="font-weight:500; font-size: 1.2rem;">$ Learn more about
                                 Calendar view</span>
                         </div>
                     </div>
@@ -528,7 +526,7 @@
                     <span style="font-size: 1.5rem;line-height: 1.33333;">Integrations</span>
                     <span style="font-size:1.rem;">Connect the apps your team already uses into your Trello workflow or
                         add a Power-Up to fine-tune your specific needs.</span>
-                    <button class="exploreButton" style="padding: 0.7rem 1rem 0.8rem !important; width: 200px;">Browse
+                    <button class="exploreButton" style="padding: 0.7rem 1rem 0.8rem !important; width: 200px;">#Browse
                         Integrations</button>
                 </div>
                 <div style="width:30%;color:rgb(9, 30, 66); font-weight: 500;" class="d-flex flex-column gap-4">
@@ -538,7 +536,7 @@
                     <span style="font-size: 1.5rem;line-height: 1.33333;">Butler Automation</span>
                     <span style="font-size:1.rem;">No-code automation is built into every Trello board. Focus on the
                         work that matters most and let the robots do the rest.</span>
-                    <button class="exploreButton" style="padding: 0.7rem 1rem 0.8rem !important; width: 250px;">Get to
+                    <button class="exploreButton" style="padding: 0.7rem 1rem 0.8rem !important; width: 250px;">#  Get to
                         Know Automation</button>
                 </div>
                 <div style="width:30%;color:rgb(9, 30, 66); font-weight: 500;" class="d-flex flex-column gap-4">
@@ -646,7 +644,7 @@
 
                             </g>
                         </svg>
-                        <a href="#" class="footer-a d-block mt-2">Log In</a>
+                        <a href="/login" class="footer-a d-block mt-2">Log In</a>
                     </div>
 
                     <div class="col-md-2 footer-cards">
@@ -682,9 +680,9 @@
                     </div>
 
                     <div style="font-size: 0.75rem; font-weight: 500;" class=" d-flex align-items-center gap-3">
-                        <a href="#" class="footer-a">Your Privacy Choices</a>
-                        <a href="#" class="footer-a"> Privacy Policy</a>
-                        <a href="#" class="footer-a"> Terms</a>
+                        <a href="#" class="footer-a"># Your Privacy Choices</a>
+                        <a href="#" class="footer-a"># Privacy Policy</a>
+                        <a href="#" class="footer-a"># Terms</a>
                         <span class="text-light">Copyright © 2024 Atlassian</span>
                     </div>
                 </div>

@@ -50,8 +50,8 @@
                             <input class="mail-input" type="text" name="email"
                                 placeholder="E-posta adresinizi girin">
                         </div>
-                        <span class="input-a register-inp">Kaydolarak Atlassian <a href="">Cloud Hizmet
-                                Koşullarını</a> kabul ediyorum ve <a href="">Gizlilik Politikasını</a>
+                        <span class="input-a register-inp">Kaydolarak Atlassian <a href=""># Cloud Hizmet
+                                Koşullarını</a> kabul ediyorum ve <a href=""># Gizlilik Politikasını</a>
                             onaylıyorum.</span>
                     </div>
                     <button class="loginİnputButton">kaydol</button>
@@ -106,18 +106,18 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="footer-span">Trello, Jira, Confluence ve <a href="#"> daha fazlası </a> için tek
+                    <span class="footer-span">Trello, Jira, Confluence ve <a href="#"># daha fazlası </a> için tek
                         bir hesap.</span>
                     <div class="footer-security-span">
-                        <a href="">Gizlilik Politikası</a>
+                        <a href=""># Gizlilik Politikası</a>
                         <div class="ltop"></div>
-                        <a href="">Kullanıcı Bildirimi</a>
+                        <a href=""># Kullanıcı Bildirimi</a>
                     </div>
                 </footer>
         </div>
         <div class="d-flex footer-input-a">
-            <span>Bu site reCAPTCHA ile korunmaktadır; Google <a href="">Gizlilik Politikası </a> ve <a
-                    href=""> Hizmet Şartları</a> geçerlidir.</span>
+            <span>Bu site reCAPTCHA ile korunmaktadır; Google <a href=""># Gizlilik Politikası </a> ve <a
+                    href=""># Hizmet Şartları</a> geçerlidir.</span>
         </div>
     </div>
 </body>

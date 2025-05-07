@@ -61,7 +61,7 @@
                     <button class="loginİnputButton">Devam</button>
                 </div>
                 <div class="d-flex gap-2 align-items-center input-a" style="font-size: 13px;font-weight:400%">
-                    <a href="">Oturum açamıyor musunuz?</a>
+                    <a href=""># Oturum açamıyor musunuz?</a>
                     <div class="ltop"></div>
                     <a href="/register">Bir hesap oluşturun</a>
                 </div>
@@ -112,20 +112,20 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="footer-span">Trello, Jira, Confluence ve <a href="#"> daha fazlası </a> için
+                    <span class="footer-span">Trello, Jira, Confluence ve <a href="#"># daha fazlası </a> için
                         tek
                         bir hesap.</span>
                     <div class="footer-security-span">
-                        <a href="">Gizlilik Politikası</a>
+                        <a href=""># Gizlilik Politikası</a>
                         <div class="ltop"></div>
-                        <a href="">Kullanıcı Bildirimi</a>
+                        <a href=""># Kullanıcı Bildirimi</a>
                     </div>
                 </footer>
             </form>
         </div>
         <div class="d-flex footer-input-a">
-            <span>Bu site reCAPTCHA ile korunmaktadır; Google <a href="">Gizlilik Politikası </a> ve <a
-                    href=""> Hizmet Şartları</a> geçerlidir.</span>
+            <span>Bu site reCAPTCHA ile korunmaktadır; Google <a href=""># Gizlilik Politikası </a> ve <a
+                    href=""># Hizmet Şartları</a> geçerlidir.</span>
         </div>
     </div>
 </body>

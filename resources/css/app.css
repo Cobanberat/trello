@@ -953,6 +953,7 @@ body {
     cursor: pointer;
     justify-content: space-between;
     display: flex;
+    flex-direction: column;
 }
 
 .card-text-span {
@@ -2049,7 +2050,7 @@ body {
 }
 
 .text-visibility-appearance {
-    width: 80%;
+    width: 70%;
     display: flex;
     justify-content: flex-end;
     font-size: 14px;
@@ -2058,7 +2059,6 @@ body {
 }
 
 .text-visibility-appearance span {
-    width: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3888,3 +3888,15 @@ body {
     border: 3px solid black;
     border-radius: 4px;
 }
+.cardColor{
+    width: 100%;
+    height: 30px;
+    border-radius: 6px 6px 0 0;
+}
+
+
+.selected-color {
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #000;
+}
+

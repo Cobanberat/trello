@@ -16,6 +16,6 @@ class favories extends Model
     public function favori()
     {
         return $this->hasOne(pano::class, 'id', 'pano_id')
-            ->where('user_id', Auth::id());
+        ->where('user_id', Auth::id());
     }
 }
