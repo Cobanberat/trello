@@ -707,7 +707,6 @@ body {
 }
 
 .project-button {
-    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1546,7 +1545,7 @@ body {
     color: white;
     z-index: 999;
     font-size: 12px;
-    top: 2px;
+    /* top: 2px; */
 }
 
 .custom-switch i.bi-x {
@@ -3898,5 +3897,34 @@ body {
 .selected-color {
     border: 3px solid #fff;
     box-shadow: 0 0 0 2px #000;
+}
+.modal-background{
+    height: 160px;
+    position: relative;
+}
+.kpk-button{
+    color:#172b4d;
+    position: absolute;
+    z-index: 6;
+    right: 0;
+    bottom: 0;
+    margin: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 10px;
+    padding: 5px;
+    padding-right: 10px;
+    cursor: pointer;
+    gap: 5px;
+
+}
+.kpk-button:hover {
+    background-color: #cccbcb;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 

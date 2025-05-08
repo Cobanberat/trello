@@ -1004,3 +1004,84 @@ $(document).ready(function () {
         });
     });
 });
+$(document).ready(function () {
+    $(document).on('mouseenter', '.add-explanation, .explanation-content', function () {
+        $(this).css('background-color', '#d0d4db');
+    }).on('mouseleave', '.add-explanation, .explanation-content', function () {
+        $(this).css('background-color', '#e4e6ea');
+    });
+
+    $(document).on('click', '.add-explanation, .explanation-content', function () {
+        const box = $(this).closest('[id^="explanation-box-"]');
+        const id = box.data('id');
+        const currentText = $(this).hasClass('explanation-content') ? $(this).text().trim() : '';
+
+        const textareaForm = `
+            <div class="textarea-wrapper">
+                <textarea class="form-control" rows="4" id="explanation-input-${id}" placeholder="Açıklamanızı girin...">${currentText}</textarea>
+                <div class="mt-2">
+                    <button class="btn btn-primary btn-sm" data-id="${id}" class="save-explanation">Kaydet</button>
+                    <button class="btn btn-sm cancel-explanation" style="background-color: #d0d4db;" data-id="${id}">İptal</button>
+                </div>
+            </div>
+        `;
+
+        box.html(textareaForm);
+    });
+
+
+    $(document).on('click', '.cancel-explanation', function () {
+        const id = $(this).data('id');
+        const box = $(`#explanation-box-${id}`);
+        const currentText = box.find('textarea').val().trim();
+
+        if (currentText === '') {
+            box.html(`
+                <div class="add-explanation" style="width: 100%; min-height: 60px; background-color: #e4e6ea; padding: 10px; cursor: pointer;">
+                    Açıklama ekle...
+                </div>
+            `);
+        } else {
+            box.html(`
+                <div class="explanation-content" style="width: 100%; min-height: 60px; background-color: #e4e6ea; padding: 10px; cursor: pointer;">
+                    ${currentText}
+                </div>
+            `);
+        }
+    });
+    $(document).on('click', '.btn.btn-primary', function () {
+        const id = $(this).data('id');
+        const explanation = $(`#explanation-input-${id}`).val().trim();
+
+        if (explanation === '') {
+            alert('Açıklama boş olamaz!');
+            return;
+        }
+
+        $.ajax({
+            url: "/explanation/update", 
+            method: "POST",
+            
+            data: {
+                _token: $('meta[name="csrf-token"]').attr("content"),
+                id: id,
+                explanation: explanation
+            },
+            success: function (response) {
+                if (response.success) {
+                    $(`#explanation-box-${id}`).html(`
+                        <div class="explanation-content" style="width: 100%; min-height: 60px; background-color: #e4e6ea; padding: 10px; cursor: pointer;">
+                            ${explanation}
+                        </div>
+                    `);
+                } else {
+                    alert('Kayıt başarısız.');
+                }
+            },
+            error: function () {
+                alert('Sunucu hatası oluştu.');
+            }
+        });
+    });
+});
+

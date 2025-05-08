@@ -672,7 +672,7 @@
             <div class="card-container">
                 @foreach ($liste as $list)
                     <div class="sortable-container" data-list-id="{{ $list->id }}">
-                        <div class="card" style="width: 17rem">
+                        <div class="card" style="width: 17rem" >
                             <div class="card-body">
                                 <div class="card-title">
                                     <span class="editable" data-id="{{ $list->id }}">{{ $list->name }}</span>
@@ -712,16 +712,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-text-body sortable">
+                                <div class="card-text-body sortable" >
                                     @php $card = App\Models\card::where('lists_id', $list->id)->get(); @endphp
                                     @foreach ($card as $row)
                                         <ul class="card-texts" data-card-id="{{ $row->id }}">
-                                            <div class="cardColor {{ $row->backgrounds ? '' : 'd-none' }}" data-card-id="{{ $row->id }}"
+                                            <div class="cardColor {{ $row->backgrounds ? '' : 'd-none' }}" data-card-id="{{ $row->id }}" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $row->id }}"
                                                 @if ($row->backgrounds) style="background-color:{{ $row->backgrounds->renk }}" @endif>
                                             </div>
                                             <div data-card-id='{{ $row->id }}'
                                             class="d-flex align-items-center justify-content-between w-100 pDiv {{ $row->backgrounds ? 'p-2' : '' }}">
-                                                <span class="card-text-span">{{ $row->name }}</span>    
+                                                <span class="card-text-span" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $row->id }}">{{ $row->name }}</span>    
                                                 <div>
                                                     <button class="düzenle_svg modalBtn" data-bs-toggle="modal"
                                                         data-bs-target="#btn{{ $row->id }}">
@@ -776,7 +776,6 @@
                                                                             </button>
                                                                             <div class="dropend">
                                                                                 <button data-bs-toggle="dropdown"
-                                                                                
                                                                                     aria-expanded="false"
                                                                                     data-bs-auto-close="outside"
                                                                                     class="btn btn-dark shadow-none modalInnerBtn me-auto"
@@ -955,6 +954,54 @@
                                                 </div>
                                             </div>
                                         </ul>
+                                        <div class="modal fade modalMenu1" id="exampleModal{{ $row->id }}" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog mx-auto w-50 modalDialog">
+                                                <div class="modal-content" style="width: 768px;">
+                                                    <div class="modal-body">
+                                                        <button type="button" class="btn btn-close position-absolute end-0 top-0 m-3" data-bs-dismiss="modal"></button>
+                                                    
+                                                        <div class="modal-background w-100">
+                                                            <button class="kpk-button mt-2">
+                                                                <svg width="17" height="17" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5 5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5ZM19 7H5V13H19V7Z" fill="currentColor"></path>
+                                                                </svg>
+                                                                kapak
+                                                            </button>
+                                                        </div>
+                                                    
+                                                        <div class="modal-card-name mt-3">
+                                                            <div class="d-flex align-items-center gap-2">
+                                                                <span class="card-name-modal fs-5 fw-bold">{{ $row->name }}</span>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <div class="mt-4">
+                                                            <label class="form-label fw-semibold">Açıklama</label>
+                                                        
+                                                            <div id="explanation-box-{{ $row->id }}" data-id="{{ $row->id }}">
+                                                                @if($row->explanation)
+                                                                    <div class="explanation-content" style="width: 100%; min-height: 60px; background-color: #e4e6ea; padding: 10px; cursor: pointer;">
+                                                                        {{ $row->explanation }}
+                                                                    </div>
+                                                                @else
+                                                                    <div class="add-explanation" style="width: 100%; height: 60px; background-color: #e4e6ea; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                                                                        Bir açıklama ekleyin
+                                                                    </div>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    
+                                                        <div class="mt-3">
+                                                            <label class="form-label fw-semibold">Etiketler</label>
+                                                            
+                                                        </div>
+                                                
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
                                     @endforeach
 
 
@@ -1040,6 +1087,7 @@
                                 </form>
                             </div>
                         </div>
+                       
                     </div>
                 @endforeach
             </div>

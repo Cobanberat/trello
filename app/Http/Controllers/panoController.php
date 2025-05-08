@@ -253,5 +253,14 @@ class panoController extends Controller {
             return response()->json( [ 'error' => $e->getMessage() ], 500 );
         }
     }
+    public function updateExplanation(Request $request)
+{
+    $row = card::where('id', $request->id)->first();
+    $row->explanation = $request->explanation;
+    $row->save();
+
+    return response()->json(['success' => true]);
+}
+
 
 }

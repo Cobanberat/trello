@@ -126,8 +126,8 @@
             </div>
             <div class="tabledate">
                 @foreach ($pano as $row)
-                    <a href="/board/{{ $row->id }}" class=" {{ $aktifId == $row->id ? 'workingareasx' : '' }}"
-                        id="sidebar-texts">
+                    <a href="/board/{{ $row->id }}" class="board-link {{ $aktifId == $row->id ? 'workingareasx' : '' }}"
+                        id="sidebar-texts"  data-id="{{ $row->id }}" data-name="{{$row->id}}">
                         <div class="div-bslk">
                             <div class="pano">
 

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,19 +23,19 @@
     <title>TRELLO</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    @php 
+    @php
         $favs = App\Models\favories::with('favori')->where('user_id', Auth::id())->get();
-        $user = App\Models\User::where("id", auth()->id())->first();
-    $fullName = $user->name;
-    $words = explode(" ", $fullName);
-    $sonuc = "";
+        $user = App\Models\User::where('id', auth()->id())->first();
+        $fullName = $user->name;
+        $words = explode(' ', $fullName);
+        $sonuc = '';
 
-    foreach ($words as $word) {
-        $sonuc .= strtoupper(substr($word, 0, 1));
-    }
-    $lastBoard = \App\Models\Pano::find(auth()->user()->last_board_id);
+        foreach ($words as $word) {
+            $sonuc .= strtoupper(substr($word, 0, 1));
+        }
+        $lastBoard = \App\Models\Pano::find(auth()->user()->last_board_id);
 
-@endphp
+    @endphp
 </head>
 
 <body>
@@ -169,7 +168,8 @@
                     <ul class="dropdown-menu dropdown-gecmis">
                         @if ($favs->count() > 0)
                             @foreach ($favs as $fav)
-                                <a href="/boards/{{ $fav->favori->id }}" class="gecmis-container">
+                                <a href="/board/{{ $fav->favori->id }}" class="board-link gecmis-container"
+                                    data-id="{{ $fav->favori->id }}" data-name="{{$fav->favori->id}}">
                                     <div class="img-background"></div>
                                     <div class="gecmis-text">
                                         <span class="text-gecmis-span">{{ $fav->favori->name }}</span>
@@ -181,19 +181,21 @@
                                                 <i class="bi bi-three-dots"></i>
                                             </div>
                                             <label class="star" style="cursor:pointer;">
-                                                <input type="checkbox" class="star-toggle" data-pano-id="{{ $fav->favori->id }}"
-                                                    checked style="display: none;">
-    
+                                                <input type="checkbox" class="star-toggle"
+                                                    data-pano-id="{{ $fav->favori->id }}" checked
+                                                    style="display: none;">
+
                                                 <div class="ort-srcs-star">
-                                                    <svg class="star-fill" width="17" height="17" viewBox="0 0 24 24"
-                                                        xmlns="http://www.w3.org/2000/svg">
+                                                    <svg class="star-fill" width="17" height="17"
+                                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M11.9999 18.6266L7.49495 20.995C6.739 21.3924 5.80401 21.1018 5.40658 20.3459C5.24833 20.0448 5.19372 19.7 5.25121 19.3649L6.11158 14.3485L2.46699 10.7959C1.85542 10.1998 1.84291 9.22074 2.43904 8.60917C2.67643 8.36564 2.98747 8.20715 3.32403 8.15825L8.36072 7.42637L10.6132 2.86236C10.9912 2.0965 11.9184 1.78206 12.6843 2.16003C12.9892 2.31054 13.2361 2.55739 13.3866 2.86236L15.6391 7.42637L20.6758 8.15825C21.5209 8.28106 22.1065 9.06576 21.9837 9.91094C21.9348 10.2475 21.7763 10.5585 21.5328 10.7959L17.8882 14.3485L18.7486 19.3649C18.893 20.2066 18.3276 21.006 17.4859 21.1504C17.1507 21.2079 16.8059 21.1533 16.5049 20.995L11.9999 18.6266Z"
                                                             fill="currentColor" />
                                                     </svg>
-    
-                                                    <svg class="star-empty" width="17" height="17" fill="currentColor"
-                                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
+                                                    <svg class="star-empty" width="17" height="17"
+                                                        fill="currentColor" viewBox="0 0 24 24"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                                             d="M7.49495 20.995L11.9999 18.6266L16.5049 20.995C16.8059 21.1533 17.1507 21.2079 17.4859 21.1504C18.3276 21.006 18.893 20.2066 18.7486 19.3649L17.8882 14.3485L21.5328 10.7959C21.7763 10.5585 21.9348 10.2475 21.9837 9.91094C22.1065 9.06576 21.5209 8.28106 20.6758 8.15825L15.6391 7.42637L13.3866 2.86236C13.2361 2.55739 12.9892 2.31054 12.6843 2.16003C11.9184 1.78206 10.9912 2.0965 10.6132 2.86236L8.36072 7.42637L3.32403 8.15825C2.98747 8.20715 2.67643 8.36564 2.43904 8.60917C1.84291 9.22074 1.85542 10.1998 2.46699 10.7959L6.11158 14.3485L5.25121 19.3649C5.19372 19.7 5.24833 20.0448 5.40658 20.3459C5.80401 21.1018 6.739 21.3924 7.49495 20.995ZM19.3457 10.0485L15.6728 13.6287L16.5398 18.684L11.9999 16.2972L7.45995 18.684L8.327 13.6287L4.65411 10.0485L9.72993 9.31093L11.9999 4.71146L14.2699 9.31093L19.3457 10.0485Z"
                                                             fill="currentColor" />
@@ -210,7 +212,8 @@
                                     <img src="https://trello.com/assets/cc47d0a8c646581ccd08.svg" alt="">
                                 </div>
                                 <div class="starText">
-                                    <span>Hızla ve kolayca erişmek için önemli panoları favori olarak işaretleyin.</span>
+                                    <span>Hızla ve kolayca erişmek için önemli panoları favori olarak
+                                        işaretleyin.</span>
                                 </div>
                             </div>
                         @endif
@@ -244,8 +247,9 @@
                                         <i class="bi bi-three-dots"></i>
                                     </div>
                                     <label class="star" style="cursor:pointer;">
-                                        <input type="checkbox" class="star-toggle" data-pano-id="{{ $lastBoard->id }}"
-                                        @if (isset($lastBoard->favori->pano_id)) checked @endif style="display: none;">  
+                                        <input type="checkbox" class="star-toggle"
+                                            data-pano-id="{{ $lastBoard->id }}"
+                                            @if (isset($lastBoard->favori->pano_id)) checked @endif style="display: none;">
                                         <div class="ort-srcs-star">
                                             <svg class="star-fill" width="17" height="17" viewBox="0 0 24 24"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -254,8 +258,9 @@
                                                     fill="currentColor" />
                                             </svg>
 
-                                            <svg class="star-empty" width="17" height="17" fill="currentColor"
-                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <svg class="star-empty" width="17" height="17"
+                                                fill="currentColor" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                                     d="M7.49495 20.995L11.9999 18.6266L16.5049 20.995C16.8059 21.1533 17.1507 21.2079 17.4859 21.1504C18.3276 21.006 18.893 20.2066 18.7486 19.3649L17.8882 14.3485L21.5328 10.7959C21.7763 10.5585 21.9348 10.2475 21.9837 9.91094C22.1065 9.06576 21.5209 8.28106 20.6758 8.15825L15.6391 7.42637L13.3866 2.86236C13.2361 2.55739 12.9892 2.31054 12.6843 2.16003C11.9184 1.78206 10.9912 2.0965 10.6132 2.86236L8.36072 7.42637L3.32403 8.15825C2.98747 8.20715 2.67643 8.36564 2.43904 8.60917C1.84291 9.22074 1.85542 10.1998 2.46699 10.7959L6.11158 14.3485L5.25121 19.3649C5.19372 19.7 5.24833 20.0448 5.40658 20.3459C5.80401 21.1018 6.739 21.3924 7.49495 20.995ZM19.3457 10.0485L15.6728 13.6287L16.5398 18.684L11.9999 16.2972L7.45995 18.684L8.327 13.6287L4.65411 10.0485L9.72993 9.31093L11.9999 4.71146L14.2699 9.31093L19.3457 10.0485Z"
                                                     fill="currentColor" />
@@ -377,7 +382,8 @@
                                                 <div class="text-visibility-pano">
                                                     <span>Pano Oluştur</span>
                                                 </div>
-                                                <div class="exit-visibility-pano" onclick="$('.pano-add-text').click()">
+                                                <div class="exit-visibility-pano"
+                                                    onclick="$('.pano-add-text').click()">
                                                     <span> <i class="bi bi-x"></i> </span>
                                                 </div>
                                             </div>
