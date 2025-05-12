@@ -3848,12 +3848,15 @@ body {
     color: wheat;
     border-radius: 6px;
 }
+
 .img-rnk-text:hover {
     background-color: #422031;
 }
+
 .img-rnk-text:active {
     background-color: #58253f;
 }
+
 .img-select-label {
 
     color: white;
@@ -3864,7 +3867,8 @@ body {
 .img-select-file {
     display: none;
 }
-.img-rnk-text-kapak{
+
+.img-rnk-text-kapak {
     display: flex;
     width: 90%;
     height: 42px;
@@ -3878,16 +3882,19 @@ body {
     background-color: #422031;
 
 }
-.cizgi-file{
+
+.cizgi-file {
     width: 90%;
     height: 1px;
     background-color: #422031;
 }
+
 .renk-button.active-color {
     border: 3px solid black;
     border-radius: 4px;
 }
-.cardColor{
+
+.cardColor {
     width: 100%;
     height: 30px;
     border-radius: 6px 6px 0 0;
@@ -3898,12 +3905,16 @@ body {
     border: 3px solid #fff;
     box-shadow: 0 0 0 2px #000;
 }
-.modal-background{
+
+.modal-background {
     height: 160px;
     position: relative;
+    border-radius: 6px 6px 0 0;
+    display: none;
 }
-.kpk-button{
-    color:#172b4d;
+
+.kpk-button {
+    color: #172b4d;
     position: absolute;
     z-index: 6;
     right: 0;
@@ -3923,8 +3934,66 @@ body {
     gap: 5px;
 
 }
+
 .kpk-button:hover {
     background-color: #cccbcb;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
+.projectName {
+    font-size: 14px;
+    font-weight: 500 !important;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+.modal-card-name {
+    padding-left: 10px;
+}
+
+.aciklamaDiv {
+    padding-left: 10px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.checkboxTicket {
+    margin-right: 10px;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    background-color: transparent;
+    border-radius: 3px;
+    width: 15px;
+    height: 15px;
+}
+
+.color-box {
+    flex-grow: 1;
+    height: 35px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-icon {
+    margin-left: 10px;
+    cursor: pointer;
+}
+.cardTicketsColor{
+width: 40px;
+height: 8px;
+border-radius: 3px;
+}
+.Cardtickets{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    flex-wrap: wrap;
+    gap: 5px;
+    
+}

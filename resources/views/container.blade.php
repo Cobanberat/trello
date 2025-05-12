@@ -63,7 +63,7 @@
                                     <div class="text-visibility">
                                         <span>Görünürlüğü Değiştir</span>
                                     </div>
-                                    <div class="exit-visibility cursor-pointer"  onclick="document.body.click()">
+                                    <div class="exit-visibility cursor-pointer" onclick="document.body.click()">
                                         <span> <i class="bi bi-x"></i> </span>
                                     </div>
                                 </div>
@@ -174,15 +174,15 @@
                             <span>Pano</span>
                         </div>
                         <!-- #region <div class="project-table-left">
-                                                                                                <svg width="17" height="17" role="presentation" focusable="false"
-                                                                                                    viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
-                                                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                                                        d="M1.66683 9.66665C0.93045 9.66665 0.333496 9.06969 0.333496 8.33331V1.66665C0.333496 0.930267 0.93045 0.333313 1.66683 0.333313H12.3335C13.0699 0.333313 13.6668 0.930267 13.6668 1.66665V8.33331C13.6668 9.06969 13.0699 9.66665 12.3335 9.66665H1.66683ZM12.3335 5.66665V4.33331H5.66683V5.66665H12.3335ZM12.3335 2.99998V1.66665H5.66683V2.99998H12.3335ZM12.3335 6.99998V8.33331H5.66683V6.99998H12.3335ZM1.66683 4.33331V5.66665H4.3335V4.33331H1.66683ZM1.66683 6.99998V8.33331H4.3335V6.99998H1.66683ZM1.66683 2.99998V1.66665H4.3335V2.99998H1.66683Z"
-                                                                                                        fill="currentColor"></path>
-                                                                                                </svg>
-                                                                                                <span>Tablo</span>
-                                                                                            </div>
-                                                                                            -->
+                                                                                                                                <svg width="17" height="17" role="presentation" focusable="false"
+                                                                                                                                    viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
+                                                                                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                                                                                        d="M1.66683 9.66665C0.93045 9.66665 0.333496 9.06969 0.333496 8.33331V1.66665C0.333496 0.930267 0.93045 0.333313 1.66683 0.333313H12.3335C13.0699 0.333313 13.6668 0.930267 13.6668 1.66665V8.33331C13.6668 9.06969 13.0699 9.66665 12.3335 9.66665H1.66683ZM12.3335 5.66665V4.33331H5.66683V5.66665H12.3335ZM12.3335 2.99998V1.66665H5.66683V2.99998H12.3335ZM12.3335 6.99998V8.33331H5.66683V6.99998H12.3335ZM1.66683 4.33331V5.66665H4.3335V4.33331H1.66683ZM1.66683 6.99998V8.33331H4.3335V6.99998H1.66683ZM1.66683 2.99998V1.66665H4.3335V2.99998H1.66683Z"
+                                                                                                                                        fill="currentColor"></path>
+                                                                                                                                </svg>
+                                                                                                                                <span>Tablo</span>
+                                                                                                                            </div>
+                                                                                                                            -->
                         <div class="dropdown">
                             <div class="project-bottom-logo" data-bs-toggle="dropdown" data-bs-auto-close="outside"
                                 style="cursor: pointer;">
@@ -486,7 +486,7 @@
                                     <div class="text-visibility-appearance">
                                         <span>Power-Up'lar</span>
                                     </div>
-                                    <div class="exit-visibility cursor-pointer"  onclick="document.body.click()">
+                                    <div class="exit-visibility cursor-pointer" onclick="document.body.click()">
                                         <span> <i class="bi bi-x"></i> </span>
                                     </div>
                                 </div>
@@ -602,16 +602,16 @@
                             <span>Filtreler</span>
                         </div>
                         <!--  <ul data-bs-auto-close="outside" class="dropdown-menu dropdown-appearance">
-                                                                                                <div class="ust-text">
-                                                                                                    <div class="text-visibility-appearance">
-                                                                                                        <span></span>
-                                                                                                    </div>
-                                                                                                    <div class="exit-visibility">
-                                                                                                        <span> <i class="bi bi-x"></i> </span>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </ul>
-                                                                                            -->
+                                                                                                                                <div class="ust-text">
+                                                                                                                                    <div class="text-visibility-appearance">
+                                                                                                                                        <span></span>
+                                                                                                                                    </div>
+                                                                                                                                    <div class="exit-visibility">
+                                                                                                                                        <span> <i class="bi bi-x"></i> </span>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </ul>
+                                                                                                                            -->
 
                     </div>
                     <div class="brdr-ort"></div>
@@ -672,7 +672,7 @@
             <div class="card-container">
                 @foreach ($liste as $list)
                     <div class="sortable-container" data-list-id="{{ $list->id }}">
-                        <div class="card" style="width: 17rem" >
+                        <div class="card" style="width: 17rem">
                             <div class="card-body">
                                 <div class="card-title">
                                     <span class="editable" data-id="{{ $list->id }}">{{ $list->name }}</span>
@@ -693,7 +693,8 @@
                                         aria-labelledby="dropdown{{ $list->id }}">
                                         <div class="text-center fw-light projectName">
                                             {{ $list->name }}
-                                            <button type="button"  onclick="document.body.click()"
+                                            <button type="button" style="font-size:10px; "
+                                                onclick="document.body.click()"
                                                 class="btn-close shadow-none position-absolute end-0 px-3"
                                                 data-bs-auto-close="outside" aria-label="close"></button>
                                         </div>
@@ -712,16 +713,29 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-text-body sortable" >
+                                <div class="card-text-body sortable">
                                     @php $card = App\Models\card::where('lists_id', $list->id)->get(); @endphp
                                     @foreach ($card as $row)
                                         <ul class="card-texts" data-card-id="{{ $row->id }}">
-                                            <div class="cardColor {{ $row->backgrounds ? '' : 'd-none' }}" data-card-id="{{ $row->id }}" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $row->id }}"
+                                            <div class="cardColor {{ $row->backgrounds ? '' : 'd-none' }}"
+                                                data-card-id="{{ $row->id }}" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal{{ $row->id }}"
                                                 @if ($row->backgrounds) style="background-color:{{ $row->backgrounds->renk }}" @endif>
                                             </div>
+                                            <div data-id="{{$row->id}}" class="Cardtickets">
+                                                @if ($row->tickets)
+                                                    @foreach ($row->tickets as $ticket)
+                                                        <div class="cardTicketsColor"
+                                                            data-color-code='{{  $ticket->color }}'
+                                                            style="background-color: {{ $ticket->color}};">
+                                                        </div>
+                                                    @endforeach
+                                                @endif
+                                            </div>
                                             <div data-card-id='{{ $row->id }}'
-                                            class="d-flex align-items-center justify-content-between w-100 pDiv {{ $row->backgrounds ? 'p-2' : '' }}">
-                                                <span class="card-text-span" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $row->id }}">{{ $row->name }}</span>    
+                                                class="d-flex align-items-center justify-content-between w-100 pDiv {{ $row->backgrounds ? 'p-2' : '' }}">
+                                                <span class="card-text-span" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal{{ $row->id }}">{{ $row->name }}</span>
                                                 <div>
                                                     <button class="düzenle_svg modalBtn" data-bs-toggle="modal"
                                                         data-bs-target="#btn{{ $row->id }}">
@@ -762,12 +776,120 @@
                                                                                     class="fa-solid fa-tachograph-digital"></i>
                                                                                 # Kartı Aç
                                                                             </button>
-                                                                            <button
-                                                                                class="btn btn-dark shadow-none modalInnerBtn me-auto"
-                                                                                type="button">
-                                                                                <i class="fa-solid fa-tag"></i># Etiketleri
-                                                                                Düzenle
-                                                                            </button>
+                                                                            <div class="dropend">
+                                                                                <button data-bs-toggle="dropdown"
+                                                                                    aria-expanded="false"
+                                                                                    data-bs-auto-close="outside"
+                                                                                    class="btn btn-dark shadow-none modalInnerBtn me-auto"
+                                                                                    type="button">
+                                                                                    <i class="fa-solid fa-credit-card"></i>
+                                                                                    Etiketleri Düzenle
+                                                                                </button>
+                                                                                <div class="pano-add-form dropdown-menu"
+                                                                                    data-bs-auto-close="outside">
+                                                                                    <form method="post">
+                                                                                        @csrf
+                                                                                        <div
+                                                                                            class="d-flex flex-column gap-2">
+                                                                                            <div class="ust-text">
+                                                                                                <div
+                                                                                                    class="text-visibility-imgAdd">
+                                                                                                    <span>Etiketler</span>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="exit-visibility-imgAdd">
+                                                                                                    <span
+                                                                                                        onclick="document.body.click()">
+                                                                                                        <i
+                                                                                                            class="bi bi-x"></i>
+                                                                                                    </span>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                        <div class="d-flex flex-column">
+
+                                                                                            <div
+                                                                                                class="d-flex flex-column">
+                                                                                                <div
+                                                                                                    class="d-flex flex-column gap-2">
+                                                                                                    <span
+                                                                                                        class="arkpln-text">Etiketler</span>
+                                                                                                    <div style="padding-left:5px;padding-right:5px;"
+                                                                                                        class="d-flex justify-content-center flex-wrap gap-2">
+                                                                                                        <div
+                                                                                                            class="ticket-color">
+                                                                                                            <div
+                                                                                                                class="ticket-category d-flex flex-column gap-2 ">
+                                                                                                                @for ($i = 1; $i <= 10; $i++)
+                                                                                                                    @php
+                                                                                                                        $colors = [
+                                                                                                                            '#4bce97',
+                                                                                                                            '#f5cd47',
+                                                                                                                            '#fea362',
+                                                                                                                            '#f87168',
+                                                                                                                            '#9f8fef',
+                                                                                                                            '#579dff',
+                                                                                                                            '#6cc3e0',
+                                                                                                                            '#94c748',
+                                                                                                                            '#e774bb',
+                                                                                                                            '#8590a2',
+                                                                                                                        ];
+                                                                                                                        $colorCode =
+                                                                                                                            $colors[
+                                                                                                                                $i -
+                                                                                                                                    1
+                                                                                                                            ];
+                                                                                                                    @endphp
+
+                                                                                                                    <div
+                                                                                                                        class="item">
+                                                                                                                        <input
+                                                                                                                            data-card-id="{{ $row->id }}"
+                                                                                                                            data-card-color="{{ $colorCode }}"
+                                                                                                                            type="checkbox"
+                                                                                                                            class="checkboxTicket"
+                                                                                                                            id="renk{{ $i }}"
+                                                                                                                            @if (in_array($colorCode, $row->tickets->pluck('color')->toArray())) checked @endif>
+                                                                                                                        <div class="color-box"
+                                                                                                                            id="renk{{ $i }}"
+                                                                                                                            style="width: 200px; height: 32px; border-radius: 5px; cursor: pointer;">
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                @endfor
+                                                                                                            </div>
+                                                                                                        </div>
+
+                                                                                                        <script>
+                                                                                                            function toggleCheck(id) {
+                                                                                                                const checkbox = document.getElementById(id);
+                                                                                                                checkbox.checked = !checkbox.checked;
+                                                                                                            }
+                                                                                                        </script>
+                                                                                                    </div>
+
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="d-flex flex-column">
+                                                                                                    <div
+                                                                                                        class="d-flex align-items-center justify-content-center w-100">
+                                                                                                        <div
+                                                                                                            class="img-rnk-text">
+                                                                                                            # Renk körlüğü
+                                                                                                            erişilebilirlik
+                                                                                                            modunu
+                                                                                                            etkinleştir
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <br>
+
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
                                                                             <button
                                                                                 class="btn btn-dark shadow-none modalInnerBtn me-auto"
                                                                                 type="button">
@@ -797,7 +919,9 @@
                                                                                                 </div>
                                                                                                 <div
                                                                                                     class="exit-visibility-imgAdd">
-                                                                                                    <span onclick="document.body.click()"> <i
+                                                                                                    <span
+                                                                                                        onclick="document.body.click()">
+                                                                                                        <i
                                                                                                             class="bi bi-x"></i>
                                                                                                     </span>
                                                                                                 </div>
@@ -812,7 +936,7 @@
                                                                                                 <div class="d-flex gap-2">
                                                                                                     <div
                                                                                                         class="d-flex flex-column img-show gap-2">
-                                                                                                        <div  @if ($row->backgrounds) style="background-color:{{ $row->backgrounds->renk }}" @endif
+                                                                                                        <div @if ($row->backgrounds) style="background-color:{{ $row->backgrounds->renk }}" @endif
                                                                                                             class="check-img">
                                                                                                         </div>
                                                                                                         <div
@@ -837,8 +961,8 @@
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div
-                                                                                                        class="d-flex flex-column justify-content-end img-show-two gap-2"  @if ($row->backgrounds) style="background-color:{{ $row->backgrounds->renk }}" @endif>
+                                                                                                    <div class="d-flex flex-column justify-content-end img-show-two gap-2"
+                                                                                                        @if ($row->backgrounds) style="background-color:{{ $row->backgrounds->renk }}" @endif>
 
                                                                                                         <div
                                                                                                             class="check-img-bgColor">
@@ -860,16 +984,32 @@
                                                                                                     <div style="padding-left:5px;padding-right:5px;"
                                                                                                         class="d-flex justify-content-center flex-wrap gap-2">
                                                                                                         @for ($i = 1; $i <= 10; $i++)
-                                                                                                        @php
-                                                                                                            $colors = ['#4bce97', '#f5cd47', '#fea362', '#f87168', '#9f8fef', '#579dff', '#6cc3e0', '#94c748', '#e774bb', '#8590a2'];
-                                                                                                            $colorCode = $colors[$i - 1];
-                                                                                                        @endphp
-                                                                                                        <span class="renk-button select-color @if($row->backgrounds && $row->backgrounds->renk == $colorCode) selected-color @endif"
-                                                                                                              id="renk{{ $i }}"
-                                                                                                              data-color="{{ $colorCode }}"
-                                                                                                              data-card-id="{{ $row->id }}">
-                                                                                                        </span>
-                                                                                                    @endfor
+                                                                                                            @php
+                                                                                                                $colors = [
+                                                                                                                    '#4bce97',
+                                                                                                                    '#f5cd47',
+                                                                                                                    '#fea362',
+                                                                                                                    '#f87168',
+                                                                                                                    '#9f8fef',
+                                                                                                                    '#579dff',
+                                                                                                                    '#6cc3e0',
+                                                                                                                    '#94c748',
+                                                                                                                    '#e774bb',
+                                                                                                                    '#8590a2',
+                                                                                                                ];
+                                                                                                                $colorCode =
+                                                                                                                    $colors[
+                                                                                                                        $i -
+                                                                                                                            1
+                                                                                                                    ];
+                                                                                                            @endphp
+                                                                                                            <span
+                                                                                                                class="renk-button select-color @if ($row->backgrounds && $row->backgrounds->renk == $colorCode) selected-color @endif"
+                                                                                                                id="renk{{ $i }}"
+                                                                                                                data-color="{{ $colorCode }}"
+                                                                                                                data-card-id="{{ $row->id }}">
+                                                                                                            </span>
+                                                                                                        @endfor
                                                                                                     </div>
 
                                                                                                     <br>
@@ -950,55 +1090,69 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
                                         </ul>
-                                        <div class="modal fade modalMenu1" id="exampleModal{{ $row->id }}" tabindex="-1" aria-hidden="true">
+                                        <div class="modal fade modalMenu1" id="exampleModal{{ $row->id }}"
+                                            tabindex="-1" aria-hidden="true">
                                             <div class="modal-dialog mx-auto w-50 modalDialog">
                                                 <div class="modal-content" style="width: 768px;">
                                                     <div class="modal-body">
-                                                        <button type="button" class="btn btn-close position-absolute end-0 top-0 m-3" data-bs-dismiss="modal"></button>
-                                                    
-                                                        <div class="modal-background w-100">
+                                                        <button type="button"
+                                                            class="btn btn-close position-absolute end-0 top-0 m-3"
+                                                            data-bs-dismiss="modal"></button>
+                                                        <div data-card-id="{{ $row->id }}"
+                                                            class="modal-background w-100"
+                                                            @if ($row->backgrounds) style="background-color:{{ $row->backgrounds->renk }}; display:block;" @endif>
                                                             <button class="kpk-button mt-2">
-                                                                <svg width="17" height="17" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5 5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5ZM19 7H5V13H19V7Z" fill="currentColor"></path>
+                                                                <svg width="17" height="17" role="presentation"
+                                                                    focusable="false" viewBox="0 0 24 24"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                        d="M5 5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5ZM19 7H5V13H19V7Z"
+                                                                        fill="currentColor"></path>
                                                                 </svg>
                                                                 kapak
                                                             </button>
                                                         </div>
-                                                    
+
                                                         <div class="modal-card-name mt-3">
                                                             <div class="d-flex align-items-center gap-2">
-                                                                <span class="card-name-modal fs-5 fw-bold">{{ $row->name }}</span>
+                                                                <span
+                                                                    class="card-name-modal fs-5 fw-bold">{{ $row->name }}</span>
                                                             </div>
                                                         </div>
-                                                    
+
                                                         <div class="mt-4">
-                                                            <label class="form-label fw-semibold">Açıklama</label>
-                                                        
-                                                            <div id="explanation-box-{{ $row->id }}" data-id="{{ $row->id }}">
-                                                                @if($row->explanation)
-                                                                    <div class="explanation-content" style="width: 100%; min-height: 60px; background-color: #e4e6ea; padding: 10px; cursor: pointer;">
+                                                            <label
+                                                                class="form-label aciklamaDiv fw-semibold">Açıklama</label>
+
+                                                            <div id="explanation-box-{{ $row->id }}"
+                                                                data-id="{{ $row->id }}">
+                                                                @if ($row->explanation)
+                                                                    <div class="explanation-content"
+                                                                        style="width: 100%; min-height: 60px; background-color: #e4e6ea; padding: 10px; cursor: pointer;">
                                                                         {{ $row->explanation }}
                                                                     </div>
                                                                 @else
-                                                                    <div class="add-explanation" style="width: 100%; height: 60px; background-color: #e4e6ea; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                                                                    <div class="add-explanation"
+                                                                        style="width: 100%; height: 60px; background-color: #e4e6ea; display: flex; align-items: center; justify-content: center; cursor: pointer;">
                                                                         Bir açıklama ekleyin
                                                                     </div>
                                                                 @endif
                                                             </div>
                                                         </div>
-                                                        
-                                                    
+
+
                                                         <div class="mt-3">
-                                                            <label class="form-label fw-semibold">Etiketler</label>
-                                                            
+                                                            <label
+                                                                class="form-label aciklamaDiv fw-semibold">Etiketler</label>
+
                                                         </div>
-                                                
+
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
@@ -1087,7 +1241,7 @@
                                 </form>
                             </div>
                         </div>
-                       
+
                     </div>
                 @endforeach
             </div>

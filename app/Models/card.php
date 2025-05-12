@@ -12,4 +12,8 @@ class Card extends Model
     {
         return $this->hasOne(backgrounds::class, 'card_id', 'id');
     }
+    public function tickets()
+    {
+        return $this->hasMany(ticket::class, 'card_id', 'id');
+    }
 }

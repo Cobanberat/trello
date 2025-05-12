@@ -595,7 +595,7 @@ $(document).ready(function () {
             success: function (response) {
                 $span.text(response.name);
             },
-            error: function () {},
+            error: function () { },
             complete: function () {
                 $input.addClass("d-none");
                 $span.removeClass("d-none");
@@ -621,7 +621,7 @@ $(document).ready(function () {
                 $(".modal-backdrop").remove();
                 $("body").removeClass("modal-open").css("padding-right", "");
             },
-            error: function () {},
+            error: function () { },
         });
     });
 
@@ -650,7 +650,7 @@ $(document).ready(function () {
                     } else {
                     }
                 },
-                error: function () {},
+                error: function () { },
             });
         } else {
             $input.removeClass("d-none").focus();
@@ -686,7 +686,7 @@ $(document).ready(function () {
                     } else {
                     }
                 },
-                error: function () {},
+                error: function () { },
             });
         }
     });
@@ -915,10 +915,10 @@ document.querySelectorAll(".star-toggle").forEach(function (checkbox) {
 $(document).ready(function () {
     $('.board-link').on('click', function (e) {
         e.preventDefault();
-    
+
         const boardId = $(this).data('id');
         const boardUrl = $(this).attr('href');
-    
+
         $.ajax({
             url: '/save-last-board',
             method: 'POST',
@@ -968,21 +968,28 @@ $(document).ready(function () {
                 const cardColorDiv = $(
                     ".cardColor[data-card-id='" + cardId + "']"
                 );
-                const cizgiImg  = $('.check-img');  
-                const cizgiImgTwo  = $('.img-show-two');  
+                const cizgiImg = $('.check-img');
+                const cizgiImgTwo = $('.img-show-two');
+                const modalBackground = $(
+                    ".modal-background[data-card-id='" + cardId + "']"
+                );
 
                 cizgiImg
                     .css("background-color", response.renk);
-                    cizgiImgTwo
+                cizgiImgTwo
                     .css("background-color", response.renk);
-               
+                modalBackground
+                    .css("background-color", response.renk);
+                modalBackground
+                    .css("display", 'block');
+
 
                 cardColorDiv
                     .removeClass("d-none")
                     .css("background-color", response.renk);
 
                 $('.pDiv[data-card-id="' + cardId + '"]').addClass("p-2");
-                
+
                 if (response.deleted) {
                     cardColorDiv.addClass("d-none");
                     $('.pDiv[data-card-id="' + cardId + '"]').removeClass("p-2");
@@ -991,10 +998,12 @@ $(document).ready(function () {
                         ".select-color[data-card-id='" + cardId + "']"
                     ).removeClass("selected-color");
                     cizgiImg
-                    .css("background-color", '#52273c');
+                        .css("background-color", '#52273c');
                     cizgiImgTwo
-                    .css("background-color", '#52273c');
-                 
+                        .css("background-color", '#52273c');
+                    modalBackground.addClass("d-none");
+
+
                 } else {
                 }
             },
@@ -1003,8 +1012,8 @@ $(document).ready(function () {
             },
         });
     });
-});
-$(document).ready(function () {
+
+
     $(document).on('mouseenter', '.add-explanation, .explanation-content', function () {
         $(this).css('background-color', '#d0d4db');
     }).on('mouseleave', '.add-explanation, .explanation-content', function () {
@@ -1059,9 +1068,9 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: "/explanation/update", 
+            url: "/explanation/update",
             method: "POST",
-            
+
             data: {
                 _token: $('meta[name="csrf-token"]').attr("content"),
                 id: id,
@@ -1083,5 +1092,51 @@ $(document).ready(function () {
             }
         });
     });
-});
 
+    $(document).ready(function () {
+        $('.color-box').on('click', function () {
+            const $box = $(this);
+            const $checkbox = $box.siblings('.checkboxTicket');
+            const isChecked = $checkbox.prop('checked');
+            const cardId = $checkbox.data('card-id');
+            const color = $checkbox.data('card-color');
+
+            $checkbox.prop('checked', !isChecked);
+
+            if (!isChecked) {
+                $.ajax({
+                    url: '/colors',
+                    type: 'POST',
+                    data: {
+                        card_id: cardId,
+                        color: color,
+                        _token: $('meta[name="csrf-token"]').attr("content"),
+
+                    },
+                    success: function (res) {
+                        const html = `<div class="cardTicketsColor" data-color-code='${res.color}' style="background-color:${res.color};"></div>`;
+                        $(`.Cardtickets[data-id="${res.card_id}"]`).append(html);
+
+                    },
+                    
+                });
+            } else {
+                $.ajax({
+                    url: '/colors/delete',
+                    type: 'POST',
+                    data: {
+                        card_id: cardId,
+                        color: color,
+                        _token: $('meta[name="csrf-token"]').attr("content"),
+
+                    },
+                    success: function (res) {
+                        $(`.cardTicketsColor[data-color-code='${res.color}']`).remove();
+                    },
+                    
+                });
+            }
+        });
+    });
+
+});

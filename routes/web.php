@@ -5,8 +5,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\favoriController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\panoController;
 use App\Http\Middleware\RedirectIfNotAuthenticated; 
+use App\Http\Controllers\panoController;
+use App\Http\Controllers\ColorController;
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -83,6 +84,9 @@ Route::middleware([RedirectIfNotAuthenticated::class])->group(function () {
     Route::post('/getCards', [panoController::class, 'getCards']);
     Route::post('/save-selection', [panoController::class, 'saveSelection']);
     Route::post('/explanation/update', [App\Http\Controllers\panoController::class, 'updateExplanation'])->name('explanation.update');
+    Route::post('/colors', [ColorController::class, 'store']);
+Route::post('/colors/delete', [ColorController::class, 'destroy']);
+
 
     Route::post('/save-last-board', function (Illuminate\Http\Request $request) {
         $user = auth()->user();
