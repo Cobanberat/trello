@@ -1114,8 +1114,20 @@ $(document).ready(function () {
 
                     },
                     success: function (res) {
-                        const html = `<div class="cardTicketsColor" data-color-code='${res.color}' style="background-color:${res.color};"></div>`;
+                        const html = `<div class="cardTicketsColor" data-color-code='${res.color}' data-card-id='${res.card_id}'] style="background-color:${res.color};"></div>`;
+                        const html2 = `<span data-bs-toggle="dropdown"
+                                                                            aria-expanded="false"
+                                                                            data-bs-auto-close="outside"
+                                                                            class="renk-button modalInnerBtn "
+                                                                            style='background-color:${res.color}'
+                                                                            data-color="${res.color}"
+                                                                            data-card-id="${res.card_id}">
+                                                                        </span>`;
+                        
+                        $(`.AciklamaEtiketDiv[data-card-id="${res.card_id}"]`).append(html2);
                         $(`.Cardtickets[data-id="${res.card_id}"]`).append(html);
+                        $('.pDiv').addClass('p-1')
+                        $('.Cardtickets[data-id="' + res.card_id + '"]').removeClass('d-none')
 
                     },
                     
@@ -1131,7 +1143,8 @@ $(document).ready(function () {
 
                     },
                     success: function (res) {
-                        $(`.cardTicketsColor[data-color-code='${res.color}']`).remove();
+                        $(`.cardTicketsColor[data-color-code='${res.color}'].cardTicketsColor[data-card-id='${res.card_id}']`).remove();
+                        $(`.renk-button[data-color='${res.color}'].renk-button[data-card-id='${res.card_id}']`).remove();
                     },
                     
                 });
