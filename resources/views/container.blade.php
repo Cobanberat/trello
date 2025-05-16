@@ -717,11 +717,18 @@
                                     @php $card = App\Models\card::where('lists_id', $list->id)->get(); @endphp
                                     @foreach ($card as $row)
                                         <ul class="card-texts" data-card-id="{{ $row->id }}">
+                                            @if($row->backgrounds)
                                             <div class="cardColor {{ $row->backgrounds ? '' : 'd-none' }}"
                                                 data-card-id="{{ $row->id }}" data-bs-toggle="modal"
                                                 data-bs-target="#exampleModal{{ $row->id }}"
                                                 @if ($row->backgrounds) style="background-color:{{ $row->backgrounds->renk }}" @endif>
                                             </div>
+                                            @endif
+                                            @if ($row->backgroundsImgType)
+                                                <div class="cardImg" data-card-id="{{ $row->id }}">
+                                                    <img style="width:100%;height:200px" src="{{ asset('storage/'.$row->backgroundsImgType->img) }}" alt="">
+                                                </div>
+                                                @endif  
                                             <div data-id="{{ $row->id }}"
                                                 class="Cardtickets {{ $row->tickets->isNotEmpty() ? '' : 'd-none' }}"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal{{ $row->id }}">
@@ -1038,19 +1045,29 @@
                                                                                                     <br>
                                                                                                     <span
                                                                                                         class="arkpln-text"
-                                                                                                        style="padding-left:15px; ">Eklentiler</span>
+                                                                                                        style="padding-left:13px; ">Eklentiler</span>
+                                                                                                        @if($row->backgroundsImg)
+                                                                                                        <div class="img-eklenti d-flex gap-2 flex-wrap" style="padding-left:15px;padding-top:10px;padding-bottom:10px; padding-right:15px" >
+                                                                                                                @foreach ($row->backgroundsImg as $img)
+                                                                                                                    <div class="img-eklenti-item">
+                                                                                                                        <img src="{{ asset('storage/'.$img->img) }}" data-id='{{$img->id}}' data-card-id='{{$img->card_id}}' alt="" class="imgEklenti{{ $img->durum == 1 ? 'borderImg' : '' }}" style="width:84px;height:48px; border-radius:5px">
+                                                                                                                    </div>
+                                                                                                                @endforeach
+                                                                                                    
+                                                                                                        </div>
+                                                                                                        @endif
                                                                                                     <div
-                                                                                                        class="d-flex align-items-center justify-content-center w-100">
+                                                                                                        class="d-flex flex-column align-items-center justify-content-center w-100">
                                                                                                         <div
                                                                                                             class="img-rnk-text-kapak">
                                                                                                             <label
                                                                                                                 for="kapak-sec"
-                                                                                                                class="img-select-label">#
+                                                                                                                class="img-select-label">
                                                                                                                 Sadece
                                                                                                                 bir kapak
                                                                                                                 resmi
                                                                                                                 yükleyin</label>
-
+                                                                                                                <input type="file" id="kapak-sec" data-card-id='{{$row->id}}' style="display:none;" accept="image/*">
                                                                                                         </div>
                                                                                                     </div>
                                                                                                     <br>

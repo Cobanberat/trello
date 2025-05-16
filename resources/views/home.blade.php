@@ -21,6 +21,7 @@
             </div>
         </div>
         <div class="main-left-nav overflow-visible">
+            @if($lastBoard)
             <div class="main-nav-div" id="sonG">
                 <div class="main-nav-title">
                     <div class="main-nav-title-logo">
@@ -38,6 +39,7 @@
                         <span>Son Görüntülenenler</span>
                     </div>
                 </div>
+                
                 <div class="main-nav-project">
                     <a href="#" class="main-nav-project-a">
                         <div class="project-background-tema"></div>
@@ -76,6 +78,7 @@
                     </a>
                 </div>
             </div>
+            @endif  
 
 
             @if ($favs->count() > 0)

@@ -10,6 +10,7 @@ class backgrounds extends Model
         'img',
         'renk',
         'card_id',
+        'durum',
         'type',
     ];
 }

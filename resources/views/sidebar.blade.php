@@ -95,20 +95,7 @@
                         <span>Tablo</span>
                     </div>
                 </a>
-                <div class="workingareas" id="sidebar-texts">
-                    <div class="div-bslk">
-                        <svg width="17" height="17" role="presentation" focusable="false" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M6 4V5H4.995C3.892 5 3 5.893 3 6.994V19.006C3 20.106 3.893 21 4.995 21H19.005C20.108 21 21 20.107 21 19.006V6.994C21 5.895 20.107 5 19.005 5H18V4C18 3.448 17.552 3 17 3C16.448 3 16 3.448 16 4V5H8V4C8 3.448 7.552 3 7 3C6.448 3 6 3.448 6 4ZM5.25 9.571V17.718C5.25 18.273 5.694 18.714 6.243 18.714H17.758C18.3 18.714 18.75 18.268 18.75 17.718V9.571H5.25ZM9 13V10.999H7V13H9ZM17 10.999V13H15V10.999H17ZM11 13H13.001V10.999H11V13ZM7 17V15H9V17H7ZM11 17H13.001V15H11V17ZM17 15V17H15V15H17Z"
-                                fill="currentColor"></path>
-                        </svg>
-                        <span># Takvim</span>
-                    </div>
-                    <div class="src" style="margin-right:2px">
-                        <i class="bi bi-three-dots"></i>
-                    </div>
-                </div>
+
             </div>
             <div class="workingarea" id="sidebar-tt">
                 <div class="div-bslk" id="div-displays">
@@ -116,27 +103,51 @@
                     <span class="s">Panolarınız</span>
                 </div>
                 <div class="workinga">
-                    <div class="sidebar-main-buttons" id="trs" style="margin-right:2px">
-                        <i class="bi bi-three-dots"></i>
-                    </div>
                     <div class="sidebar-main-buttons" style="margin-right:5px">
                         <i class="bi bi-plus-lg"></i>
                     </div>
+
+
                 </div>
             </div>
             <div class="tabledate">
                 @foreach ($pano as $row)
-                    <a href="/board/{{ $row->id }}" class="board-link {{ $aktifId == $row->id ? 'workingareasx' : '' }}"
-                        id="sidebar-texts"  data-id="{{ $row->id }}" data-name="{{$row->id}}">
+                    <a href="/board/{{ $row->id }}"
+                        class="board-link {{ $aktifId == $row->id ? 'workingareasx' : '' }}" id="sidebar-texts"
+                        data-id="{{ $row->id }}" data-name="{{ $row->id }}">
                         <div class="div-bslk">
                             <div class="pano">
 
                             </div>
                             <span>{{ $row->name }}</span>
                         </div>
-                        <div class="workingas">
-                            <div class="src" style="margin-right:2px">
+                        <div class="workingas" onclick="event.stopPropagation()">
+                            <div class="src dropup-center" style="margin-right:2px" id="dropdown{{ $row->id }}"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-three-dots"></i>
+                                <div class="dropdown-menu" style="width:200px;"
+                                    aria-labelledby="dropdown{{ $row->id }}" data-bs-auto-close="outside">
+                                    <div class="text-center fw-light projectName">
+                                        {{ $row->name }}
+                                        <button type="button" style="font-size:10px; " onclick="document.body.click()"
+                                            class="btn-close shadow-none position-absolute end-0 px-3"
+                                            data-bs-auto-close="outside" aria-label="close"></button>
+                                    </div>
+                                    <div class="px-3">
+                                        <div>
+                                            <hr class="dropdown-divider">
+                                        </div>
+                                    </div>
+                                    <div class="list-group border-0" role="group">
+                                        <div 
+                                            class="list-group-item list-group-item-action d-flex align-items-center border-0 rounded-0 text-dark btnPanoSil"
+                                           data-id="{{ $panoName->id }}">
+                                            <button  type="submit" class="flex-fill px-2 ">Panoyu Kapat</button>
+                                            <div><i class="bi bi-chevron-right"></i></div>
+
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
                             <label class="star" style="cursor:pointer;">
                                 <input type="checkbox" class="star-toggle" data-pano-id="{{ $row->id }}"

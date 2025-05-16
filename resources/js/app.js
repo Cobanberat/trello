@@ -1123,14 +1123,14 @@ $(document).ready(function () {
                                                                             data-color="${res.color}"
                                                                             data-card-id="${res.card_id}">
                                                                         </span>`;
-                        
+
                         $(`.AciklamaEtiketDiv[data-card-id="${res.card_id}"]`).append(html2);
                         $(`.Cardtickets[data-id="${res.card_id}"]`).append(html);
                         $('.pDiv').addClass('p-1')
                         $('.Cardtickets[data-id="' + res.card_id + '"]').removeClass('d-none')
 
                     },
-                    
+
                 });
             } else {
                 $.ajax({
@@ -1146,8 +1146,77 @@ $(document).ready(function () {
                         $(`.cardTicketsColor[data-color-code='${res.color}'].cardTicketsColor[data-card-id='${res.card_id}']`).remove();
                         $(`.renk-button[data-color='${res.color}'].renk-button[data-card-id='${res.card_id}']`).remove();
                     },
-                    
+
                 });
+            }
+        });
+    });
+
+    $('.btnPanoSil').click(function (e) {
+        e.preventDefault();
+
+        const panoId = $(this).data('id');
+
+        $.ajax({
+            url: `/pano/${panoId}`,
+            type: 'POST',
+            data: {
+                _method: 'DELETE',
+                _token: $('meta[name="csrf-token"]').attr("content")
+            },
+            success: function (res) {
+
+                window.location.href = '/dashboard';
+
+            },
+            error: function (err) {
+                console.error('Silme hatası:', err);
+            }
+        });
+    });
+
+    $('#kapak-sec').on('change', function (e) {
+        const file = e.target.files[0];
+
+        if (!file) return;
+        const cardId = $('#kapak-sec').data('card-id');
+        const formData = new FormData();
+        formData.append('kapak', file);
+        formData.append('card_id', cardId);
+        formData.append('_token', $('meta[name="csrf-token"]').attr("content")); 
+
+        $.ajax({
+            url: '/kapak-yukle', 
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                console.log('Kapak resmi yüklendi:', res);
+
+            },
+            error: function (xhr) {
+                console.error('Yükleme hatası:', xhr.responseText);
+            }
+        });
+    });
+    $('.imgEklenti').on('click', function (e) {
+     
+        $.ajax({
+            url: '/kapak-update', 
+            type: 'POST',
+            data: {
+                _token: $('meta[name="csrf-token"]').attr("content"),
+                id: $(this).data('id'),
+                card_id: $(this).data('card-id')
+            },
+           
+            success: function (res) {
+                console.log('Kapak resmi güncellendi:', res);
+
+            },
+            error: function (xhr) {
+                console.error('Yükleme hatası:', xhr.responseText);
             }
         });
     });

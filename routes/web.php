@@ -46,7 +46,7 @@ Route::get('/register-form', function () {
     return view('auth.register-form');
 })->name('register.form.view');
 
-Route::middleware('guest')->group(function () {
+    Route::middleware('guest')->group(function () {
     Route::post('/verify-code', [AuthController::class, 'verifyCode'])->name('register.verify');
     Route::post('/complete-registration', [AuthController::class, 'completeRegistration'])->name('register.complete');
     Route::post('/logincontrol', [AuthController::class, 'login'])->name('logincontrol');
@@ -85,7 +85,9 @@ Route::middleware([RedirectIfNotAuthenticated::class])->group(function () {
     Route::post('/save-selection', [panoController::class, 'saveSelection']);
     Route::post('/explanation/update', [App\Http\Controllers\panoController::class, 'updateExplanation'])->name('explanation.update');
     Route::post('/colors', [ColorController::class, 'store']);
-Route::post('/colors/delete', [ColorController::class, 'destroy']);
+    Route::post('/colors/delete', [ColorController::class, 'destroy']);
+    Route::post('/kapak-yukle', [ColorController::class, 'imgAdd']);
+    Route::post('/kapak-update', [ColorController::class, 'imgUpdate']);
 
 
     Route::post('/save-last-board', function (Illuminate\Http\Request $request) {

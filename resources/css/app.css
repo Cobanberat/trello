@@ -471,6 +471,9 @@
     height: 22px;
 
 }
+.sidebar-main-buttons:hover {
+    background-color: #ac5b82;
+}
 
 .sidebar-display {
     width: 100%;
@@ -3957,4 +3960,7 @@ body {
     flex-wrap: wrap;
     gap: 5px;
 
+}
+.borderImg{
+border:2px solid #3676e4;
 }

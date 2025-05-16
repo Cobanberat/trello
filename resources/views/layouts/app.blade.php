@@ -235,6 +235,7 @@
 
                     </div>
                     <ul class="dropdown-menu dropdown-gecmis">
+                        @if($lastBoard)
                         <a href="/boards/{{ $lastBoard->id }}" class="gecmis-container">
                             <div class="img-background"></div>
                             <div class="gecmis-text">
@@ -270,6 +271,16 @@
                                 </div>
                             </div>
                         </a>
+                        @else
+                         <div class="star-main">
+                                <div class="starImg">
+                                    <img src="https://trello.com/assets/5ed0da05e71077f38dca.svg" alt="">
+                                </div>
+                                <div class="starText">
+                                    <span>Son zamanlarda görüntülediğiniz panoları burada bulacaksınız.</span>
+                                </div>
+                            </div>
+                        @endif
                     </ul>
                 </div>
 
