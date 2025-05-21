@@ -1,0 +1,14 @@
+[
+    {
+        "color": "pembe",
+        "backgroundColor": "açık pembe",
+        "backgroundImage": "url('https://example.com/background.jpg')",
+        "background": ""
+    },
+    {
+        "color": "yeşil",
+        "backgroundColor": "koyu yeşil",
+        "backgroundImage": "",
+        "background": "neon yeşili"
+    }
+]

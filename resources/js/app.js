@@ -4,6 +4,8 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
+import backgrounds from "/public/backgrounds.json";
+
 const sortHandle = () => {
     $(".sortable").sortable({
         connectWith: ".sortable",
@@ -1175,42 +1177,43 @@ $(document).ready(function () {
         });
     });
 
-    $('#kapak-sec').on('change', function (e) {
+    $('[id^=kapak-sec]').on('change', function (e) {
         const file = e.target.files[0];
-
         if (!file) return;
-        const cardId = $('#kapak-sec').data('card-id');
+
+        const cardId = $(this).data('card-id');
+
         const formData = new FormData();
         formData.append('kapak', file);
         formData.append('card_id', cardId);
-        formData.append('_token', $('meta[name="csrf-token"]').attr("content")); 
+        formData.append('_token', $('meta[name="csrf-token"]').attr("content"));
 
         $.ajax({
-            url: '/kapak-yukle', 
+            url: '/kapak-yukle',
             type: 'POST',
             data: formData,
             contentType: false,
             processData: false,
             success: function (res) {
                 console.log('Kapak resmi yüklendi:', res);
-
             },
             error: function (xhr) {
                 console.error('Yükleme hatası:', xhr.responseText);
             }
         });
     });
+
     $('.imgEklenti').on('click', function (e) {
-     
+
         $.ajax({
-            url: '/kapak-update', 
+            url: '/kapak-update',
             type: 'POST',
             data: {
                 _token: $('meta[name="csrf-token"]').attr("content"),
                 id: $(this).data('id'),
                 card_id: $(this).data('card-id')
             },
-           
+
             success: function (res) {
                 console.log('Kapak resmi güncellendi:', res);
 
@@ -1221,4 +1224,11 @@ $(document).ready(function () {
         });
     });
 
+
+    $("#theme-inputs").on("change", "input[name='theme']", function () {
+        document.documentElement.setAttribute("data-bs-theme", $(this).val());
+    });
+
+    console.log(backgrounds);
+    
 });

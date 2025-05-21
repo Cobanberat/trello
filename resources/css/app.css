@@ -2,23 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+:root,
+[data-bs-theme=light] {
+    --main-background: #ffffff;
+    --main-text-color: #192d4e;
+    --main-hover-color: #dcdfe4;
+    --main-active-color: #e9f2ff;
+    --main-transparent-color: #9fadbc;
+
+}
+
+[data-bs-theme="dark"] {
+    --main-background: #1d2125;
+    --main-text-color: #ffffff;
+    --main-hover-color: #333c43;
+    --main-active-color: #333c43;
+    --main-transparent-color: #9fadbc;
+
+
+    .header {
+        border-bottom: 1px solid #414548;
+    }
+}
+
 [x-cloak] {
     display: none;
 }
-
 
 .header {
     width: 100%;
     max-height: 48px;
     min-height: 48px;
     display: flex;
-    background-color: #7d2650;
+    background-color: var(--main-background);
     align-items: center;
     border-bottom: 1px solid #172b4d29;
 }
 
 .left {
-    color: #ecdfe5;
+    color: var(--main-text-color);
+    ;
     padding: 8px;
     display: flex;
 }
@@ -31,10 +54,11 @@
     align-items: center;
     border-radius: 3px;
     font-weight: bold;
+    color: var(--main-text-color);
 }
 
 .left-button-hover:hover {
-    background-color: #975173;
+    background-color: var(--main-text-hover-color);
 }
 
 .left-text {
@@ -61,7 +85,7 @@
 }
 
 .left-text:hover {
-    background-color: #975173;
+    background-color: var(--main-text-hover-color);
 
 }
 
@@ -70,7 +94,7 @@
     display: flex;
     align-items: center;
     width: 61%;
-    color: #ffff;
+    color: var(--main-text-color);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Noto Sans', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -89,16 +113,16 @@
 }
 
 .ort-text:hover {
-    background-color: #975173;
+    background-color: var(--main-hover-color);
 }
 
 /* .dropdown .ort-text[aria-expanded="true"] */
 .dropdown .ort-text:has(~ .dropdown-menu.show) {
-    background-color: #975173;
+    background-color: var(--main-active-color);
 }
 
 .active-ort-text {
-    background-color: #975173;
+    background-color: var(--main-active-color);
 }
 
 .ort-text-span {
@@ -124,12 +148,13 @@
     cursor: pointer;
     padding-left: 15px;
     padding-right: 15px;
-    background-color: #975173;
+    background-color: #0c66e4;
     margin-left: 10px;
+    color: #ffffff;
 }
 
 .ort-button:hover {
-    background-color: #ac748f;
+    background-color: #0055cc;
 }
 
 .right {
@@ -182,19 +207,20 @@
     padding: 2px;
     margin-left: 4px;
     border-radius: 4px;
-    background-color: #975173;
+    background-color: var(--main-background) !important;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: flex-end;
     gap: 3px;
-    color: #ffff;
+    color: var(--main-text-color) !important;
     padding: 3px;
     height: 30px;
+    border: 1px solid #738496;
 }
 
 .right-search:hover {
-    background-color: #b17d96;
+    background-color: var(--main-hover-color);
 }
 
 .right-search-div {
@@ -207,34 +233,31 @@
 }
 
 .input-srch {
-    background-color: inherit;
+    background-color: var(--main-background) !important;
     height: 20px;
     border: none;
     box-shadow: none !important;
     width: 100%;
     padding-left: 0;
+    color: var(--main-text-color) !important;
 
-}
-
-.input-srch:focus {
-    border: 1px solid #fff !important;
 }
 
 
 
 
 .right-search .input-srch::placeholder {
-    color: #ffff;
+    color: var(--main-text-color);
     font-size: 14px;
 }
 
 .input-srch.focused::placeholder {
-    color: #a7a7a7;
+    color: var(--main-text-color);
 }
 
 
 .right-icon {
-    color: white;
+    color: var(--main-text-color);
     display: flex;
     gap: 1px;
     width: 35px;
@@ -254,7 +277,7 @@
 
 .right-icon:hover {
     border-radius: 5px;
-    background-color: #975173;
+    background-color: var(--main-hover-color);
 }
 
 #pf {
@@ -263,7 +286,7 @@
 }
 
 #pf:hover {
-    background-color: #975173;
+    background-color: var(--main-hover-color);
 }
 
 #pf button {
@@ -278,7 +301,8 @@
 .main {
     display: flex;
     height: 100%;
-    background-color: #7d2650;
+    background-color: var(--main-background);
+    ;
 }
 
 .sidebar {
@@ -471,6 +495,7 @@
     height: 22px;
 
 }
+
 .sidebar-main-buttons:hover {
     background-color: #ac5b82;
 }
@@ -1224,7 +1249,7 @@ body {
 .work-area-span {
     font-size: 12px;
     font-weight: 600;
-    color: #172b4d;
+    color: var(--main-text-color, #172b4d);
 }
 
 .work-area-span-logo {
@@ -1275,7 +1300,7 @@ body {
 .work-area-alt-span {
     font-size: 14px;
     font-weight: 500;
-    color: #172b4d;
+    color: var(--main-text-color, #172b4d);
     text-overflow: ellipsis;
     display: flex;
     align-items: center;
@@ -1326,7 +1351,7 @@ body {
 .text-gecmis-span {
     font-size: 13px;
     font-weight: 500;
-    color: #1b2e50;
+    color: var(--main-text-color);
 }
 
 .text-gecmis-workarea {
@@ -1420,7 +1445,7 @@ body {
     border-radius: 3px;
     font-size: 13px;
     font-weight: bolder;
-    color: #465164;
+    color:var(--main-transparent-color);
 }
 
 .sablon-best-button:hover {
@@ -1434,13 +1459,13 @@ body {
 }
 
 .sablon-trello-info-add:hover {
-    background-color: #f3f3f3;
+    background-color: var(--main-hover-color);
 }
 
 .pano-add-text {
     font-size: 11px;
     font-weight: 500;
-    color: #4e5d77;
+    color: var(--main-transparent-color);
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -1455,7 +1480,7 @@ body {
 }
 
 .trello-info-logo-add {
-    color: #465164;
+    color: var(--main-transparent-color);
 }
 
 
@@ -1765,6 +1790,8 @@ body {
     border-radius: 5px;
     padding-left: 15px;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
 }
 
 .nav-item-sidebar ul:hover {
@@ -2406,7 +2433,7 @@ body {
 
 .pano-add-form {
     width: 300px;
-    background-color: #3b1b2b;
+    background-color: var(--main-background);
 }
 
 .trl-img {
@@ -2434,7 +2461,7 @@ body {
     justify-content: flex-end;
     font-size: 14px;
     font-weight: 600;
-    color: white;
+    color: var(--main-text-color);
     padding-right: 15px;
 }
 
@@ -2453,13 +2480,13 @@ body {
     width: 30px;
     height: 30px;
     font-size: 18px;
-    color: white;
+    color: var(--main-text-color);
     font-weight: 700;
     cursor: pointer;
 }
 
 .exit-visibility-pano span:hover {
-    background-color: #7d2650;
+    background-color: var(--main-hover-color);
 }
 
 .özel-button {
@@ -2548,7 +2575,7 @@ body {
 .arkpln-text {
     font-size: 12px;
     font-weight: 500;
-    color: #9fadbc;
+    color: var(--main-text-color);
     padding-left: 10px;
 }
 
@@ -2570,12 +2597,13 @@ body {
 }
 
 .pano_add_input {
-    color: #9fadbc;
+    color: var(--main-text-color);
     display: flex;
     flex-direction: column;
     font-size: 12px;
     padding: 10px;
     font-weight: 500;
+    background-color: var(--main-backgorund);
 }
 
 .nameSpan {
@@ -2586,7 +2614,7 @@ body {
 .panoBasligi_inpt {
     border-radius: 4px;
     height: 36px;
-    background-color: #341625;
+    background-color: var(--main-backgorund) !important;
     font-size: 13px;
     vertical-align: middle;
     display: flex;
@@ -2595,10 +2623,11 @@ body {
     padding-left: 10px;
 }
 
+
 .pano-add-button {
     width: 100%;
     height: 36px;
-    color: #341625;
+    color: var(--main-text-color);
     background-color: #579dff;
     border-radius: 4px;
     font-size: 14px;
@@ -2614,11 +2643,11 @@ body {
 }
 
 .none-button {
-    background-color: #341625;
+    background-color: #2d343a;
     cursor: not-allowed !important;
     width: 100%;
     height: 36px;
-    color: #503844;
+    color: var(--main-transparent-color);
     border-radius: 4px;
     font-size: 14px;
     font-weight: 500;
@@ -3041,7 +3070,7 @@ body {
 .starText {
     width: 280px;
     font-size: 13px;
-    color: #44546f;
+    color: var(--main-text-color);
     display: flex;
 }
 
@@ -3961,6 +3990,26 @@ body {
     gap: 5px;
 
 }
-.borderImg{
-border:2px solid #3676e4;
+
+.borderImg {
+    border: 2px solid #3676e4;
+}
+
+.themeClass {
+    width: 224px;
+    height: 68px;
+    font-weight: 500;
+}
+
+.themeClass:hover {
+    background-color: #dcdfe4;
+    cursor: pointer;
+}
+
+.theme-check input[type="checkbox"] {
+    border-radius: 100%;
+}
+
+.theme-img img {
+    border-radius: 8px;
 }

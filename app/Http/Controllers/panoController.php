@@ -252,7 +252,13 @@ class panoController extends Controller
         try {
             $color  = $request->input('selectedColor');
             $cardId = $request->input('card_id');
-
+                   $backgrounds = backgrounds::where('card_id', $cardId)
+    ->whereNotNull('img')
+    ->first();
+        if ($backgrounds) {
+            $backgrounds->durum = 0;
+            $backgrounds->save();
+        }
             if (! $color || ! $cardId) {
                 return response()->json(['error' => 'Eksik veri gönderildi.'], 400);
             }

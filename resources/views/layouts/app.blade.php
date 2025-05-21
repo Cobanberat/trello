@@ -14,8 +14,8 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
@@ -169,7 +169,7 @@
                         @if ($favs->count() > 0)
                             @foreach ($favs as $fav)
                                 <a href="/board/{{ $fav->favori->id }}" class="board-link gecmis-container"
-                                    data-id="{{ $fav->favori->id }}" data-name="{{$fav->favori->id}}">
+                                    data-id="{{ $fav->favori->id }}" data-name="{{ $fav->favori->id }}">
                                     <div class="img-background"></div>
                                     <div class="gecmis-text">
                                         <span class="text-gecmis-span">{{ $fav->favori->name }}</span>
@@ -235,44 +235,45 @@
 
                     </div>
                     <ul class="dropdown-menu dropdown-gecmis">
-                        @if($lastBoard)
-                        <a href="/boards/{{ $lastBoard->id }}" class="gecmis-container">
-                            <div class="img-background"></div>
-                            <div class="gecmis-text">
-                                <span class="text-gecmis-span">{{ $lastBoard->name }}</span>
-                                <span class="text-gecmis-workarea">Trello Çalışma Alanı</span>
-                            </div>
-                            <div class="gecmis-fav-logo">
-                                <div class="workingas">
-                                    <div class="src" style="margin-right:2px">
-                                        <i class="bi bi-three-dots"></i>
-                                    </div>
-                                    <label class="star" style="cursor:pointer;">
-                                        <input type="checkbox" class="star-toggle"
-                                            data-pano-id="{{ $lastBoard->id }}"
-                                            @if (isset($lastBoard->favori->pano_id)) checked @endif style="display: none;">
-                                        <div class="ort-srcs-star">
-                                            <svg class="star-fill" width="17" height="17" viewBox="0 0 24 24"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M11.9999 18.6266L7.49495 20.995C6.739 21.3924 5.80401 21.1018 5.40658 20.3459C5.24833 20.0448 5.19372 19.7 5.25121 19.3649L6.11158 14.3485L2.46699 10.7959C1.85542 10.1998 1.84291 9.22074 2.43904 8.60917C2.67643 8.36564 2.98747 8.20715 3.32403 8.15825L8.36072 7.42637L10.6132 2.86236C10.9912 2.0965 11.9184 1.78206 12.6843 2.16003C12.9892 2.31054 13.2361 2.55739 13.3866 2.86236L15.6391 7.42637L20.6758 8.15825C21.5209 8.28106 22.1065 9.06576 21.9837 9.91094C21.9348 10.2475 21.7763 10.5585 21.5328 10.7959L17.8882 14.3485L18.7486 19.3649C18.893 20.2066 18.3276 21.006 17.4859 21.1504C17.1507 21.2079 16.8059 21.1533 16.5049 20.995L11.9999 18.6266Z"
-                                                    fill="currentColor" />
-                                            </svg>
-
-                                            <svg class="star-empty" width="17" height="17"
-                                                fill="currentColor" viewBox="0 0 24 24"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M7.49495 20.995L11.9999 18.6266L16.5049 20.995C16.8059 21.1533 17.1507 21.2079 17.4859 21.1504C18.3276 21.006 18.893 20.2066 18.7486 19.3649L17.8882 14.3485L21.5328 10.7959C21.7763 10.5585 21.9348 10.2475 21.9837 9.91094C22.1065 9.06576 21.5209 8.28106 20.6758 8.15825L15.6391 7.42637L13.3866 2.86236C13.2361 2.55739 12.9892 2.31054 12.6843 2.16003C11.9184 1.78206 10.9912 2.0965 10.6132 2.86236L8.36072 7.42637L3.32403 8.15825C2.98747 8.20715 2.67643 8.36564 2.43904 8.60917C1.84291 9.22074 1.85542 10.1998 2.46699 10.7959L6.11158 14.3485L5.25121 19.3649C5.19372 19.7 5.24833 20.0448 5.40658 20.3459C5.80401 21.1018 6.739 21.3924 7.49495 20.995ZM19.3457 10.0485L15.6728 13.6287L16.5398 18.684L11.9999 16.2972L7.45995 18.684L8.327 13.6287L4.65411 10.0485L9.72993 9.31093L11.9999 4.71146L14.2699 9.31093L19.3457 10.0485Z"
-                                                    fill="currentColor" />
-                                            </svg>
-                                        </div>
-                                    </label>
+                        @if ($lastBoard)
+                            <a href="/boards/{{ $lastBoard->id }}" class="gecmis-container">
+                                <div class="img-background"></div>
+                                <div class="gecmis-text">
+                                    <span class="text-gecmis-span">{{ $lastBoard->name }}</span>
+                                    <span class="text-gecmis-workarea">Trello Çalışma Alanı</span>
                                 </div>
-                            </div>
-                        </a>
+                                <div class="gecmis-fav-logo">
+                                    <div class="workingas">
+                                        <div class="src" style="margin-right:2px">
+                                            <i class="bi bi-three-dots"></i>
+                                        </div>
+                                        <label class="star" style="cursor:pointer;">
+                                            <input type="checkbox" class="star-toggle"
+                                                data-pano-id="{{ $lastBoard->id }}"
+                                                @if (isset($lastBoard->favori->pano_id)) checked @endif
+                                                style="display: none;">
+                                            <div class="ort-srcs-star">
+                                                <svg class="star-fill" width="17" height="17"
+                                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.9999 18.6266L7.49495 20.995C6.739 21.3924 5.80401 21.1018 5.40658 20.3459C5.24833 20.0448 5.19372 19.7 5.25121 19.3649L6.11158 14.3485L2.46699 10.7959C1.85542 10.1998 1.84291 9.22074 2.43904 8.60917C2.67643 8.36564 2.98747 8.20715 3.32403 8.15825L8.36072 7.42637L10.6132 2.86236C10.9912 2.0965 11.9184 1.78206 12.6843 2.16003C12.9892 2.31054 13.2361 2.55739 13.3866 2.86236L15.6391 7.42637L20.6758 8.15825C21.5209 8.28106 22.1065 9.06576 21.9837 9.91094C21.9348 10.2475 21.7763 10.5585 21.5328 10.7959L17.8882 14.3485L18.7486 19.3649C18.893 20.2066 18.3276 21.006 17.4859 21.1504C17.1507 21.2079 16.8059 21.1533 16.5049 20.995L11.9999 18.6266Z"
+                                                        fill="currentColor" />
+                                                </svg>
+
+                                                <svg class="star-empty" width="17" height="17"
+                                                    fill="currentColor" viewBox="0 0 24 24"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M7.49495 20.995L11.9999 18.6266L16.5049 20.995C16.8059 21.1533 17.1507 21.2079 17.4859 21.1504C18.3276 21.006 18.893 20.2066 18.7486 19.3649L17.8882 14.3485L21.5328 10.7959C21.7763 10.5585 21.9348 10.2475 21.9837 9.91094C22.1065 9.06576 21.5209 8.28106 20.6758 8.15825L15.6391 7.42637L13.3866 2.86236C13.2361 2.55739 12.9892 2.31054 12.6843 2.16003C11.9184 1.78206 10.9912 2.0965 10.6132 2.86236L8.36072 7.42637L3.32403 8.15825C2.98747 8.20715 2.67643 8.36564 2.43904 8.60917C1.84291 9.22074 1.85542 10.1998 2.46699 10.7959L6.11158 14.3485L5.25121 19.3649C5.19372 19.7 5.24833 20.0448 5.40658 20.3459C5.80401 21.1018 6.739 21.3924 7.49495 20.995ZM19.3457 10.0485L15.6728 13.6287L16.5398 18.684L11.9999 16.2972L7.45995 18.684L8.327 13.6287L4.65411 10.0485L9.72993 9.31093L11.9999 4.71146L14.2699 9.31093L19.3457 10.0485Z"
+                                                        fill="currentColor" />
+                                                </svg>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </a>
                         @else
-                         <div class="star-main">
+                            <div class="star-main">
                                 <div class="starImg">
                                     <img src="https://trello.com/assets/5ed0da05e71077f38dca.svg" alt="">
                                 </div>
@@ -450,15 +451,6 @@
                                                         <input class="panoBasligi_inpt" type="text"
                                                             name="name">
                                                         <span class="nameSpan">👋 Pano başlığı gerekli</span>
-                                                    </div>
-                                                    <div class="pano_add_input">
-                                                        <label for="">Görünürlük</label>
-                                                        <select class="panoBasligi_inpt" name="görünürlük"
-                                                            id="">
-                                                            <option value="1">Özel</option>
-                                                            <option value="2" selected>Çalışma Alanı</option>
-                                                            <option value="1">Herkese Açık</option>
-                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div style="padding: 10px" class="d-flex flex-column gap-1">
@@ -664,8 +656,41 @@
                                             <div class="trello-nav-item">
                                                 <span># Ayarlar</span>
                                             </div>
-                                            <div class="trello-nav-item">
-                                                <span># Tema <i class="bi bi-chevron-right"></i></span>
+                                            <div class="trello-nav-item dropend">
+                                                <span data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"> Tema <i
+                                                        class="bi bi-chevron-right"></i></span>
+
+                                                <ul id="theme-inputs" class="dropdown-menu">
+                                                    
+                                                    <label class="themeClass d-flex align-items-center p-2 gap-3">
+                                                        <div class="theme-check">
+                                                            <input type="radio" name="theme" value="light">
+
+                                                        </div>
+
+                                                        <div class="theme-img">
+                                                            <img src="https://trello.com/assets/a3a279edd7e5baaef4f7.svg"
+                                                                alt="">
+                                                        </div>
+
+                                                        <div class="theme-text">
+                                                            <span>Aydınlık</span>
+                                                        </div>
+                                                    </label>
+                                                    <label class="themeClass d-flex align-items-center p-2 gap-3">
+
+                                                        <div class="theme-check">
+                                                            <input type="radio" name="theme" value="dark">
+                                                        </div>
+                                                        <div class="theme-img">
+                                                            <img src="https://trello.com/assets/cb4097b01b57e5d91727.svg"
+                                                                alt="">
+                                                        </div>
+                                                        <div class="theme-text">
+                                                            <span>Koyu</span>
+                                                        </div>
+                                                    </label>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
