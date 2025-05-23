@@ -9,7 +9,7 @@
                         <span>{{ $sonuc }}</span>
                     </div>
                     <div class="profile-inf">
-                        <span class="profile-span-name">{{ $user->name }}</span>
+                        <span class="profile-span-name ">{{ $user->name }}</span>
                         <span class="profile-span-mail">{{ $user->email }}</span>
                     </div>
                 </div>

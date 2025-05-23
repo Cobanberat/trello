@@ -18,12 +18,13 @@
             </div>
             <div class="table-body p-3">
                 <div class="table-nav-bottom">
-                    <div class="d-flex w-100 align-items-center justify-content-between">
+                    <div class="d-flex w-100 align-items-center justify-content-between dv-color">
                         <span>Kart</span>
                         <span>Liste</span>
                         <span>Etiketler</span>
                         <span>Üyeler</span>
-                        <span id="table-nav-hover"  data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span id="table-nav-hover" class="dv-color" data-bs-auto-close="outside" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Bitiş Tarihi
                             <svg width="12" height="12" role="presentation" focusable="false" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -32,25 +33,26 @@
                                     fill="currentColor"></path>
                             </svg>
                         </span>
-                        <ul class="dropdown-menu dropdown-endDate" >
+                        <ul class="dropdown-menu dropdown-endDate">
                             <div class="ust-text">
                                 <div style="width:100px;"></div>
                                 <div class="text-visibility-endDate">
                                     <span>Bitiş Tarihi</span>
                                 </div>
-                                <div class="exit-visibility-endDate">
+                                <div class="exit-visibility-endDate " onclick="document.body.click();">
                                     <span> <i class="bi bi-x"></i> </span>
                                 </div>
                             </div>
                             <div class="ort-text-endDate">
-                                    <div class="endDateBlsk">
-                                       <span>Sıralama</span> 
-                                    </div>
-                                    <div class="endDateCard w-100">
-                                        <span>Artan şekilde sırala</span>
-                                        <span>Azalan şekilde sırala</span>
-                                    </div>
-                          </ul>
+                                <div class="endDateBlsk">
+                                    <span>Sıralama</span>
+                                </div>
+                                <div class="endDateCard w-100">
+                                    <span>Artan şekilde sırala</span>
+                                    <span>Azalan şekilde sırala</span>
+                                </div>
+                            </div>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -63,7 +65,8 @@
                 </div>
                 <div class="premium-txt d-flex flex-column gap-2">
                     <h2>Çalışma Alanı görünümleriyle daha da fazla perspektif elde edin</h2>
-                    <span>Premium Çalışma Alanları; filtrelemek, sıralamak ve daha fazla iş halletmek için panoları Tablo ve Takvim halinde birleştirebilir.</span>
+                    <span>Premium Çalışma Alanları; filtrelemek, sıralamak ve daha fazla iş halletmek için panoları Tablo ve
+                        Takvim halinde birleştirebilir.</span>
                 </div>
                 <div class="premium-update-btn">
                     <button># Çalışma Alanını Premium'a Yükselt</button>

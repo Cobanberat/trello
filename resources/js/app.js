@@ -1229,6 +1229,18 @@ $(document).ready(function () {
         document.documentElement.setAttribute("data-bs-theme", $(this).val());
     });
 
-    console.log(backgrounds);
-    
+    document.querySelectorAll('input[name="theme"]').forEach((radio) => {
+    radio.addEventListener('change', function () {
+        const themeValue = this.value === 'light' ? 0 : 1;
+
+        fetch('/theme/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ type: themeValue })
+        });
+    });
+});    
 });

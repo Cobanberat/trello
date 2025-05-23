@@ -7,8 +7,10 @@ use App\Models\favories;
 use App\Models\lists;
 use App\Models\pano;
 use App\Models\User;
+use App\Models\Theme;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class panoController extends Controller
 {
@@ -96,10 +98,11 @@ class panoController extends Controller
 
     public function table()
     {
+                $panoName = pano::where('user_id', Auth::id())->first();
         $pano = pano::where('user_id', Auth::id())->orderBy('id', 'asc')->get();
         return view('layouts.app', [
-            'sidebar' => view('sidebar', compact('pano')),
-            'table'   => view('table', compact('pano')),
+            'sidebar' => view('sidebar', compact('pano','panoName')),
+            'table'   => view('table', compact('pano','panoName')),
         ]);
     }
 
@@ -295,5 +298,14 @@ class panoController extends Controller
 
         return response()->json(['success' => true]);
     }
+    public function save(Request $request)
+{
+    Theme::updateOrCreate(
+        ['user_id' => Auth::id()],
+        ['type' => $request->type]
+    );
+
+    return response()->json(['success' => true]);
+}
 
 }

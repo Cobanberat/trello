@@ -88,6 +88,8 @@ Route::middleware([RedirectIfNotAuthenticated::class])->group(function () {
     Route::post('/colors/delete', [ColorController::class, 'destroy']);
     Route::post('/kapak-yukle', [ColorController::class, 'imgAdd']);
     Route::post('/kapak-update', [ColorController::class, 'imgUpdate']);
+    Route::post('/theme/save', [panoController::class, 'save'])->middleware('auth');
+
 
 
     Route::post('/save-last-board', function (Illuminate\Http\Request $request) {
